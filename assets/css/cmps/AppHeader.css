@@ -14,3 +14,9 @@ nav a.active {
     font-weight: bold;
     text-decoration: overline;
 }
+
+
+.mail-logo{
+    height:1.5rem;
+    width: 2.5rem;
+}

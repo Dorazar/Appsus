@@ -1,1 +1,23 @@
  /* mail list */
+
+
+.mail-list{
+    height: 100vh;
+    display: grid;
+   
+    
+}
+
+
+.mail-item{
+    display: grid;
+    grid-template-columns:  1fr 1fr 2fr 1fr;
+    
+  
+    
+}
+
+.mail-item > *:last-child {
+  justify-self: end;
+ 
+}

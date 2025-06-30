@@ -1,4 +1,7 @@
+
 import { mailService } from '../services/mail.service.js'
+import {MailList} from '../cmps/MailList.jsx'
+import { MailFilter } from '../cmps/MailFilter.jsx'
 
 const { useRef, useEffect, useState, Fragment } = React
 
@@ -17,13 +20,11 @@ export function MailIndex() {
 
   if (!mails || mails.length===0) return <div>Loading...</div> 
   return (
+    
     <section className="container">
-      Mail app
-      <ul>{
-      mails.map(mail => (
-      <li key={mail.id}>{mail.subject}</li>) )
-      }
-      </ul>
+      <MailFilter/>
+      <MailList mails={mails}/>
+      
     </section>
   )
 }
