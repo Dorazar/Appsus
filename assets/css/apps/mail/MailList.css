@@ -2,9 +2,10 @@
 
 
 .mail-list{
+  grid-area: mail-list;
     height: 100vh;
     display: grid;
-   
+  
     
 }
 

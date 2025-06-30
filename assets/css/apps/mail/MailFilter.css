@@ -1,0 +1,20 @@
+
+.upper-filter{
+    grid-area: upper-filter;
+  
+}
+
+
+
+
+.side-filter{
+    grid-area: side-filter;
+    width: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+   background-color: grey;
+   
+ 
+}

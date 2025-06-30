@@ -1,1 +1,12 @@
  /* mail index  */
+
+ .container{
+    
+    display: grid;
+    grid-template-areas: 
+    'upper-filter upper-filter upper-filter upper-filter upper-filter'
+    'side-filter mail-list mail-list mail-list mail-list'
+    ;
+ }
+
+ 
