@@ -1,1 +1,19 @@
  /* mail list */
+
+
+.mail-list{
+    height: 100vh;
+    display: grid;
+   
+    
+}
+
+
+.mail-item{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    justify-content: space-around;
+    
+}
+
+
