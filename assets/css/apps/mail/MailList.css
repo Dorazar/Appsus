@@ -17,3 +17,7 @@
 }
 
 
+.mail-item > *:last-child {
+  justify-self: end;
+  text-align: right;
+}
