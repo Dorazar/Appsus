@@ -11,13 +11,9 @@
 
 .mail-item{
     display: grid;
-    grid-template-columns:  1fr 1fr 2fr 1fr;
-    
-  
+    grid-template-columns: repeat(4,1fr);
+    justify-content: space-around;
     
 }
 
-.mail-item > *:last-child {
-  justify-self: end;
- 
-}
+
