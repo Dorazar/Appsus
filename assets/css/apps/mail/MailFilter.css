@@ -1,6 +1,9 @@
 
 .upper-filter{
     grid-area: upper-filter;
+    
+       margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
   
 }
 
@@ -9,7 +12,6 @@
 
 .side-filter{
     grid-area: side-filter;
-    width: 60px;
     display: flex;
     flex-direction: column;
     gap: 15px;

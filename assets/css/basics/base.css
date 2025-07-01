@@ -1,7 +1,15 @@
+
+
+
 body {
     margin: 0;
+    height: 100%;
 }
 
+
+* {
+    box-sizing: border-box;
+}
 h1,
 h2,
 h3,
@@ -21,3 +29,11 @@ img {
     width: 100%;
     object-fit: cover;
 }
+.main-container {
+    padding: 0 1em;
+}
+
+html{
+    height: 100vh;
+}
+
