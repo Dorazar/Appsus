@@ -1,12 +1,17 @@
 import { NotePreview } from "./NotePreview.jsx";
 
-export function NoteList({ notes }) {
+export function NoteList({ notes,onRemoveNote}) {
 
     return (
         <ul className="note-list">
             {notes.map((note) => (
                 <li className="note-item" key={note.id} style={note.style}>
                     <NotePreview note={note} />
+                    <section>
+                        <button onClick={() => onRemoveNote(note.id)}>
+                            <i className="fa-solid fa-trash"></i>
+                        </button>
+                    </section>
                 </li>
             ))}
         </ul>
