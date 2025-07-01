@@ -1,4 +1,6 @@
 import { noteService } from '../services/note.service.js'
+import {NoteList} from '../cmps/NoteList.jsx'
+import { NoteFilter } from '../cmps/NoteFilter.jsx'
 
 const { useRef, useEffect, useState, Fragment } = React
 
@@ -17,8 +19,10 @@ const [notes, setNotes] = useState(null)
 
     if (!notes || notes.length===0) return <div>Loading...</div> 
     
-    return <section className="container">Notes app
+    return(
+        <section className="container">
+        <NoteList notes={notes}/>
+        </section>
+    ) 
     
-    
-    </section>
 }
