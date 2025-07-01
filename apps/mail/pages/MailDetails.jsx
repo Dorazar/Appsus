@@ -1,4 +1,4 @@
-const { useParams } = ReactRouterDOM
+const { useParams,useNavigate } = ReactRouterDOM
 
 const { useState, useEffect, Fragment } = React
 
@@ -9,6 +9,7 @@ import { mailService } from '../services/mail.service.js'
 export function MailDetails() {
   const params = useParams()
 
+  const navigate=useNavigate()
   const [mail, setMail] = useState()
 
   useEffect(() => {
@@ -28,7 +29,7 @@ export function MailDetails() {
         <label htmlFor="filter"></label>
         <input type="text" name="filter" placeholder="Search mails" />
         <button>Search</button>
-
+        <button onClick={()=>navigate('/mail')}>Back</button>
        
       </section>
 
