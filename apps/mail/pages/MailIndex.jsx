@@ -14,6 +14,12 @@ export function MailIndex() {
     loadMails()
   }, [])
 
+
+  function onDeleteMail() {
+    
+  }
+
+
   function loadMails() {
     mailService.query().then((mails) => setMails(mails))
   }

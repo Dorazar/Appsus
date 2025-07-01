@@ -1,11 +1,8 @@
+import { MailFolderList } from "./MailFolderList.jsx"
 
 const { useRef, useEffect, useState, Fragment } = React
 
 export function MailFilter() {
-  
-    
-
-
     return (
     
     <Fragment>
@@ -24,6 +21,7 @@ export function MailFilter() {
             <option value="Read">Read</option>
             <option value="Read">Unread</option>
         </select>
+        
         <button>Sort by date</button>
         <button>Sort by form</button>
         <button>Sort by subject</button>
@@ -31,11 +29,7 @@ export function MailFilter() {
     </section>
     
 
- <section className="side-filter">
-        <button>a</button>
-        <button>b</button>
-        <button>c</button>
-       </section>
+        <MailFolderList/>
        </Fragment>
 )
 } 

@@ -1,0 +1,22 @@
+.details-container{
+    display: grid;
+    grid-template-columns:  50px 1fr;
+    grid-template-areas: 
+    'upper-filter upper-filter'
+    'side-filter mail-details' 
+    
+    ;
+padding: 0 1em;
+}
+
+
+
+
+.mail-details .subject{
+    font-size: 2rem;
+}
+
+.mail-details .from{
+   font-weight: bold;
+    
+}
