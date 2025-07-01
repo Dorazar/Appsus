@@ -1,1 +1,12 @@
  /* note index */
+.layout-container {
+  display: grid;
+  grid-template-columns: 95% 5%;
+  height: 100vh; 
+}
+
+.nav-area {
+  background-color: #ddd; /* placeholder color */
+  padding: 20px;
+  overflow-y: auto;
+}

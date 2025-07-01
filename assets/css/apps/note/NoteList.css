@@ -1,1 +1,20 @@
  /* note list */
+
+ .note-list {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px; 
+  overflow-y: auto; 
+}
+
+.note-item {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100px;
+  /* Optional: add cursor pointer or hover effects here */
+}

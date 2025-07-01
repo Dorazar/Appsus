@@ -68,7 +68,7 @@ function _createNotes() {
         type: 'NoteTxt',
         isPinned: true,
         style: {
-          backgroundColor: '#00d'
+          backgroundColor: '#a4a4e5'
         },
         info: {
           txt: 'Fullstack Me Baby!'
@@ -81,10 +81,11 @@ function _createNotes() {
         isPinned: false,
         info: {
           url: 'http://some-img/me',
-          title: 'Bobi and Me'
+          title: 'Bobi and Me',
+          txt: 'I love Bobi'
         },
         style: {
-          backgroundColor: '#00d'
+          backgroundColor: '#a4a4e5'
         }
       },
       {
