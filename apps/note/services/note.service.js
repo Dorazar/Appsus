@@ -50,8 +50,8 @@ function save(note) {
   }
 }
 
-function getEmptyNote(subject = '') {
-  return { subject }
+function getEmptyNote(note={info: {}}) {
+  return { note }
 }
 
 function getDefaultFilter() {

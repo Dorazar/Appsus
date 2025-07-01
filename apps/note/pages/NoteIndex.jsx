@@ -1,10 +1,11 @@
 import { noteService } from '../services/note.service.js'
 import { NoteList } from '../cmps/NoteList.jsx'
-import { NoteFilter } from '../cmps/NoteFilter.jsx'
+// import { NoteFilter } from '../cmps/NoteFilter.jsx'
 
-const { useRef, useEffect, useState, Fragment } = React
 
-const { useParams, useNavigate, Link, Outlet, useSearchParams } = ReactRouterDOM
+const { useEffect, useState } = React
+
+const { Link } = ReactRouterDOM
 
 export function NoteIndex() {
     const [notes, setNotes] = useState(null)

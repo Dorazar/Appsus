@@ -1,57 +1,52 @@
-import { NotePreview } from "./NotePreview.jsx";
+import { NotePreview } from "./NotePreview.jsx"
+import { NoteModal } from "../cmps/NoteModal.jsx"
 
-export function NoteList({ notes,onRemoveNote}) {
+const { useState } = React
+const { useNavigate } = ReactRouterDOM
+
+export function NoteList({ notes, onRemoveNote }) {
+
+    const [isModalOpen, setIsModalOpen] = useState(false)
+    const [selectedNote, setSelectedNote] = useState(null)
+    const navigate = useNavigate()
+
+    function openModal(note) {
+        // console.log(note);
+        setSelectedNote(note)
+        setIsModalOpen(true)
+    }
+
+    function closeModal() {
+        setSelectedNote(null)
+        setIsModalOpen(false)
+    }
 
     return (
-        <ul className="note-list">
-            {notes.map((note) => (
-                <li className="note-item" key={note.id} style={note.style}>
-                    <NotePreview note={note} />
-                    <section>
-                        <button onClick={() => onRemoveNote(note.id)}>
-                            <i className="fa-solid fa-trash"></i>
-                        </button>
-                    </section>
-                </li>
-            ))}
-        </ul>
+        <div>
+            <ul className="note-list">
+                {notes.map((note) => (
+                    <li className="note-item"
+                        key={note.id}
+                        style={note.style}
+                        onClick={() => openModal(note)
+                            //  navigate(`/note/edit/${note.id}`)
+                        }
+                    >
+                        <NotePreview note={note} />
+                        <section>
+                            <button onClick={() => onRemoveNote(note.id)}>
+                                <i className="fa-solid fa-trash"></i>
+                            </button>
+                        </section>
+                    </li>
+                ))}
+            </ul>
+            <NoteModal onClose={closeModal} isOpen={isModalOpen}>
+                {selectedNote && 
+                <NotePreview note={selectedNote} />}
+            </NoteModal>
+        </div>
     )
 }
 
 
-// return (
-//     <div>
-//       {notes.map(note => (
-//         <div key={note.id} style={note.style} className="note">
-//           {/* Render based on note.type */}
-//           {Object.keys(note.info).map((key) => {
-//             const value = note.info[key];
-
-//             // Render differently based on key or type if needed
-//             if (key === 'txt') {
-//               return <p key={key}>{value}</p>;
-//             } else if (key === 'url') {
-//               return (
-//                 <img key={key} src={value} alt={note.info.title} style={{ maxWidth: '200px' }} />
-//               );
-//             } else if (key === 'title') {
-//               return <h3 key={key}>{value}</h3>;
-//             } else if (key === 'todos') {
-//               return (
-//                 <ul key={key}>
-//                   {value.map((todo, idx) => (
-//                     <li key={idx}>
-//                       {todo.txt} {todo.doneAt ? '(Done)' : '(Pending)'}
-//                     </li>
-//                   ))}
-//                 </ul>
-//               );
-//             } else {
-//               return null;
-//             }
-//           })}
-//         </div>
-//       ))}
-//     </div>
-//   );
-// }
