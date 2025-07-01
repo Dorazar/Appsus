@@ -21,7 +21,7 @@ export function MailIndex() {
   if (!mails || mails.length===0) return <div>Loading...</div> 
   return (
     
-    <section className="container">
+    <section className="main-container">
       <MailFilter/>
       <MailList mails={mails}/>
       

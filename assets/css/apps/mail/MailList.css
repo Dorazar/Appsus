@@ -3,22 +3,38 @@
 
 .mail-list{
   grid-area: mail-list;
-    height: 100vh;
-    display: grid;
-  
+  height: 100vh;
+
+  display: grid;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  height: 100%;
     
 }
 
 
 .mail-item{
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: 20px repeat(4,1fr) ;
     justify-content: space-around;
+    align-content: center;
+  padding: 0.2rem;
     
 }
 
+.mail-item>*:first-child{
+  justify-self: start;
+  
+  
+}
 
 .mail-item > *:last-child {
   justify-self: end;
   text-align: right;
 }
+
+.read{
+  font-weight: bold;
+}
+

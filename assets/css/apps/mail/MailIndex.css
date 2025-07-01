@@ -1,8 +1,10 @@
  /* mail index  */
 
- .container{
+ .main-container{
     
     display: grid;
+    grid-template-columns:  50px 1fr;
+    grid-template-rows: 60px 1fr;
     grid-template-areas: 
     'upper-filter upper-filter upper-filter upper-filter upper-filter'
     'side-filter mail-list mail-list mail-list mail-list'
