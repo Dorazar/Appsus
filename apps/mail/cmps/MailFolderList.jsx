@@ -4,9 +4,13 @@ export function MailFolderList({onSetFilterBy,defaultFilter}) {
     
     const [folderFilter,setFolderFilter]=useState(defaultFilter)
     
-    useEffect(()=>{
-        onSetFilterBy(folderFilter)
-    },[folderFilter])
+   useEffect(() => {
+  if (typeof onSetFilterBy === 'function') {
+    onSetFilterBy(folderFilter)
+  } else {
+    console.warn('onSetFilterBy is not a function!', onSetFilterBy)
+  }
+}, [folderFilter])
 
     function onSelectFolderFilter(folderType) {
         setFolderFilter((prevFilter => ({...prevFilter,folder:folderType})))

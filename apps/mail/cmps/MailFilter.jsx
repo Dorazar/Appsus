@@ -18,7 +18,7 @@ export function MailFilter({ onSetFilterBy, defaultFilter }) {
         value = +value
         break
         case "checkbox":
-            value = value.checked
+            value = target.checked
         break
     }
     setEditFilterBy((prevFilter) => ({ ...prevFilter, [field]: value }))
