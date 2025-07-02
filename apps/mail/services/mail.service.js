@@ -21,13 +21,13 @@ window.mailService = mailService
 function query(filterBy = {}) {
   return storageService.query(MAIL_KEY).then((mails) => {
     if (filterBy.sort === 'createdAt') {
-      filterBy.isDesc === 1 ? (filterBy.isDesc = -1) : (filterBy.isDesc = 1)
+     
       mails = mails.sort((a, b) => (b.createdAt - a.createdAt) * filterBy.isDesc)
     } else if (filterBy.sort === 'from') {
-filterBy.isDesc === 1 ? (filterBy.isDesc = -1) : (filterBy.isDesc = 1)
+
       mails.sort((a, b) => a.from.localeCompare(b.from) * filterBy.isDesc)
     } else if (filterBy.sort === 'subject') {
-   filterBy.isDesc === 1 ? (filterBy.isDesc = -1) : (filterBy.isDesc = 1)
+   
       mails.sort((a, b) => a.subject.localeCompare(b.subject) * filterBy.isDesc)
     }
 

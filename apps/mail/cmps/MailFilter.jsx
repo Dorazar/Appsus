@@ -28,6 +28,7 @@ export function MailFilter({ onSetFilterBy, defaultFilter }) {
     setEditFilterBy((prevFilter) => ({ ...prevFilter,sort:sortBy}))
   }
 
+  console.log('MailFilter:',editFilterBy)
   return (
     <Fragment>
       <section className="upper-filter">
@@ -47,8 +48,6 @@ export function MailFilter({ onSetFilterBy, defaultFilter }) {
          <button name='sort' onClick={()=>onSort('subject')} >Sort by subject</button>
         </section>
       </section>
-
-      <MailFolderList onSetFilterBy={onSetFilterBy} defaultFilter={editFilterBy}/>
     </Fragment>
   )
 }
