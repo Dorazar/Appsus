@@ -2,7 +2,7 @@ import { MailFolderList } from './MailFolderList.jsx'
 
 const { useRef, useEffect, useState, Fragment } = React
 
-export function MailFilter({ onSetFilterBy, defaultFilter, onSetSortBy }) {
+export function MailFilter({ onSetFilterBy, defaultFilter }) {
   const [editFilterBy, setEditFilterBy] = useState(defaultFilter)
   const { txt } = editFilterBy
 
@@ -12,8 +12,9 @@ export function MailFilter({ onSetFilterBy, defaultFilter, onSetSortBy }) {
 
   function handleChange({ target }) {
     const field = target.name
-    const value = target.value
+    let value = target.value
 
+ 
     switch (target.type) {
       case 'number':
         
@@ -24,12 +25,17 @@ export function MailFilter({ onSetFilterBy, defaultFilter, onSetSortBy }) {
         break
 
     }
- 
 
     setEditFilterBy((prevFilter) => ({ ...prevFilter, [field]: value }))
   }
 
+  
 
+
+  function onSort(sortBy) {
+   
+    setEditFilterBy((prevFilter) => ({ ...prevFilter,sort:sortBy }))
+  }
 
   return (
     <Fragment>
@@ -44,12 +50,10 @@ export function MailFilter({ onSetFilterBy, defaultFilter, onSetSortBy }) {
             <option value="1">Read</option>
             <option value="0">Unread</option>
           </select>
-       
-
-      
-          <button>Sort by date</button>
-          <button>Sort by from</button>
-          <button>Sort by subject</button>
+             
+          <button name='sort' onClick={()=>onSort('createdAt')} >Sort by date</button>
+          <button name='sort' onClick={()=>onSort('from')} >Sort by from</button>
+         <button name='sort' onClick={()=>onSort('subject')} >Sort by subject</button>
         </section>
       </section>
 
