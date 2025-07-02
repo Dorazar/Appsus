@@ -2,6 +2,11 @@ import { MailPreview } from './MailPreview.jsx'
 
 const { Link } = ReactRouterDOM
 
+
+
+
+
+
 export function MailList({ mails }) {
   return (
     <article>
