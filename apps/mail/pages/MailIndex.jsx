@@ -2,7 +2,7 @@ import { mailService } from '../services/mail.service.js'
 import { MailList } from '../cmps/MailList.jsx'
 import { MailFilter } from '../cmps/MailFilter.jsx'
 import { MailFolderList } from '../cmps/MailFolderList.jsx'
-import { MailSort } from '../cmps/MailSort.jsx'
+
 
 const { useRef, useEffect, useState, Fragment } = React
 
@@ -26,6 +26,7 @@ export function MailIndex() {
     mailService.query(filterBy).then((mails) => setMails(mails))
   }
   
+  console.log('FilterBy:',filterBy)
 
   if (!mails) return <div>Loading...</div>
   if (mails.length === 0)
@@ -38,7 +39,6 @@ export function MailIndex() {
   return (
     <section className="main-container">
       <MailFilter onSetFilterBy={onSetFilterBy} defaultFilter={filterBy} />
-
       <MailList mails={mails} />
        <MailFolderList onSetFilterBy={onSetFilterBy} defaultFilter={filterBy}/>
     </section>

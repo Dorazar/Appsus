@@ -28,7 +28,7 @@ export function MailFilter({ onSetFilterBy, defaultFilter }) {
     setEditFilterBy((prevFilter) => ({ ...prevFilter,sort:sortBy}))
   }
 
-  console.log('MailFilter:',editFilterBy)
+  console.log('editFilterBy',editFilterBy)
   return (
     <Fragment>
       <section className="upper-filter">

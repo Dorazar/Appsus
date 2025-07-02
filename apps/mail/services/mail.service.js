@@ -349,13 +349,13 @@ function isMailInStorage(checkMail) {
 function getFilterFromSearchParams(searchParams) {
   const txt = searchParams.get('txt') || ''
   const read = searchParams.get('read') || ''
-const sort = searchParams.get('sort') || ''
-  const folder = searchParams.get('folder') || ''
+  const sort = searchParams.get('sort') || ''
+  const folder = searchParams.get('folder') 
   return {
     txt,
     read,
     sort,
-    folder,
+    folder
   }
 }
 

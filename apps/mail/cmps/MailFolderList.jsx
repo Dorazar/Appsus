@@ -10,6 +10,8 @@ export function MailFolderList({onSetFilterBy,defaultFilter}) {
     },
     [folderFilter])
 
+  
+
     function onSelectFolderFilter(folderType) {
         setFolderFilter((prevFilter => ({...prevFilter,folder:folderType})))
     }
