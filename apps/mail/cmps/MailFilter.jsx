@@ -2,7 +2,7 @@ import { MailFolderList } from './MailFolderList.jsx'
 
 const { useRef, useEffect, useState, Fragment } = React
 
-export function MailFilter({ onSetFilterBy, defaultFilter }) {
+export function MailFilter({ onSetFilterBy, defaultFilter, onSetSortBy }) {
   const [editFilterBy, setEditFilterBy] = useState(defaultFilter)
   const { txt } = editFilterBy
 
@@ -15,15 +15,21 @@ export function MailFilter({ onSetFilterBy, defaultFilter }) {
     const value = target.value
 
     switch (target.type) {
-      case value:
-        'number'
+      case 'number':
+        
         value = +value
         break
+        case "checkbox":
+            value = value.checked
+        break
+
     }
-    console.log(field, value)
+ 
 
     setEditFilterBy((prevFilter) => ({ ...prevFilter, [field]: value }))
   }
+
+
 
   return (
     <Fragment>
@@ -33,14 +39,16 @@ export function MailFilter({ onSetFilterBy, defaultFilter }) {
         <input onChange={handleChange} value={txt} type="text" name="txt" placeholder="Search mails" />
         <section>
           <button>new mail</button>
-          <select name="" id="">
+          <select name="read" onChange={handleChange}>
             <option value="">All mails</option>
-            <option value="Read">Read</option>
-            <option value="Read">Unread</option>
+            <option value="1">Read</option>
+            <option value="0">Unread</option>
           </select>
+       
 
+      
           <button>Sort by date</button>
-          <button>Sort by form</button>
+          <button>Sort by from</button>
           <button>Sort by subject</button>
         </section>
       </section>

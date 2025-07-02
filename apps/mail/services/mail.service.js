@@ -26,7 +26,15 @@ function query(filterBy = {}) {
       const regExp = new RegExp(filterBy.txt, 'i')
       mails = mails.filter((mail) => regExp.test(mail.body) || regExp.test(mail.subject) || regExp.test(mail.from))
     }
-    // console.log(mails)
+    if (filterBy.read) {
+      if (filterBy.read==='1') {
+        mails=mails.filter((mail) => mail.isRead===true)
+      }
+      else if (filterBy.read==='0')
+        mails=mails.filter((mail) => mail.isRead===false)
+    }
+    
+  
     return mails
   })
 }
@@ -55,8 +63,10 @@ function getEmptyMail(subject='') {
 }
 
 function getDefaultFilter() {
-  return { txt: ''}
+  return { txt: '',read:''}
 }
+
+
 
 function _createMails() {
   let mails = utilService.loadFromStorage(MAIL_KEY)
