@@ -20,6 +20,17 @@ window.mailService = mailService
 
 function query(filterBy = {}) {
   return storageService.query(MAIL_KEY).then((mails) => {
+    if (filterBy.sort === 'createdAt') {
+      filterBy.isDesc === 1 ? (filterBy.isDesc = -1) : (filterBy.isDesc = 1)
+      mails = mails.sort((a, b) => (b.createdAt - a.createdAt) * filterBy.isDesc)
+    } else if (filterBy.sort === 'from') {
+filterBy.isDesc === 1 ? (filterBy.isDesc = -1) : (filterBy.isDesc = 1)
+      mails.sort((a, b) => a.from.localeCompare(b.from) * filterBy.isDesc)
+    } else if (filterBy.sort === 'subject') {
+   filterBy.isDesc === 1 ? (filterBy.isDesc = -1) : (filterBy.isDesc = 1)
+      mails.sort((a, b) => a.subject.localeCompare(b.subject) * filterBy.isDesc)
+    }
+
     if (filterBy.txt) {
       const regExp = new RegExp(filterBy.txt, 'i')
       mails = mails.filter((mail) => regExp.test(mail.body) || regExp.test(mail.subject) || regExp.test(mail.from))
@@ -30,25 +41,13 @@ function query(filterBy = {}) {
       } else if (filterBy.read === '0') mails = mails.filter((mail) => mail.isRead === false)
     }
 
-    if (filterBy.sort==='createdAt') {
-      let feild = filterBy.sort
-  
-      filterBy.isDesc === 1 ? (filterBy.isDesc = -1) : (filterBy.isDesc = 1)
-      mails = mails.sort((a, b) => (b.createdAt - a.createdAt) * filterBy.isDesc)
-    } 
-    else if (filterBy.sort==='from') {
-      let feild = filterBy.sort
-      console.log(feild)
-      filterBy.isDesc === 1 ? (filterBy.isDesc = -1) : (filterBy.isDesc = 1)
-      mails.sort((a, b) => a.from.localeCompare(b.from) * filterBy.isDesc ) 
+    if (filterBy.folder === 'trash') {
+      mails = mails.filter((mail) => mail.removedAt !== null)
     }
 
-    else if (filterBy.sort==='subject') {
-      let feild = filterBy.sort
-      console.log(feild)
-      filterBy.isDesc === 1 ? (filterBy.isDesc = -1) : (filterBy.isDesc = 1)
-      mails.sort((a, b) => a.subject.localeCompare(b.subject) * filterBy.isDesc ) 
-    }
+    
+
+    console.log(filterBy)
 
     return mails
   })
@@ -78,7 +77,7 @@ function getEmptyMail(subject = '') {
 }
 
 function getDefaultFilter() {
-  return { txt: '', read: '' }
+  return { txt: '', read: '',sort:'', folder: '' }
 }
 
 function _createMails() {
@@ -350,12 +349,13 @@ function isMailInStorage(checkMail) {
 function getFilterFromSearchParams(searchParams) {
   const txt = searchParams.get('txt') || ''
   const read = searchParams.get('read') || ''
-
-  const desc = searchParams.get('desc') || 1
+const sort = searchParams.get('sort') || ''
+  const folder = searchParams.get('folder') || ''
   return {
     txt,
     read,
-    desc,
+    sort,
+    folder,
   }
 }
 

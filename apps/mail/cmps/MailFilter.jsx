@@ -13,28 +13,19 @@ export function MailFilter({ onSetFilterBy, defaultFilter }) {
   function handleChange({ target }) {
     const field = target.name
     let value = target.value
-
- 
     switch (target.type) {
       case 'number':
-        
         value = +value
         break
         case "checkbox":
             value = value.checked
         break
-
     }
-
     setEditFilterBy((prevFilter) => ({ ...prevFilter, [field]: value }))
   }
 
-  
-
-
   function onSort(sortBy) {
-   
-    setEditFilterBy((prevFilter) => ({ ...prevFilter,sort:sortBy }))
+    setEditFilterBy((prevFilter) => ({ ...prevFilter,sort:sortBy}))
   }
 
   return (
@@ -57,7 +48,7 @@ export function MailFilter({ onSetFilterBy, defaultFilter }) {
         </section>
       </section>
 
-      <MailFolderList />
+      <MailFolderList onSetFilterBy={onSetFilterBy} defaultFilter={editFilterBy}/>
     </Fragment>
   )
 }
