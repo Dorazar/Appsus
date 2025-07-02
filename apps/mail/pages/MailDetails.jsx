@@ -37,9 +37,9 @@ export function MailDetails() {
       <section className="details-container">
         <section className="upper-filter">
           <img className="mail-logo" src="assets\css\imgs\Gmail_icon_(2020).svg" alt="" />
-          <label htmlFor="filter"></label>
+          {/* <label htmlFor="filter"></label>
           <input type="text" name="filter" placeholder="Search mails" />
-          <button>Search</button>
+          <button>Search</button> */}
           <button onClick={() => navigate('/mail')}>Back</button>
           <button onClick={() => onMoveToTrash()}>Delete</button>
         </section>

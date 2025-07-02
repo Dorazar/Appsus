@@ -24,7 +24,7 @@ function query(filterBy = {}) {
   return storageService.query(MAIL_KEY).then((mails) => {
     if (filterBy.txt) {
       const regExp = new RegExp(filterBy.txt, 'i')
-      mails = mails.filter((mail) => regExp.test(mail.title) || regExp.test(mail.description))
+      mails = mails.filter((mail) => regExp.test(mail.body) || regExp.test(mail.subject) || regExp.test(mail.from))
     }
     // console.log(mails)
     return mails
