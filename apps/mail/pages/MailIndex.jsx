@@ -8,13 +8,12 @@ const { useParams, useNavigate, Link, Outlet, useSearchParams } = ReactRouterDOM
 
 export function MailIndex() {
   const [mails, setMails] = useState(null)
-  const [filterBy, setFilterBy] = useState(mailService.getDefaultFilter())
-  
+    const [searchParams,setSearchParams] = useSearchParams()
+  const [filterBy, setFilterBy] = useState(mailService.getFilterFromSearchParams(searchParams))
+
   useEffect(() => {
-    
-
-
     loadMails()
+    setSearchParams(filterBy)
   }, [filterBy])
 
   function onSetFilterBy(filterBy) {
