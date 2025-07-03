@@ -14,7 +14,7 @@ export function MailFilter({ onSetFilterBy, defaultFilter  }) {
     const field = target.name
     let value = target.value
 
-    console.log(field, value)
+  
 
     switch (target.type) {
       case 'number':
@@ -27,7 +27,7 @@ export function MailFilter({ onSetFilterBy, defaultFilter  }) {
     setEditFilterBy((prevFilter) => ({ ...prevFilter, [field]: value }))
   }
 
-  console.log('editFilterBy', editFilterBy)
+  // console.log('editFilterBy', editFilterBy)
   return (
     <Fragment>
       <section className="upper-filter">
