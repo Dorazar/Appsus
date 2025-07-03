@@ -2,7 +2,7 @@ import { MailFolderList } from './MailFolderList.jsx'
 
 const { useRef, useEffect, useState, Fragment } = React
 
-export function MailFilter({ onSetFilterBy, defaultFilter = {} }) {
+export function MailFilter({ onSetFilterBy, defaultFilter  }) {
   const [editFilterBy, setEditFilterBy] = useState(defaultFilter)
   const { txt } = editFilterBy
 

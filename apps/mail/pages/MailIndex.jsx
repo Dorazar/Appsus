@@ -41,7 +41,7 @@ export function MailIndex() {
     )
   return (
     <section className="main-container">
-      <MailFilter onSetFilterBy={onSetFilterBy}/>
+      <MailFilter onSetFilterBy={onSetFilterBy} defaultFilter={filterBy}/>
       <MailList mails={mails} />
       
     </section>
