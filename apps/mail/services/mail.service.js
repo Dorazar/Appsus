@@ -21,14 +21,14 @@ window.mailService = mailService
 function query(filterBy = {}) {
   return storageService.query(MAIL_KEY).then((mails) => {
     if (filterBy.sort === 'createdAt') {
-     
-      mails = mails.sort((a, b) => (b.createdAt - a.createdAt) * filterBy.isDesc)
+
+      mails = mails.sort((a, b) => (b.createdAt - a.createdAt) )
     } else if (filterBy.sort === 'from') {
 
-      mails.sort((a, b) => a.from.localeCompare(b.from) * filterBy.isDesc)
+      mails.sort((a, b) => a.from.localeCompare(b.from))
     } else if (filterBy.sort === 'subject') {
    
-      mails.sort((a, b) => a.subject.localeCompare(b.subject) * filterBy.isDesc)
+      mails.sort((a, b) => a.subject.localeCompare(b.subject) )
     }
 
     if (filterBy.txt) {
@@ -47,7 +47,7 @@ function query(filterBy = {}) {
 
     
 
-    console.log(filterBy)
+    // console.log(filterBy)
 
     return mails
   })
@@ -77,7 +77,7 @@ function getEmptyMail(subject = '') {
 }
 
 function getDefaultFilter() {
-  return { txt: '', read: '',sort:'', folder: '' }
+  return { txt:'', read:'',sort:'', folder: '' }
 }
 
 function _createMails() {
@@ -350,7 +350,7 @@ function getFilterFromSearchParams(searchParams) {
   const txt = searchParams.get('txt') || ''
   const read = searchParams.get('read') || ''
   const sort = searchParams.get('sort') || ''
-  const folder = searchParams.get('folder') 
+  const folder = searchParams.get('folder') || ''
   return {
     txt,
     read,

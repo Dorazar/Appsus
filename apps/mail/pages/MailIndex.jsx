@@ -24,7 +24,7 @@ export function MailIndex() {
   function onSetFilterBy(filterBy) {
     setFilterBy((prevFilter) => ({ ...prevFilter,...filterBy }))
   }
-console.log('FilterBy:',filterBy)
+// console.log('FilterBy:',filterBy)
   function loadMails() {
     mailService.query(filterBy).then((mails) => setMails(mails))
   }
@@ -41,9 +41,9 @@ console.log('FilterBy:',filterBy)
     )
   return (
     <section className="main-container">
-      <MailFilter onSetFilterBy={onSetFilterBy} defaultFilter={filterBy} />
+      <MailFilter onSetFilterBy={onSetFilterBy}/>
       <MailList mails={mails} />
-       <MailFolderList onSetFilterBy={onSetFilterBy} defaultFilter={filterBy}/>
+      
     </section>
   )
 }
