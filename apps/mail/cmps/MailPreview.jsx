@@ -57,7 +57,7 @@ export function MailPreview({ mail,loadMails}) {
         onMouseOut={handleMouseOut}
         key={mail.id}
       >
-        <div>⭐</div>
+        <div><img className='star-icon' src='assets\css\imgs\greyStar.svg'></img></div>
         <div>{mail.from}</div>
         <div>{isLimitTxtSize(mail.subject)}</div>
         <div>{mail.body}</div>
