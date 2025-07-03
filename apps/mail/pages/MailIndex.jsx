@@ -13,6 +13,9 @@ export function MailIndex() {
     const [searchParams,setSearchParams] = useSearchParams()
   const [filterBy, setFilterBy] = useState(mailService.getFilterFromSearchParams(searchParams))
 
+
+
+
   useEffect(() => {
     loadMails()
     setSearchParams(filterBy)
@@ -21,12 +24,12 @@ export function MailIndex() {
   function onSetFilterBy(filterBy) {
     setFilterBy((prevFilter) => ({ ...prevFilter,...filterBy }))
   }
-
+console.log('FilterBy:',filterBy)
   function loadMails() {
     mailService.query(filterBy).then((mails) => setMails(mails))
   }
   
-  console.log('FilterBy:',filterBy)
+  
 
   if (!mails) return <div>Loading...</div>
   if (mails.length === 0)
