@@ -2,7 +2,7 @@ import { MailFolderList } from './MailFolderList.jsx'
 
 const { useRef, useEffect, useState, Fragment } = React
 
-export function MailFilter({ onSetFilterBy, defaultFilter ={}}) {
+export function MailFilter({ onSetFilterBy, defaultFilter = {} }) {
   const [editFilterBy, setEditFilterBy] = useState(defaultFilter)
   const { txt } = editFilterBy
 
@@ -13,21 +13,21 @@ export function MailFilter({ onSetFilterBy, defaultFilter ={}}) {
   function handleChange({ target }) {
     const field = target.name
     let value = target.value
-    
-    console.log(field,value)
-    
+
+    console.log(field, value)
+
     switch (target.type) {
       case 'number':
         value = +value
         break
-        case "checkbox":
-            value = target.checked
+      case 'checkbox':
+        value = target.checked
         break
     }
     setEditFilterBy((prevFilter) => ({ ...prevFilter, [field]: value }))
   }
 
-  console.log('editFilterBy',editFilterBy)
+  console.log('editFilterBy', editFilterBy)
   return (
     <Fragment>
       <section className="upper-filter">
@@ -41,16 +41,19 @@ export function MailFilter({ onSetFilterBy, defaultFilter ={}}) {
             <option value="1">Read</option>
             <option value="0">Unread</option>
           </select>
-             
-          
-          <button name='sort' value='createdAt' onClick={handleChange} >Sort by date</button>
-          {/* <button name='sort' onClick={()=>onSort('from')} >Sort by from</button>
-         <button name='sort' onClick={()=>onSort('subject')} >Sort by subject</button> */}
-        
+
+          <button name="sort" value="createdAt" onClick={handleChange}>
+            Sort by date
+          </button>
+          <button name="sort" value="from" onClick={handleChange}>
+            Sort by from
+          </button>
+          <button name="sort" value="subject" onClick={handleChange}>
+            Sort by subject
+          </button>
         </section>
-        
       </section>
-      <MailFolderList onSetFilterBy={onSetFilterBy}/>
+      <MailFolderList onSetFilterBy={onSetFilterBy} />
     </Fragment>
   )
 }

@@ -44,6 +44,17 @@ function query(filterBy = {}) {
     if (filterBy.folder === 'trash') {
       mails = mails.filter((mail) => mail.removedAt !== null)
     }
+    else if (filterBy.folder === 'sent') {
+      mails = mails.filter((mail) => mail.from === loggedinUser.email)
+    }
+    else if (filterBy.folder === 'inbox') {
+      mails = mails.filter((mail) => mail.to === loggedinUser.email)
+    }
+      else if (filterBy.folder === 'draft') {
+      mails = mails.filter((mail) => mail.sentAt === null)
+    }
+
+
 
     
 
