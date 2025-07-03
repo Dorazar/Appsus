@@ -47,8 +47,8 @@ function query(filterBy = {}) {
     else if (filterBy.folder === 'sent') {
       mails = mails.filter((mail) => mail.from === loggedinUser.email)
     }
-    else if (filterBy.folder === 'inbox') {
-      mails = mails.filter((mail) => mail.to === loggedinUser.email)
+    else if (filterBy.folder === 'inbox' ) {
+      mails = mails.filter((mail) => mail.to === loggedinUser.email && mail.removedAt===null)
     }
       else if (filterBy.folder === 'draft') {
       mails = mails.filter((mail) => mail.sentAt === null)
@@ -361,7 +361,7 @@ function getFilterFromSearchParams(searchParams) {
   const txt = searchParams.get('txt') || ''
   const read = searchParams.get('read') || ''
   const sort = searchParams.get('sort') || ''
-  const folder = searchParams.get('folder') || ''
+  const folder = searchParams.get('folder') || 'inbox'
   return {
     txt,
     read,
