@@ -21,13 +21,21 @@ export function MailDetails() {
     mailService.get(params.mailId).then((mail) => setMail(mail))
   }
 
-  function onMoveToTrash() {
+  function onDeleteMail() {
     if (!mail.removedAt) {
       mail.removedAt = new Date().getTime()
       mailService
         .save(mail)
         .then(() => showSuccessMsg('Mail moved to trash'))
-        .catch(() => showErrorMsg('Error'))
+        .then(navigate('/mail'))
+        .catch(() => showErrorMsg('Cannot move mail to trash'))
+    }
+
+    else if (mail.removedAt) {
+      mailService.remove(mail.id).
+      then(()=>showSuccessMsg('Mail has been deleted'))
+      .then(navigate('/mail'))
+      .catch(()=>showErrorMsg('Cannot delete mail'))
     }
   }
 
@@ -41,7 +49,7 @@ export function MailDetails() {
           <input type="text" name="filter" placeholder="Search mails" />
           <button>Search</button> */}
           <button onClick={() => navigate('/mail')}>Back</button>
-          <button onClick={() => onMoveToTrash()}>Delete</button>
+          <button onClick={() => onDeleteMail()}>Delete</button>
         </section>
 
         <section className="mail-details">
