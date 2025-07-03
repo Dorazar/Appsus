@@ -21,7 +21,8 @@ function isLimitTxtSize(subject) {
 if (!mail) return <div>Loading...</div>
     
 return (
-      <article onMouseEnter={onMouseHover} className={`mail-item ${isRead}`} key={mail.id}> 
+      <article onMouseEnter={onMouseHover}
+       className={`mail-item ${isRead}`} key={mail.id}> 
             <div>⭐</div>
              <div>{mail.from}</div>
              <div>{isLimitTxtSize(mail.subject)}</div>
