@@ -44,7 +44,7 @@ export function MailIndex() {
     <section className="main-container">
       <MailFilter onSetFilterBy={onSetFilterBy} defaultFilter={filterBy}/>
       <MailList mails={mails} loadMails={loadMails}/>
-      
+      <button className='new-mail-btn'>new mail</button>
     </section>
   )
 }

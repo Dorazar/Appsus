@@ -35,7 +35,7 @@ export function MailFilter({ onSetFilterBy, defaultFilter  }) {
         <label htmlFor="txt"></label>
         <input onChange={handleChange} value={txt} type="text" name="txt" placeholder="Search mails" />
         <section>
-          <button>new mail</button>
+       
           <select name="read" onChange={handleChange}>
             <option value="">All mails</option>
             <option value="1">Read</option>
