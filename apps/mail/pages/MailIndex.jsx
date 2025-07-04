@@ -32,10 +32,10 @@ export function MailIndex() {
   
   
 
-  const [newMailWindow,setNewMailWindow]=useState(false)
+  const [newMailWindow,setNewMailWindow]=useState(true)
 
 
-  function onNewMail() {
+  function onOpenMailWindow() {
   
     setNewMailWindow(prevNewMail =>!prevNewMail)
 
@@ -54,7 +54,7 @@ export function MailIndex() {
     <section className="main-container">
       <MailFilter onSetFilterBy={onSetFilterBy} defaultFilter={filterBy}/>
       <MailList mails={mails} loadMails={loadMails}/>
-      <Link className='new-mail-btn' to="/mail/newMail"><button onClick={onNewMail}>new mail</button></Link>
+      <Link className='new-mail-btn' to="/mail/newMail"><button onClick={onOpenMailWindow}>new mail</button></Link>
       {newMailWindow && <Outlet/>}
     </section>
   )

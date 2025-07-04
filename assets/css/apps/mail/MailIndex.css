@@ -12,6 +12,8 @@
  }
 
  
+/* compose */
+
 .new-mail-btn{
    grid-area: new-mail-btn;
    align-self: center;
