@@ -1,5 +1,6 @@
 const { useRef, useEffect, useState, Fragment } = React
 
+import { showErrorMsg, showSuccessMsg } from '../../../services/event-bus.service.js'
 import { mailService } from '../services/mail.service.js'
 
 const { useParams, useNavigate, Link, Outlet, useSearchParams,useOutletContext } = ReactRouterDOM
@@ -18,24 +19,32 @@ function handleChange({target}) {
 
 function onNewMailSend(ev) {
     ev.preventDefault()
-    
+    newMail.sentAt= new Date().getTime()
     mailService.save(newMail)
-    .then(()=>{loadMails()}).then(()=>{onOpenMailWindow()}).then(()=>navigate("/mail"))
+    .then(()=>{loadMails()}).then(()=>{onOpenMailWindow()}).then(()=>navigate("/mail")).
+    then(()=>showSuccessMsg('Mail was sent successfully')).catch(()=>showErrorMsg('Cannot send mail'))
 }
 
-
+function onDraft(ev) {
+    console.log('draft')
+    ev.preventDefault()
+     mailService.save(newMail)
+    .then(()=>{loadMails()}).then(()=>{onOpenMailWindow()}).then(()=>navigate("/mail")).
+    then(()=>showSuccessMsg('Mail was saved to draft')).catch(()=>showErrorMsg('Cannot save draft'))
+}
 
   return (
     <section className="compose">
         <h1>New Message</h1>
 
-      <form onSubmit={onNewMailSend}>
+      <form onSubmit={onNewMailSend} >
 
         <input onInput={handleChange} value={newMail.to} type="text" name="to" placeholder="To"/>
         <input  onInput={handleChange} value={newMail.subject} type="text" name="subject" placeholder="Subject" />
         <input onInput={handleChange}  value={newMail.body} type="text" name="body" placeholder="Body"/>
 
         <button>Send</button>
+        <button type='button' onClick={onDraft}>X</button>
       </form>
     </section>
   )
