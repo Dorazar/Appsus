@@ -87,9 +87,11 @@ function getEmptyMail() {
   return {
         subject: '',
         body: '',
+        createdAt:new Date().getTime(),
         isRead: false,
         removedAt: null,
         to: '',
+        sentAt:null,
         from: 'user@appsus.com',
   }
 }

@@ -9,25 +9,41 @@ export function MailCompose(params) {
 const[newMail,setNewMail] = useState(mailService.getEmptyMail())
 
 
-
-function onNewMail() {
-
+useEffect(()=>{
     console.log(newMail)
 
+},
+
+
+[newMail])
+
+
+
+
+function handleChange({target}) {
+  const feild=target.name
+  const value=target.value
+  setNewMail(prevMail => ({...prevMail,[feild]:value}))
 }
+
+function onNewMailSend(ev) {
+    ev.preventDefault()
+    mailService.save(newMail)
+}
+
 
 
   return (
     <section className="compose">
         <h1>New Message</h1>
 
-      <form action="">
+      <form onSubmit={onNewMailSend}>
 
-        <input type="text" name="to" placeholder="To"/>
-        <input type="text" name="subject" placeholder="Subject" />
-        <input type="text" name="body" placeholder="Body"/>
+        <input onInput={handleChange} type="text" name="to" placeholder="To"/>
+        <input  onInput={handleChange} type="text" name="subject" placeholder="Subject" />
+        <input onInput={handleChange}  type="text" name="body" placeholder="Body"/>
 
-        <button onClick={(ev)=>onNewMail(ev.preventDefault())}>Send</button>
+        <button>Send</button>
       </form>
     </section>
   )
