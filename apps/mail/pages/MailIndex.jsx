@@ -47,6 +47,8 @@ export function MailIndex() {
     return (
       <section className="main-container">
         <MailFilter onSetFilterBy={onSetFilterBy} defaultFilter={filterBy} />
+         <Link className='new-mail-btn' to="/mail/newMail"><button onClick={onOpenMailWindow}>new mail</button></Link>
+      {newMailWindow && <Outlet context={{loadMails,onOpenMailWindow}} />}
         <p>No mails found</p>
       </section>
     )

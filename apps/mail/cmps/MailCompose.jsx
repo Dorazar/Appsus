@@ -14,6 +14,7 @@ const navigate = useNavigate()
 function handleChange({target}) {
   const feild=target.name
   const value=target.value
+  console.log(feild,value)
   setNewMail(prevMail => ({...prevMail,[feild]:value}))
 }
 
@@ -26,6 +27,17 @@ function onNewMailSend(ev) {
 }
 
 function onDraft(ev) {
+  if (newMail.to.length===0 &
+     newMail.subject.length===0 & 
+     newMail.body.length===0) 
+     
+     {
+      onOpenMailWindow()
+      navigate("/mail")
+      return
+     }
+     
+
     console.log('draft')
     ev.preventDefault()
      mailService.save(newMail)
