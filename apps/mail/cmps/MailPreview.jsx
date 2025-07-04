@@ -1,7 +1,8 @@
+
 import { showErrorMsg, showSuccessMsg } from '../../../services/event-bus.service.js'
 import { mailService } from '../services/mail.service.js'
 
-const { useState, useEffect, Fragment } = React
+const { useState, useEffect, Fragment,useRef } = React
 export function MailPreview({ mail, loadMails }) {
   const [isHover, setIsHover] = useState(false)
 
@@ -42,9 +43,38 @@ export function MailPreview({ mail, loadMails }) {
     }
   }
 
-  function onStarClick() {
-    console.log('star')
+
+  const star = useRef()
+  
+  function onStarClick(isStared) {
+    
+
+    if (isStared) {
+      mail.isStared = false
+      mailService.save(mail)
+      star.current.src='assets/css/imgs/greyStar.svg'
+      return
+    }
+    else if (!isStared) {
+      mail.isStared = true
+      mailService.save(mail)
+      star.current.src='assets/css/imgs/yellowStar.svg'
+    }
+
+    
   }
+
+  function isStaredMail(isStared) {
+    if (isStared) {
+      return 'assets/css/imgs/yellowStar.svg'
+    }
+    else {
+      return 'assets/css/imgs/greyStar.svg'
+    }
+    
+  }
+
+
 
   if (!mail) return <div>Loading...</div>
 
@@ -56,14 +86,13 @@ export function MailPreview({ mail, loadMails }) {
         onMouseOut={handleMouseOut}
         key={mail.id}
       >
-        <div
+        
+          <img ref={star} 
           onClick={(ev) => {
             ev.preventDefault()
-            onStarClick()
-          }}
-        >
-          <img className="star-icon" src="assets\css\imgs\greyStar.svg"></img>
-        </div>
+            onStarClick(mail.isStared)
+          }} className="star-icon" src={isStaredMail(mail.isStared)}></img>
+       
         <div>{mail.from}</div>
         <div>{isLimitTxtSize(mail.subject)}</div>
         <div>{mail.body}</div>
