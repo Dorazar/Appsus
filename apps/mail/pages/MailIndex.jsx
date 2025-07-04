@@ -55,7 +55,7 @@ export function MailIndex() {
       <MailFilter onSetFilterBy={onSetFilterBy} defaultFilter={filterBy}/>
       <MailList mails={mails} loadMails={loadMails}/>
       <Link className='new-mail-btn' to="/mail/newMail"><button onClick={onOpenMailWindow}>new mail</button></Link>
-      {newMailWindow && <Outlet context={{loadMails}} />}
+      {newMailWindow && <Outlet context={{loadMails,onOpenMailWindow}} />}
     </section>
   )
 }

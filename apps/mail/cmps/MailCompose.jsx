@@ -7,7 +7,7 @@ const { useParams, useNavigate, Link, Outlet, useSearchParams,useOutletContext }
 export function MailCompose() {
 
 const[newMail,setNewMail] = useState(mailService.getEmptyMail())
-const {loadMails} = useOutletContext()
+const {loadMails,onOpenMailWindow} = useOutletContext()
 const navigate = useNavigate()
 
 function handleChange({target}) {
@@ -20,7 +20,7 @@ function onNewMailSend(ev) {
     ev.preventDefault()
     
     mailService.save(newMail)
-    .then(()=>{loadMails()})
+    .then(()=>{loadMails()}).then(()=>{onOpenMailWindow()}).then(()=>navigate("/mail"))
 }
 
 
