@@ -2,23 +2,13 @@ const { useRef, useEffect, useState, Fragment } = React
 
 import { mailService } from '../services/mail.service.js'
 
-const { useParams, useNavigate, Link, Outlet, useSearchParams } = ReactRouterDOM
+const { useParams, useNavigate, Link, Outlet, useSearchParams,useOutletContext } = ReactRouterDOM
 
-export function MailCompose(params) {
+export function MailCompose() {
 
 const[newMail,setNewMail] = useState(mailService.getEmptyMail())
-
-
-useEffect(()=>{
-    console.log(newMail)
-
-},
-
-
-[newMail])
-
-
-
+const {loadMails} = useOutletContext()
+const navigate = useNavigate()
 
 function handleChange({target}) {
   const feild=target.name
@@ -28,7 +18,9 @@ function handleChange({target}) {
 
 function onNewMailSend(ev) {
     ev.preventDefault()
+    
     mailService.save(newMail)
+    .then(()=>{loadMails()})
 }
 
 
@@ -39,9 +31,9 @@ function onNewMailSend(ev) {
 
       <form onSubmit={onNewMailSend}>
 
-        <input onInput={handleChange} type="text" name="to" placeholder="To"/>
-        <input  onInput={handleChange} type="text" name="subject" placeholder="Subject" />
-        <input onInput={handleChange}  type="text" name="body" placeholder="Body"/>
+        <input onInput={handleChange} value={newMail.to} type="text" name="to" placeholder="To"/>
+        <input  onInput={handleChange} value={newMail.subject} type="text" name="subject" placeholder="Subject" />
+        <input onInput={handleChange}  value={newMail.body} type="text" name="body" placeholder="Body"/>
 
         <button>Send</button>
       </form>

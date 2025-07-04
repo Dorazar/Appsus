@@ -88,7 +88,7 @@ function getEmptyMail() {
         subject: '',
         body: '',
         createdAt:new Date().getTime(),
-        isRead: false,
+        isRead: true,
         removedAt: null,
         to: '',
         sentAt:null,
