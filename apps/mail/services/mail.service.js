@@ -83,8 +83,15 @@ function save(mail) {
   }
 }
 
-function getEmptyMail(subject = '') {
-  return { subject }
+function getEmptyMail() {
+  return {
+        subject: '',
+        body: '',
+        isRead: false,
+        removedAt: null,
+        to: '',
+        from: 'user@appsus.com',
+  }
 }
 
 function getDefaultFilter() {
@@ -101,9 +108,9 @@ function _createMails() {
         subject: 'Miss you!',
         body: 'Would love to catch up sometimes',
         isRead: false,
-        sentAt: 1551133930594,
+        sentAt: 1551220330500,
         removedAt: null,
-        from: 'momo@momo.com',
+        from: 'team@work.com',
         to: 'user@appsus.com',
       },
       {
