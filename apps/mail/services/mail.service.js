@@ -93,6 +93,7 @@ function getEmptyMail() {
         to: '',
         sentAt:null,
         from: 'user@appsus.com',
+        isStared:false,
   }
 }
 
@@ -114,6 +115,7 @@ function _createMails() {
         removedAt: null,
         from: 'team@work.com',
         to: 'user@appsus.com',
+        isStared:true,
       },
       {
         id: 'e102',
@@ -125,6 +127,7 @@ function _createMails() {
         removedAt: null,
         from: 'team@work.com',
         to: 'user@appsus.com',
+        isStared:true,
       },
       {
         id: 'e103',
@@ -136,6 +139,7 @@ function _createMails() {
         removedAt: null,
         from: 'alex@friends.com',
         to: 'user@appsus.com',
+        isStared:true,
       },
       {
         id: 'e104',
@@ -147,6 +151,7 @@ function _createMails() {
         removedAt: null,
         from: 'billing@company.com',
         to: 'user@appsus.com',
+        isStared:true,
       },
       {
         id: 'e105',
@@ -158,6 +163,7 @@ function _createMails() {
         removedAt: null,
         from: 'events@calendar.com',
         to: 'user@appsus.com',
+        isStared:true,
       },
       {
         id: 'e106',
@@ -169,6 +175,7 @@ function _createMails() {
         removedAt: null,
         from: 'noreply@flights.com',
         to: 'user@appsus.com',
+        isStared:true,
       },
       {
         id: 'e107',
@@ -180,6 +187,7 @@ function _createMails() {
         removedAt: null,
         from: 'hr@company.com',
         to: 'user@appsus.com',
+        isStared:true,
       },
       {
         id: 'e108',
@@ -191,6 +199,7 @@ function _createMails() {
         removedAt: null,
         from: 'promo@shop.com',
         to: 'user@appsus.com',
+        isStared:true,
       },
       {
         id: 'e109',
@@ -202,6 +211,7 @@ function _createMails() {
         removedAt: null,
         from: 'updates@news.com',
         to: 'user@appsus.com',
+        isStared:true,
       },
       {
         id: 'e110',
@@ -213,6 +223,7 @@ function _createMails() {
         removedAt: null,
         from: 'support@service.com',
         to: 'user@appsus.com',
+        isStared:true,
       },
       {
         id: 'e111',
@@ -224,6 +235,7 @@ function _createMails() {
         removedAt: null,
         from: 'lottery@fun.com',
         to: 'user@appsus.com',
+        isStared:true,
       },
       {
         id: 'e112',
@@ -235,6 +247,7 @@ function _createMails() {
         removedAt: null,
         from: 'security@account.com',
         to: 'user@appsus.com',
+        isStared:true,
       },
       {
         id: 'e113',
@@ -246,6 +259,7 @@ function _createMails() {
         removedAt: null,
         from: 'orders@store.com',
         to: 'user@appsus.com',
+        isStared:true,
       },
       {
         id: 'e114',
@@ -257,6 +271,7 @@ function _createMails() {
         removedAt: null,
         from: 'feedback@survey.com',
         to: 'user@appsus.com',
+        isStared:true,
       },
       {
         id: 'e115',
@@ -268,6 +283,7 @@ function _createMails() {
         removedAt: null,
         from: 'alerts@security.com',
         to: 'user@appsus.com',
+        isStared:true,
       },
       {
         id: 'e116',
@@ -279,6 +295,7 @@ function _createMails() {
         removedAt: null,
         from: 'club@readers.com',
         to: 'user@appsus.com',
+        isStared:true,
       },
       {
         id: 'e117',
@@ -290,6 +307,7 @@ function _createMails() {
         removedAt: null,
         from: 'notify@social.com',
         to: 'user@appsus.com',
+        isStared:true,
       },
       {
         id: 'e118',
@@ -301,6 +319,7 @@ function _createMails() {
         removedAt: null,
         from: 'vip@events.com',
         to: 'user@appsus.com',
+        isStared:true,
       },
       {
         id: 'e119',
@@ -312,6 +331,7 @@ function _createMails() {
         removedAt: null,
         from: 'hello@service.com',
         to: 'user@appsus.com',
+        isStared:true,
       },
       {
         id: 'e120',
@@ -323,6 +343,7 @@ function _createMails() {
         removedAt: null,
         from: 'admin@system.com',
         to: 'user@appsus.com',
+        isStared:true,
       },
     ]
   }

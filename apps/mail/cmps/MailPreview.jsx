@@ -2,15 +2,10 @@ import { showErrorMsg, showSuccessMsg } from '../../../services/event-bus.servic
 import { mailService } from '../services/mail.service.js'
 
 const { useState, useEffect, Fragment } = React
-export function MailPreview({ mail,loadMails}) {
-
-
-   
-
+export function MailPreview({ mail, loadMails }) {
   const [isHover, setIsHover] = useState(false)
 
   const isRead = mail.isRead ? 'read' : 'unread'
- 
 
   function handleMouseOver() {
     setIsHover((prevValue) => !prevValue)
@@ -34,17 +29,21 @@ export function MailPreview({ mail,loadMails}) {
       mailService
         .save(mail)
         .then(() => showSuccessMsg('Mail moved to trash'))
-        .then(()=>loadMails())
+        .then(() => loadMails())
 
         .catch(() => showErrorMsg('Cannot move mail to trash'))
     } else if (mail.removedAt) {
       mailService
         .remove(mail.id)
         .then(() => showSuccessMsg('Mail has been deleted'))
-        .then(()=>loadMails())
+        .then(() => loadMails())
 
         .catch(() => showErrorMsg('Cannot delete mail'))
     }
+  }
+
+  function onStarCLcik() {
+    console.log('star')
   }
 
   if (!mail) return <div>Loading...</div>
@@ -57,7 +56,14 @@ export function MailPreview({ mail,loadMails}) {
         onMouseOut={handleMouseOut}
         key={mail.id}
       >
-        <div><img className='star-icon' src='assets\css\imgs\greyStar.svg'></img></div>
+        <div
+          onClick={(ev) => {
+            ev.preventDefault()
+            onStarCLcik()
+          }}
+        >
+          <img className="star-icon" src="assets\css\imgs\greyStar.svg"></img>
+        </div>
         <div>{mail.from}</div>
         <div>{isLimitTxtSize(mail.subject)}</div>
         <div>{mail.body}</div>
