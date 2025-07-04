@@ -139,7 +139,7 @@ function _createMails() {
         removedAt: null,
         from: 'alex@friends.com',
         to: 'user@appsus.com',
-        isStared:true,
+        isStared:false,
       },
       {
         id: 'e104',
@@ -163,7 +163,7 @@ function _createMails() {
         removedAt: null,
         from: 'events@calendar.com',
         to: 'user@appsus.com',
-        isStared:true,
+        isStared:false,
       },
       {
         id: 'e106',
@@ -175,7 +175,7 @@ function _createMails() {
         removedAt: null,
         from: 'noreply@flights.com',
         to: 'user@appsus.com',
-        isStared:true,
+        isStared:false,
       },
       {
         id: 'e107',
@@ -211,7 +211,7 @@ function _createMails() {
         removedAt: null,
         from: 'updates@news.com',
         to: 'user@appsus.com',
-        isStared:true,
+        isStared:false,
       },
       {
         id: 'e110',
@@ -283,7 +283,7 @@ function _createMails() {
         removedAt: null,
         from: 'alerts@security.com',
         to: 'user@appsus.com',
-        isStared:true,
+        isStared:false,
       },
       {
         id: 'e116',
@@ -307,7 +307,7 @@ function _createMails() {
         removedAt: null,
         from: 'notify@social.com',
         to: 'user@appsus.com',
-        isStared:true,
+        isStared:false,
       },
       {
         id: 'e118',
@@ -319,7 +319,7 @@ function _createMails() {
         removedAt: null,
         from: 'vip@events.com',
         to: 'user@appsus.com',
-        isStared:true,
+        isStared:false,
       },
       {
         id: 'e119',
@@ -331,7 +331,7 @@ function _createMails() {
         removedAt: null,
         from: 'hello@service.com',
         to: 'user@appsus.com',
-        isStared:true,
+        isStared:false,
       },
       {
         id: 'e120',
@@ -343,7 +343,7 @@ function _createMails() {
         removedAt: null,
         from: 'admin@system.com',
         to: 'user@appsus.com',
-        isStared:true,
+        isStared:false,
       },
     ]
   }

@@ -42,7 +42,7 @@ export function MailPreview({ mail, loadMails }) {
     }
   }
 
-  function onStarCLcik() {
+  function onStarClick() {
     console.log('star')
   }
 
@@ -59,7 +59,7 @@ export function MailPreview({ mail, loadMails }) {
         <div
           onClick={(ev) => {
             ev.preventDefault()
-            onStarCLcik()
+            onStarClick()
           }}
         >
           <img className="star-icon" src="assets\css\imgs\greyStar.svg"></img>
