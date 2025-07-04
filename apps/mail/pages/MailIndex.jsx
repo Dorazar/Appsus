@@ -32,6 +32,16 @@ export function MailIndex() {
   
   
 
+  const [newMailWindow,setNewMailWindow]=useState(false)
+
+
+  function onNewMail() {
+  
+    setNewMailWindow(prevNewMail =>!prevNewMail)
+
+  }
+
+
   if (!mails) return <div>Loading...</div>
   if (mails.length === 0)
     return (
@@ -44,7 +54,8 @@ export function MailIndex() {
     <section className="main-container">
       <MailFilter onSetFilterBy={onSetFilterBy} defaultFilter={filterBy}/>
       <MailList mails={mails} loadMails={loadMails}/>
-      <button className='new-mail-btn'>new mail</button>
+      <Link className='new-mail-btn' to="/mail/newMail"><button onClick={onNewMail}>new mail</button></Link>
+      {newMailWindow && <Outlet/>}
     </section>
   )
 }
