@@ -401,12 +401,12 @@ function getFilterFromSearchParams(searchParams) {
   const txt = searchParams.get('txt') || ''
   const read = searchParams.get('read') || ''
   const sort = searchParams.get('sort') || ''
-  const folder = searchParams.get('folder') || 'inbox'
+  
   return {
     txt,
     read,
     sort,
-    folder
+   
   }
 }
 

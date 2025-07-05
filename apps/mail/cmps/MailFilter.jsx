@@ -6,10 +6,21 @@ export function MailFilter({ onSetFilterBy, defaultFilter  }) {
   const [editFilterBy, setEditFilterBy] = useState(defaultFilter)
   const { txt } = editFilterBy
 
+
   useEffect(() => {
-    
+   console.log(defaultFilter)
+    setEditFilterBy(prevFilter =>({...prevFilter},editFilterBy))
+    console.log(editFilterBy)
+  }, [defaultFilter])
+
+
+  useEffect(() => {
+  
     onSetFilterBy(editFilterBy)
   }, [editFilterBy])
+
+
+
 
   function handleChange({ target }) {
     const field = target.name
@@ -28,6 +39,10 @@ export function MailFilter({ onSetFilterBy, defaultFilter  }) {
     setEditFilterBy((prevFilter) => ({ ...prevFilter, [field]: value }))
   }
 
+function onSortChange(sortBy) {
+  setEditFilterBy(prevFilter => ({ ...prevFilter, 'sort': sortBy }))
+}
+
   // console.log('editFilterBy', editFilterBy)
   return (
     <Fragment>
@@ -45,13 +60,13 @@ export function MailFilter({ onSetFilterBy, defaultFilter  }) {
             <option value="0">Unread</option>
           </select>
 
-              <button name="sort" value="createdAt" onClick={handleChange}>
+              <button name="sort" value="createdAt" onClick={()=>onSortChange('createdAt')}>
             Sort by date
           </button>
-          <button name="sort" value="from" onClick={handleChange}>
+          <button name="sort" value="from" onClick={()=>onSortChange('from')}>
             Sort by Sender
           </button>
-          <button name="sort" value="subject" onClick={handleChange}>
+          <button name="sort" value="subject" onClick={()=>onSortChange('subject')}>
             Sort by subject
           </button>
           </section>

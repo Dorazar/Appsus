@@ -60,7 +60,7 @@ export function MailDetails() {
           <div className="to">To:{mail.to}</div>
           <p className="body">{mail.body}</p>
         </section>
-           <SideNavigation/>
+  
       </section>
   
     </Fragment>
