@@ -53,7 +53,7 @@ export function MailFilter({ onSetFilterBy, defaultFilter  }) {
           </button>
         </section>
       </section>
-      <MailFolderList onSetFilterBy={onSetFilterBy} />
+      <MailFolderList onSetFilterBy={setEditFilterBy} />
     </Fragment>
   )
 }

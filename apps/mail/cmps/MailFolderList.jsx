@@ -2,7 +2,7 @@
 export function MailFolderList({ onSetFilterBy}) {
 
   function onSelectFolderFilter(folderType) {
-    onSetFilterBy({ folder: folderType })
+   onSetFilterBy(prevFilter => ({ ...prevFilter, folder: folderType }))
   }
   return (
     <section className="side-filter">
