@@ -2,6 +2,7 @@ import { mailService } from '../services/mail.service.js'
 import { MailList } from '../cmps/MailList.jsx'
 import { MailFilter } from '../cmps/MailFilter.jsx'
 import { MailFolderList } from '../cmps/MailFolderList.jsx'
+import { MailDetails } from './MailDetails.jsx'
 
 const { useRef, useEffect, useState, Fragment } = React
 
@@ -16,7 +17,6 @@ export function MailIndex() {
     loadMails()
     console.log('Index:', filterBy)
     setSearchParams(filterBy)
-    
   }, [filterBy])
 
   function onSetFilterBy(filterBy) {
@@ -34,31 +34,34 @@ export function MailIndex() {
   }
 
   if (!mails) return <div>Loading...</div>
-  if (mails.length === 0)
-    return (
-      <section className="main-container">
-        <MailFilter onSetFilterBy={onSetFilterBy} defaultFilter={filterBy} />
-        <Link className="new-mail-btn" to="/mail/newMail">
-          <span onClick={onOpenMailWindow} className="material-symbols-outlined">
-            edit
-          </span>
-        </Link>
-        {newMailWindow && <Outlet context={{ loadMails, onOpenMailWindow }} />}
-        <p>No mails found</p>
+  // if (mails.length === 0)
+  //   return (
+   
+
+  //         <section className="main-container">
+  //           <MailFilter onSetFilterBy={onSetFilterBy} defaultFilter={filterBy} />
+  //           <Link className="new-mail-btn" to="/mail/newMail">
+  //             <span onClick={onOpenMailWindow} className="material-symbols-outlined">
+  //               edit
+  //             </span>
+  //           </Link>
+  //           {newMailWindow && <Outlet context={{ loadMails, onOpenMailWindow }} />}
+  //           <p>No mails found</p>
+  //             <MailFolderList onSetFilterBy={onSetFilterBy} />
+  //         </section>
+  //       )
+      return (
+        <section className="main-container">
+          <MailFilter onSetFilterBy={onSetFilterBy} defaultFilter={filterBy} />
+          <MailList mails={mails} loadMails={loadMails} />
+          {/* <Link className="new-mail-btn" to="/mail/newMail">
+            <span onClick={onOpenMailWindow} className="material-symbols-outlined">
+              edit
+            </span>
+          </Link> */}
+          {/* {newMailWindow && <Outlet context={{ loadMails, onOpenMailWindow }} />}
           <MailFolderList onSetFilterBy={onSetFilterBy} />
-      </section>
+          <MailDetails/> */}
+        </section>
     )
-  return (
-    <section className="main-container">
-      <MailFilter onSetFilterBy={onSetFilterBy} defaultFilter={filterBy} />
-      <MailList mails={mails} loadMails={loadMails} />
-      <Link className="new-mail-btn" to="/mail/newMail">
-        <span onClick={onOpenMailWindow} className="material-symbols-outlined">
-          edit
-        </span>
-      </Link>
-      {newMailWindow && <Outlet context={{ loadMails, onOpenMailWindow }} />}
-      <MailFolderList onSetFilterBy={onSetFilterBy} />
-    </section>
-  )
 }

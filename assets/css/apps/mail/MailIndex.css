@@ -1,6 +1,6 @@
  /* mail index  */
 
- .main-container{
+ /* .main-container{
     
     display: grid;
     grid-template-columns:  50px 1fr;
@@ -30,4 +30,16 @@
    width: 500px;
    background-color: rgb(243, 195, 195);
    z-index: 10;
+} */
+
+
+.main-container{
+    display: grid;
+    grid-template-areas: 
+    'upper-filter'
+    'mail-list'
+    
+    
+    ;
+   
 }
