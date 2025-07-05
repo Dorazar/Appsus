@@ -59,9 +59,10 @@ export function MailIndex() {
               edit
             </span>
           </Link>
-          {/* {newMailWindow && <Outlet context={{ loadMails, onOpenMailWindow }} />}
           <MailFolderList onSetFilterBy={onSetFilterBy} />
-          <MailDetails/> */}
+          {newMailWindow && <Outlet context={{ loadMails, onOpenMailWindow }} />}
+          
+          {/* <MailDetails/> */}
         </section>
     )
 }
