@@ -48,7 +48,7 @@ export function MailFilter({ onSetFilterBy, defaultFilter  }) {
             Sort by date
           </button>
           <button name="sort" value="from" onClick={handleChange}>
-            Sort by from
+            Sort by Sender
           </button>
           <button name="sort" value="subject" onClick={handleChange}>
             Sort by subject
