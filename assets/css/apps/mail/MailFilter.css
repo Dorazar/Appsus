@@ -29,6 +29,26 @@
 }
 
 
+.sorting-section {
+    display: flex;
+   gap: 5px;
+    
+}
+
+.sorting-section > * {
+    background-color: rgba(0, 0, 255, 0);
+    height: 100%;
+    cursor: pointer;
+    border-radius: 10px;
+    border-color: lightgrey;
+}
+
+
+.sorting-section > *:hover {
+ background-color: #D6E3FA;
+}
+
+
 .side-filter{
     grid-area: side-filter;
     display: grid;
