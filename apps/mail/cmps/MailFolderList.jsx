@@ -1,10 +1,13 @@
+
+const { useParams, useNavigate,useOutletContext } = ReactRouterDOM
 export function MailFolderList({ onSetFilterBy}) {
 
-
+  const navigate=useNavigate()
 
 
    function onSelectFolderFilter(folderType) {
     onSetFilterBy({ folder: folderType })
+    navigate(`/mail/?folder=${folderType}`)
   }
 
   return (

@@ -18,7 +18,7 @@ export function MailIndex() {
 
   useEffect(() => {
     loadMails()
-    console.log('Index:', filterBy)
+    // console.log('Index:', params.mailId)
     setSearchParams(filterBy)
 
   }, [filterBy])
@@ -58,7 +58,7 @@ export function MailIndex() {
   return (
     <section className="main-container">
       <MailFilter onSetFilterBy={onSetFilterBy} defaultFilter={filterBy} />
-      <MailList mails={mails} loadMails={loadMails} />
+      {!params.mailId && < MailList mails={mails} loadMails={loadMails} />}
       <Link className="new-mail-btn" to="/mail/newMail">
         <span onClick={onOpenMailWindow} className="material-symbols-outlined">
           edit

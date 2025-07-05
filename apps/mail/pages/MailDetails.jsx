@@ -18,10 +18,8 @@ export function MailDetails() {
   
   
   useEffect(() => {
-
-    loadMail()
-
-  }, [])
+   loadMail()
+  }, [params.mailId])
 
   function loadMail() {
     mailService.get(params.mailId).then((mail) => setMail(mail))
