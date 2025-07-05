@@ -7,6 +7,7 @@ export function MailFilter({ onSetFilterBy, defaultFilter  }) {
   const { txt } = editFilterBy
 
   useEffect(() => {
+    
     onSetFilterBy(editFilterBy)
   }, [editFilterBy])
 
@@ -57,7 +58,7 @@ export function MailFilter({ onSetFilterBy, defaultFilter  }) {
         
        
       </section>
-      <MailFolderList onSetFilterBy={setEditFilterBy} />
+     
     </Fragment>
   )
 }

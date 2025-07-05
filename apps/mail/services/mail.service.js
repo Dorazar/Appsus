@@ -20,18 +20,8 @@ window.mailService = mailService
 
 function query(filterBy = {}) {
   return storageService.query(MAIL_KEY).then((mails) => {
-    if (filterBy.sort === 'createdAt') {
 
-      mails = mails.sort((a, b) => (b.createdAt - a.createdAt) )
-    } else if (filterBy.sort === 'from') {
-
-      mails.sort((a, b) => a.from.localeCompare(b.from))
-    } else if (filterBy.sort === 'subject') {
-   
-      mails.sort((a, b) => a.subject.localeCompare(b.subject) )
-    }
-
-    if (filterBy.txt) {
+if (filterBy.txt) {
       const regExp = new RegExp(filterBy.txt, 'i')
       mails = mails.filter((mail) => regExp.test(mail.body) || regExp.test(mail.subject) || regExp.test(mail.from))
     }
@@ -40,8 +30,8 @@ function query(filterBy = {}) {
         mails = mails.filter((mail) => mail.isRead === true)
       } else if (filterBy.read === '0') mails = mails.filter((mail) => mail.isRead === false)
     }
-
-    if (filterBy.folder === 'trash') {
+  
+ if (filterBy.folder === 'trash') {
       mails = mails.filter((mail) => mail.removedAt !== null)
     }
     else if (filterBy.folder === 'sent') {
@@ -60,9 +50,25 @@ function query(filterBy = {}) {
 
 
 
+    if (filterBy.sort === 'createdAt') {
+
+      mails = mails.sort((a, b) => (b.createdAt - a.createdAt) )
+    } else if (filterBy.sort === 'from') {
+
+      mails.sort((a, b) => a.from.localeCompare(b.from))
+    } else if (filterBy.sort === 'subject') {
+   
+      mails.sort((a, b) => a.subject.localeCompare(b.subject) )
+    }
+
     
 
-    // console.log(filterBy)
+   
+
+
+    
+
+    console.log('service:',filterBy)
 
     return mails
   })

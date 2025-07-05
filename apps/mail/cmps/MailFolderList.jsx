@@ -1,17 +1,21 @@
-export function MailFolderList({ onSetFilterBy }) {
-  function onSelectFolderFilter(folderType) {
-    onSetFilterBy((prevFilter) => ({ ...prevFilter, folder: folderType }))
+export function MailFolderList({ onSetFilterBy}) {
+
+
+
+
+   function onSelectFolderFilter(folderType) {
+    onSetFilterBy({ folder: folderType })
   }
 
   return (
     <section className="side-filter">
-      <span className="material-symbols-outlined icon-btn" onClick={() => onSelectFolderFilter('inbox')}>
+      <span title="inbox" className="material-symbols-outlined icon-btn" onClick={() => onSelectFolderFilter('inbox')}>
         inbox
       </span>
-      <span className="material-symbols-outlined icon-btn" onClick={() => onSelectFolderFilter('sent')}>
+      <span  className="material-symbols-outlined icon-btn" onClick={() => onSelectFolderFilter('sent')}>
         send
       </span>
-      <span className="material-symbols-outlined icon-btn" onClick={() => onSelectFolderFilter('trash')}>
+      <span title="trash"className="material-symbols-outlined icon-btn" onClick={() => onSelectFolderFilter('trash')}>
         delete
       </span>
       <span className="material-symbols-outlined icon-btn" onClick={() => onSelectFolderFilter('draft')}>

@@ -18,6 +18,7 @@ export function MailIndex() {
 
   useEffect(() => {
     loadMails()
+    console.log('FilterBy:',filterBy)
     setSearchParams(filterBy)
   }, [filterBy])
 
@@ -51,7 +52,7 @@ export function MailIndex() {
       
       
      
-      <span onClick={onOpenMailWindow} class="material-symbols-outlined">
+      <span onClick={onOpenMailWindow} className="material-symbols-outlined">
 edit
 </span>
 
@@ -70,7 +71,7 @@ edit
       
       
      
-      <span onClick={onOpenMailWindow} class="material-symbols-outlined">
+      <span onClick={onOpenMailWindow} className="material-symbols-outlined">
 edit
 </span>
 
@@ -78,6 +79,7 @@ edit
       
       </Link>
       {newMailWindow && <Outlet context={{loadMails,onOpenMailWindow}} />}
+       <MailFolderList onSetFilterBy={onSetFilterBy}/>
     </section>
   )
 }
