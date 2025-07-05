@@ -7,6 +7,9 @@ const navigate = useNavigate()
 
      return (
     <section className="side-filter">
+      <span class="material-symbols-outlined">
+inbox
+</span>
     <button  onClick={() => navigate('/mail?folder=inbox')}>Inbox</button>
     <button onClick={() => navigate('/mail?folder=sent')}>Sent</button>
       <button onClick={() => navigate('/mail?folder=trash')}>Trash</button>
