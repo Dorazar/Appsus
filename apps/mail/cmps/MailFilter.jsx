@@ -31,11 +31,12 @@ export function MailFilter({ onSetFilterBy, defaultFilter  }) {
   return (
     <Fragment>
       <section className="upper-filter">
+
+        <section className="logo-and-search">
         <img className="mail-logo" src="assets\css\imgs\Gmail_icon_(2020).svg" alt="" />
         <input onChange={handleChange} value={txt} type="text" name="txt" placeholder="Search mails" />
-        <section>
-       
-         
+       </section>
+    
           <section className='sorting-section'>
            <select name="read" onChange={handleChange}>
             <option value="">All mails</option>
@@ -54,7 +55,7 @@ export function MailFilter({ onSetFilterBy, defaultFilter  }) {
           </button>
           </section>
         
-        </section>
+       
       </section>
       <MailFolderList onSetFilterBy={setEditFilterBy} />
     </Fragment>
