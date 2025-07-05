@@ -11,6 +11,7 @@ const navigate = useNavigate()
     <button onClick={() => navigate('/mail?folder=sent')}>Sent</button>
       <button onClick={() => navigate('/mail?folder=trash')}>Trash</button>
        <button onClick={() => navigate('/mail?folder=draft')}>Draft</button>
+       <button onClick={() => navigate('/mail?folder=stared')}>Stared</button>
     </section>
   )
 }

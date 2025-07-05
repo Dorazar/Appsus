@@ -54,6 +54,10 @@ function query(filterBy = {}) {
       mails = mails.filter((mail) => mail.sentAt === null && mail.removedAt===null)
     }
 
+     else if (filterBy.folder === 'stared') {
+      mails = mails.filter((mail) => mail.isStared === true && mail.removedAt===null)
+    }
+
 
 
     

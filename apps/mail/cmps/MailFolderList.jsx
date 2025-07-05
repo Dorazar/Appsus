@@ -10,6 +10,7 @@ export function MailFolderList({ onSetFilterBy}) {
     <button onClick={() => onSelectFolderFilter('sent')}>Sent</button>
       <button onClick={() => onSelectFolderFilter('trash')}>Trash</button>
        <button onClick={() => onSelectFolderFilter('draft')}>Draft</button>
+       <button onClick={() => onSelectFolderFilter('stared')}>Stared</button>
     </section>
   )
 }
