@@ -5,19 +5,19 @@ export function MailFolderList({ onSetFilterBy }) {
 
   return (
     <section className="side-filter">
-      <span className="material-symbols-outlined" onClick={() => onSelectFolderFilter('inbox')}>
+      <span className="material-symbols-outlined icon-btn" onClick={() => onSelectFolderFilter('inbox')}>
         inbox
       </span>
-      <span className="material-symbols-outlined" onClick={() => onSelectFolderFilter('sent')}>
+      <span className="material-symbols-outlined icon-btn" onClick={() => onSelectFolderFilter('sent')}>
         send
       </span>
-      <span className="material-symbols-outlined" onClick={() => onSelectFolderFilter('trash')}>
+      <span className="material-symbols-outlined icon-btn" onClick={() => onSelectFolderFilter('trash')}>
         delete
       </span>
-      <span className="material-symbols-outlined" onClick={() => onSelectFolderFilter('draft')}>
+      <span className="material-symbols-outlined icon-btn" onClick={() => onSelectFolderFilter('draft')}>
         text_snippet
       </span>
-      <span className="material-symbols-outlined" onClick={() => onSelectFolderFilter('stared')}>
+      <span className="material-symbols-outlined icon-btn" onClick={() => onSelectFolderFilter('stared')}>
         star
       </span>
     </section>
