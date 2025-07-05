@@ -2,14 +2,16 @@ const { useParams, useNavigate } = ReactRouterDOM
 
 const { useState, useEffect, Fragment } = React
 
+
+
 import { showErrorMsg, showSuccessMsg } from '../../../services/event-bus.service.js'
 import { MailFilter } from '../cmps/MailFilter.jsx'
 import { MailFolderList } from '../cmps/MailFolderList.jsx'
+import { SideNavigation } from '../cmps/sideNavigation.jsx'
 import { mailService } from '../services/mail.service.js'
 
 export function MailDetails() {
   const params = useParams()
-
   const navigate = useNavigate()
   const [mail, setMail] = useState()
 
@@ -58,8 +60,9 @@ export function MailDetails() {
           <div className="to">To:{mail.to}</div>
           <p className="body">{mail.body}</p>
         </section>
-        <MailFolderList/>
+           <SideNavigation/>
       </section>
+  
     </Fragment>
   )
 }
