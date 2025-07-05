@@ -9,7 +9,7 @@
     'new-mail-btn upper-filter upper-filter upper-filter upper-filter upper-filter'
     'side-filter mail-list mail-list mail-list mail-list mail-list'
     ;
- }
+ } */
 
  
  
@@ -21,7 +21,7 @@
 }
 
 
-.compose{
+/* .compose{
    position:absolute;
    bottom: 0;
    right: 0;
@@ -35,9 +35,10 @@
 
 .main-container{
     display: grid;
+    grid-template-columns: 50px 1fr;
     grid-template-areas: 
-    'upper-filter'
-    'mail-list'
+    'new-mail-btn upper-filter'
+    'mail-list mail-list'
     
     
     ;

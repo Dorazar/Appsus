@@ -5,7 +5,7 @@ const { Link } = ReactRouterDOM
 export function MailList({ mails ,loadMails}) {
   
   return (
-    <article>
+    
       <ul className="mail-list">
         {mails.map((mail) => (
           <li key={mail.id}>
@@ -15,7 +15,7 @@ export function MailList({ mails ,loadMails}) {
           </li>
         ))}
       </ul>
-    </article>
+  
   )
 }
 

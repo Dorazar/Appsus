@@ -54,11 +54,11 @@ export function MailIndex() {
         <section className="main-container">
           <MailFilter onSetFilterBy={onSetFilterBy} defaultFilter={filterBy} />
           <MailList mails={mails} loadMails={loadMails} />
-          {/* <Link className="new-mail-btn" to="/mail/newMail">
+          <Link className="new-mail-btn" to="/mail/newMail">
             <span onClick={onOpenMailWindow} className="material-symbols-outlined">
               edit
             </span>
-          </Link> */}
+          </Link>
           {/* {newMailWindow && <Outlet context={{ loadMails, onOpenMailWindow }} />}
           <MailFolderList onSetFilterBy={onSetFilterBy} />
           <MailDetails/> */}
