@@ -13,10 +13,14 @@ export function MailIndex() {
   const [searchParams, setSearchParams] = useSearchParams()
   const [filterBy, setFilterBy] = useState(mailService.getFilterFromSearchParams(searchParams))
 
+  const params = useParams()
+
+
   useEffect(() => {
     loadMails()
     console.log('Index:', filterBy)
     setSearchParams(filterBy)
+
   }, [filterBy])
 
   function onSetFilterBy(filterBy) {
@@ -33,10 +37,11 @@ export function MailIndex() {
     setNewMailWindow((prevNewMail) => !prevNewMail)
   }
 
+
+
   if (!mails) return <div>Loading...</div>
   // if (mails.length === 0)
   //   return (
-   
 
   //         <section className="main-container">
   //           <MailFilter onSetFilterBy={onSetFilterBy} defaultFilter={filterBy} />
@@ -50,19 +55,21 @@ export function MailIndex() {
   //             <MailFolderList onSetFilterBy={onSetFilterBy} />
   //         </section>
   //       )
-      return (
-        <section className="main-container">
-          <MailFilter onSetFilterBy={onSetFilterBy} defaultFilter={filterBy} />
-          <MailList mails={mails} loadMails={loadMails} />
-          <Link className="new-mail-btn" to="/mail/newMail">
-            <span onClick={onOpenMailWindow} className="material-symbols-outlined">
-              edit
-            </span>
-          </Link>
-          <MailFolderList onSetFilterBy={onSetFilterBy} />
-          {newMailWindow && <Outlet context={{ loadMails, onOpenMailWindow }} />}
-          
-          {/* <MailDetails/> */}
-        </section>
-    )
+  return (
+    <section className="main-container">
+      <MailFilter onSetFilterBy={onSetFilterBy} defaultFilter={filterBy} />
+      <MailList mails={mails} loadMails={loadMails} />
+      <Link className="new-mail-btn" to="/mail/newMail">
+        <span onClick={onOpenMailWindow} className="material-symbols-outlined">
+          edit
+        </span>
+      </Link>
+      {newMailWindow && <Outlet context={{ loadMails, onOpenMailWindow }} />}
+
+      <MailFolderList onSetFilterBy={onSetFilterBy} />
+
+      <Link to="/mail/:mailId"></Link>
+      {params.mailId && <Outlet  />}
+    </section>
+  )
 }

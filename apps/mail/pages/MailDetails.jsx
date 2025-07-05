@@ -1,4 +1,4 @@
-const { useParams, useNavigate } = ReactRouterDOM
+const { useParams, useNavigate,useOutletContext } = ReactRouterDOM
 
 const { useState, useEffect, Fragment } = React
 
@@ -15,8 +15,12 @@ export function MailDetails() {
   const navigate = useNavigate()
   const [mail, setMail] = useState()
 
+  
+  
   useEffect(() => {
+
     loadMail()
+
   }, [])
 
   function loadMail() {
@@ -45,8 +49,8 @@ export function MailDetails() {
   return (
     <Fragment>
       <section className="details-container">
-        <section className="upper-filter">
-          <img className="mail-logo" src="assets\css\imgs\Gmail_icon_(2020).svg" alt="" />
+        <section className="user-filter">
+          {/* <img className="mail-logo" src="assets\css\imgs\Gmail_icon_(2020).svg" alt="" /> */}
           {/* <label htmlFor="filter"></label>
           <input type="text" name="filter" placeholder="Search mails" />
           <button>Search</button> */}
