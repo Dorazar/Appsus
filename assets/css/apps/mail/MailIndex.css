@@ -17,6 +17,7 @@
    grid-area: new-mail-btn;
    align-self: center;
    justify-self: center;
+   height: min-content;
    
 }
 
@@ -34,7 +35,9 @@
 
 
 .main-container{
+       height: 100vh;
     display: grid;
+    grid-template-rows: 100px 1fr;
     grid-template-columns: 50px 1fr;
     grid-template-areas: 
     'new-mail-btn upper-filter upper-filter'
