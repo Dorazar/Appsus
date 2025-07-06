@@ -26,7 +26,7 @@ function query(filterBy = {}) {
       const regExp = new RegExp(filterBy.txt, 'i')
       notes = notes.filter((note) => regExp.test(note.title) || regExp.test(note.description))
     }
-    console.log(notes)
+    // console.log(notes)
     return notes
   })
 }
