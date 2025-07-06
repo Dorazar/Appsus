@@ -4,11 +4,19 @@ export function NotePreview({ note }) {
         <div className="note-preview">
             <h3 className="note-title">{note.info.title || ''}</h3>
             <p className="note-txt">{note.info.txt || ''}</p>
+            {/* <ul className="note-todo">
+                {note.info.todos
+                    ? note.info.todos.map((todo, idx) => (
+                        <li key={idx}>
+                            {todo.txt || ''}
+                        </li>
+                    ))
+                    : null}
+            </ul> */}
             {/* Other info fields can be added here if needed */}
         </div>
     )
 }
-
 
 // return (
 //     <div>

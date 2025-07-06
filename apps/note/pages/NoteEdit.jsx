@@ -33,74 +33,68 @@ export function NoteEdit() {
             })
     }
 
-function handleChange({ target }) {
-    
-    const field = target.name;
-    let value = target.value;
-    switch (target.type) {
-      case 'number':
-      case 'range':
-        value = +value;
-        break;
-      case 'checkbox':
-        value = target.checked;
-        break;
+    function handleChange({ target }) {
+
+        const field = target.name;
+        let value = target.value;
+        switch (target.type) {
+            case 'number':
+            case 'range':
+                value = +value;
+                break;
+            case 'checkbox':
+                value = target.checked;
+                break;
+        }
+        setNoteToEdit((prevNote) => ({
+            ...prevNote,
+            info: { ...prevNote.info, [field]: value },
+        }));
     }
-    setNoteToEdit((prevNote) => ({
-      ...prevNote,
-      info: { ...prevNote.info, [field]: value },
-    }));
-  }
 
-   if (!noteToEdit) return <div>Loading...</div>;
-  return (
-    <section className="note-edit-modal">
-      <div
-        className="modal-backdrop"
-        onClick={() => {
-         
-          if (noteToEdit) {
-            noteService
-              .save(noteToEdit)
-              .then(() => navigate('/note'))
-              .catch((err) => console.log('Cannot save note:', err));
-          } else {
-            navigate('/note');
-          }
-        }}
-      />
-      <div className="modal-content">
-        <form onSubmit={onSaveNote}>
-          <label htmlFor="title">Title</label>
-          <input
-            onChange={handleChange}
-            value={noteToEdit.info.title || ''}
-            type="text"
-            name="title"
-            id="title"
-            placeholder="Enter title"
-          />
+    if (!noteToEdit) return <div>Loading...</div>;
+    return (
+        <section className="note-edit-modal">
+            <div
+                className="modal-backdrop"
+                onClick={() => {
 
-          <label htmlFor="txt">Write</label>
-          <textarea
-            onChange={handleChange}
-            value={noteToEdit.info.txt || ''}
-            name="txt"
-            id="txt"
-            placeholder="Write a note"
-          />
+                    if (noteToEdit) {
+                        noteService
+                            .save(noteToEdit)
+                            .then(() => navigate('/note'))
+                            .catch((err) => console.log('Cannot save note:', err));
+                    } else {
+                        navigate('/note');
+                    }
+                }}
+            />
+            <div className="modal-content">
+                <form onSubmit={onSaveNote}>
+                    {/* <label htmlFor="title">Title</label> */}
+                    <input
+                        onChange={handleChange}
+                        value={noteToEdit.info.title || ''}
+                        type="text"
+                        name="title"
+                        id="title"
+                        placeholder="Title"
+                    />
 
-          <div className="modal-actions">
-            <button type="submit">Save</button>
-            <button
-              type="button"
-              onClick={() => navigate('/note')}
-            >
-              Cancel
-            </button>
-          </div>
-        </form>
-      </div>
-    </section>
-  );
+                    {/* <label htmlFor="txt">Write</label> */}
+                    <textarea
+                        onChange={handleChange}
+                        value={noteToEdit.info.txt || ''}
+                        name="txt"
+                        id="txt"
+                        placeholder="Write a note..."
+                    />
+
+                    <div className="modal-actions">
+                        <button type="submit">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    );
 }
