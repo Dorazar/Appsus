@@ -46,14 +46,10 @@ export function MailDetails() {
   if (!mail) return <div>Loading...</div>
   return (
     <Fragment>
-      <section className="details-container">
-        <section className="user-filter">
-          {/* <img className="mail-logo" src="assets\css\imgs\Gmail_icon_(2020).svg" alt="" /> */}
-          {/* <label htmlFor="filter"></label>
-          <input type="text" name="filter" placeholder="Search mails" />
-          <button>Search</button> */}
-          <button onClick={() => navigate('/mail')}>Back</button>
-          <button onClick={() => onDeleteMail()}>Delete</button>
+      <section className="details-container mail-list">
+        <section className="nav-mail">
+          <span className='material-symbols-outlined icon-btn' onClick={() => navigate('/mail')}>reply</span>
+          <span className='material-symbols-outlined icon-btn 'onClick={() => onDeleteMail()}>delete</span>
         </section>
 
         <section className="mail-details">

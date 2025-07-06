@@ -1,14 +1,30 @@
 .details-container{
     display: grid;
-    grid-template-columns:  50px 1fr;
+    grid-template-rows: min-content 1fr;
     grid-template-areas: 
-    'upper-filter upper-filter'
-    'side-filter mail-details' 
-    
-    ;
-padding: 0 1em;
+    'nav-mail'
+    'mail-details';
 }
 
+.nav-mail{
+display: flex;
+flex-direction: row-reverse;
+height: min-content;
+border-bottom: 0.1px solid grey;
+border-top: 0.1px solid grey;
+background-color: rgba(211, 211, 211, 0.411);
+
+}
+
+.nav-mail .icon-btn{
+cursor: pointer;
+
+}
+
+.nav-mail .icon-btn:hover{
+cursor: pointer;
+color: grey;
+}
 
 
 
