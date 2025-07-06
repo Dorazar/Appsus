@@ -400,7 +400,7 @@ function isMailInStorage(checkMail) {
 function getFilterFromSearchParams(searchParams) {
   const txt = searchParams.get('txt') || ''
   const read = searchParams.get('read') || ''
-  const sort = searchParams.get('sort') || ''
+  const sort = searchParams.get('sort') || 'createdAt'
   
   return {
     txt,

@@ -1,4 +1,7 @@
 
+html{
+    height: 100vh;
+}
 
 
 body {
@@ -36,9 +39,6 @@ img {
     padding: 0 1em;
 }
 
-html{
-    height: 100vh;
-}
 
 
 button{

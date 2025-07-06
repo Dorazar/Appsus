@@ -52,10 +52,15 @@
 .popup-menu {
   position: absolute;
     height: 1rem;
-    width: 10rem;
+    width: 100%;
     
     right: 0;
-    background-color: rgb(221, 176, 176);
-   
+    background-color: rgba(255, 255, 255, 0.432);
+    
+ 
+}
+
+.popup-menu>.btn:hover {
+  color: rgb(167, 166, 166);
  
 }

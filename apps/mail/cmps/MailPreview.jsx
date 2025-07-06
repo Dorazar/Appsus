@@ -100,14 +100,14 @@ export function MailPreview({ mail, loadMails }) {
 
         {isHover && (
           <section className="popup-menu">
-            <button
+            <span className='material-symbols-outlined btn'
               onClick={(ev) => {
                 ev.preventDefault()
                 onDeleteMail(mail)
               }}
             >
               delete
-            </button>
+            </span>
           </section>
         )}
       </article>
