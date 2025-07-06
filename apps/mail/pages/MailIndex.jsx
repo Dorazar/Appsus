@@ -31,7 +31,7 @@ export function MailIndex() {
     mailService.query(filterBy).then((mails) => setMails(mails))
   }
 
-  const [newMailWindow, setNewMailWindow] = useState(false)
+  const [newMailWindow, setNewMailWindow] = useState(true)
 
   function onOpenMailWindow() {
     setNewMailWindow((prevNewMail) => !prevNewMail)

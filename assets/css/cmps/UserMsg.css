@@ -1,18 +1,21 @@
 .user-msg {
-    position: fixed;
+     position: fixed;
     bottom: -100px;
-    right: .5em;
-    padding: .5em;
-    background-color: #111;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1em;
+    background-color: #9b9b9b;
+    border-radius: 10px;
+
 }
 
 .user-msg.open {
-    bottom: .8em;
+    bottom: 2em;
     transition: bottom .5s;
 }
 
 .user-msg.success {
-    background-color: var(--color2);
+    background-color: lightgray
 }
 
 .user-msg.error {
@@ -20,6 +23,9 @@
 }
 
 .user-msg button{
-   float: right;
-   margin-inline-start: 4px;
+    border-radius: 8px;
+    border-width: 0.01px;
+  position: absolute;
+   top:-5px;
+   right: -5px;
 }
