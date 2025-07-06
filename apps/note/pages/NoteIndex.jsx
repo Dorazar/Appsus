@@ -5,14 +5,15 @@ import { NoteList } from '../cmps/NoteList.jsx'
 
 const { useEffect, useState } = React
 
-const { Link } = ReactRouterDOM
+const { Outlet, Link , useLocation } = ReactRouterDOM
 
 export function NoteIndex() {
     const [notes, setNotes] = useState(null)
+    const location = useLocation();
 
     useEffect(() => {
         loadNotes()
-    }, [])
+    }, [location])
 
     function loadNotes() {
         noteService.query().then((notes) => setNotes(notes))
@@ -42,6 +43,7 @@ export function NoteIndex() {
             <aside className="nav-area">
                 {/* Placeholder for nav area */}
             </aside>
+            <Outlet />
         </div>
     )
 

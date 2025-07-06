@@ -6,20 +6,20 @@ const { useNavigate } = ReactRouterDOM
 
 export function NoteList({ notes, onRemoveNote }) {
 
-    const [isModalOpen, setIsModalOpen] = useState(false)
-    const [selectedNote, setSelectedNote] = useState(null)
+    // const [isModalOpen, setIsModalOpen] = useState(false)
+    // const [selectedNote, setSelectedNote] = useState(null)
     const navigate = useNavigate()
 
-    function openModal(note) {
-        // console.log(note);
-        setSelectedNote(note)
-        setIsModalOpen(true)
-    }
+    // function openModal(note) {
+    //     // console.log(note);
+    //     setSelectedNote(note)
+    //     setIsModalOpen(true)
+    // }
 
-    function closeModal() {
-        setSelectedNote(null)
-        setIsModalOpen(false)
-    }
+    // function closeModal() {
+    //     setSelectedNote(null)
+    //     setIsModalOpen(false)
+    // }
 
     return (
         <div>
@@ -28,23 +28,28 @@ export function NoteList({ notes, onRemoveNote }) {
                     <li className="note-item"
                         key={note.id}
                         style={note.style}
-                        onClick={() => openModal(note)
-                            //  navigate(`/note/edit/${note.id}`)
+                        onClick={() =>
+                            navigate(`/note/edit/${note.id}`)
+                            // openModal(note)
                         }
                     >
                         <NotePreview note={note} />
                         <section>
-                            <button onClick={() => onRemoveNote(note.id)}>
+                            <button onClick={(ev) => {
+                                ev.stopPropagation()
+                                onRemoveNote(note.id)
+                            }}
+                            >
                                 <i className="fa-solid fa-trash"></i>
                             </button>
                         </section>
                     </li>
                 ))}
             </ul>
-            <NoteModal onClose={closeModal} isOpen={isModalOpen}>
-                {selectedNote && 
-                <NotePreview note={selectedNote} />}
-            </NoteModal>
+            {/* <NoteModal onClose={closeModal} isOpen={isModalOpen}>
+                {selectedNote &&
+                    <NotePreview note={selectedNote} />}
+            </NoteModal> */}
         </div>
     )
 }
