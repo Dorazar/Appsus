@@ -1,17 +1,16 @@
 import { MailFolderList } from './MailFolderList.jsx'
+import { utilService } from '../../../services/util.service.js'
 
 const { useRef, useEffect, useState, Fragment } = React
-const {useNavigate} = ReactRouterDOM
-
-
-
-
+const { useNavigate } = ReactRouterDOM
 
 export function MailFilter({ onSetFilterBy, defaultFilter }) {
   const [editFilterBy, setEditFilterBy] = useState(defaultFilter)
   const { txt } = editFilterBy
 
   const navigate = useNavigate()
+  const gMailLogo = useRef()
+  const gKeepLogo = useRef()
 
   useEffect(() => {
     //  console.log(defaultFilter)
@@ -47,7 +46,16 @@ export function MailFilter({ onSetFilterBy, defaultFilter }) {
     <Fragment>
       <section className="upper-filter">
         <section className="logo-and-search">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="52 42 88 66" onClick={()=>navigate('/mail')}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="52 42 88 66"
+             ref={gMailLogo}
+             onMouseOver={()=>utilService.animateCSS(gMailLogo.current)}
+            onClick={() => {
+              navigate('/mail')
+              
+            }}
+          >
             <path fill="#4285f4" d="M58 108h14V74L52 59v43c0 3.32 2.69 6 6 6" />
             <path fill="#34a853" d="M120 108h14c3.32 0 6-2.69 6-6V59l-20 15" />
             <path fill="#fbbc04" d="M120 48v26l20-15v-8c0-7.42-8.47-11.65-14.4-7.2" />
@@ -56,7 +64,7 @@ export function MailFilter({ onSetFilterBy, defaultFilter }) {
           </svg>
           {/* <img className="mail-logo" src="assets\css\imgs\Gmail_icon_(2020).svg" alt="" /> */}
           <input onChange={handleChange} value={txt} type="text" name="txt" placeholder="Search mails" />
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 88" onClick={()=>navigate('/note')} >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 88" ref={gKeepLogo} onMouseOver={()=>utilService.animateCSS(gKeepLogo.current)} onClick={() => navigate('/note')}>
             <path d="M 42,22 54.065,24.28 64,22 42,0 38.965,10.43 Z" fill="#f29900" />
             <path
               d="M 42,22 V 0 H 6 C 2.685,0 0,2.685 0,6 v 76 c 0,3.315 2.685,6 6,6 h 52 c 3.315,0 6,-2.685 6,-6 V 22 Z"
