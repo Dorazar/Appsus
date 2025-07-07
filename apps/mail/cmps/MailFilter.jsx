@@ -8,9 +8,9 @@ export function MailFilter({ onSetFilterBy, defaultFilter  }) {
 
 
   useEffect(() => {
-   console.log(defaultFilter)
+  //  console.log(defaultFilter)
     setEditFilterBy(prevFilter =>({...prevFilter},editFilterBy))
-    console.log(editFilterBy)
+    // console.log(editFilterBy)
   }, [defaultFilter])
 
 

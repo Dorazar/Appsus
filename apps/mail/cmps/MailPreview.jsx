@@ -57,7 +57,7 @@ export function MailPreview({ mail, loadMails }) {
       mail.isRead = true
     }
     setIconChange(iconChanage=>!iconChanage)
-    mailService.save(mail).then(mail => console.log(mail.isRead)).then(setIconChange)
+    mailService.save(mail).then(setIconChange)
   }
 
   const star = useRef()
