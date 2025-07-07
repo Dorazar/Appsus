@@ -85,7 +85,7 @@ box-shadow: -2px 0px 22px 3px rgba(212,212,212,0.49);
     height: 100%;
     width: 100%;
     border: none;
-    
+    padding-left: 0.5rem;
 }
 
 textarea,input:focus {
