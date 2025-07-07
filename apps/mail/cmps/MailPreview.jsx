@@ -5,14 +5,11 @@ const { useState, useEffect, Fragment, useRef } = React
 export function MailPreview({ mail, loadMails }) {
   const [isHover, setIsHover] = useState(false)
 
- const [iconChanage,setIconChange] = useState(mail.isRead)
+  const [iconChanage, setIconChange] = useState(mail.isRead)
 
   const isRead = mail.isRead ? 'read' : 'unread'
 
-  const isReadIconChange = mail.isRead? 'mark_email_unread':'drafts'
-
-
-
+  const isReadIconChange = mail.isRead ? 'mark_email_unread' : 'drafts'
 
   function handleMouseOver() {
     setIsHover((prevValue) => !prevValue)
@@ -52,11 +49,10 @@ export function MailPreview({ mail, loadMails }) {
   function onSetReadUnreadMail(mail) {
     if (mail.isRead) {
       mail.isRead = false
-    }
-    else if (!mail.isRead){
+    } else if (!mail.isRead) {
       mail.isRead = true
     }
-    setIconChange(iconChanage=>!iconChanage)
+    setIconChange((iconChanage) => !iconChanage)
     mailService.save(mail).then(setIconChange)
   }
 
@@ -83,6 +79,22 @@ export function MailPreview({ mail, loadMails }) {
     }
   }
 
+function isToday(timestamp) {
+  const today = new Date()
+  const date = new Date(timestamp)
+  return (
+    date.getDate() === today.getDate() &&
+    date.getMonth() === today.getMonth() &&
+    date.getFullYear() === today.getFullYear()
+  )
+}
+
+function isSameYear(timestamp) {
+  const today = new Date()
+  const date = new Date(timestamp)
+  return date.getFullYear() === today.getFullYear()
+}
+
   if (!mail) return <div>Loading...</div>
 
   return (
@@ -106,11 +118,22 @@ export function MailPreview({ mail, loadMails }) {
         <div>{mail.from}</div>
         <div>{isLimitTxtSize(mail.subject)}</div>
         <div>{mail.body}</div>
-        <div>{!isHover && new Date(mail.createdAt).toLocaleDateString()}</div>
+
+       <div>
+  {!isHover && (
+    isToday(mail.createdAt)
+      ? new Date(mail.createdAt).toLocaleTimeString('he-IL', { hour: '2-digit', minute: '2-digit' })
+      : isSameYear(mail.createdAt)
+        ? new Date(mail.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
+        : new Date(mail.createdAt).toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' })
+  )}
+</div>
+
 
         {isHover && (
           <section className="popup-menu">
-                <span title={mail.isRead ? 'Mark as unread':'Mark as read'}
+            <span
+              title={mail.isRead ? 'Mark as unread' : 'Mark as read'}
               className="material-symbols-outlined btn"
               onClick={(ev) => {
                 ev.preventDefault()
@@ -119,7 +142,8 @@ export function MailPreview({ mail, loadMails }) {
             >
               {isReadIconChange}
             </span>
-            <span title="Delete"
+            <span
+              title="Delete"
               className="material-symbols-outlined btn"
               onClick={(ev) => {
                 ev.preventDefault()
@@ -128,7 +152,6 @@ export function MailPreview({ mail, loadMails }) {
             >
               delete
             </span>
-        
           </section>
         )}
       </article>
