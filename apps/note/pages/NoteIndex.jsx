@@ -5,7 +5,7 @@ import { NoteList } from '../cmps/NoteList.jsx'
 
 const { useEffect, useState } = React
 
-const { Outlet, Link , useLocation } = ReactRouterDOM
+const { Outlet, useLocation } = ReactRouterDOM
 
 export function NoteIndex() {
     const [notes, setNotes] = useState(null)
