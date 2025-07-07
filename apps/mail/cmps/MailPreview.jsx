@@ -1,12 +1,18 @@
-
 import { showErrorMsg, showSuccessMsg } from '../../../services/event-bus.service.js'
 import { mailService } from '../services/mail.service.js'
 
-const { useState, useEffect, Fragment,useRef } = React
+const { useState, useEffect, Fragment, useRef } = React
 export function MailPreview({ mail, loadMails }) {
   const [isHover, setIsHover] = useState(false)
 
+ const [iconChanage,setIconChange] = useState(mail.isRead)
+
   const isRead = mail.isRead ? 'read' : 'unread'
+
+  const isReadIconChange = mail.isRead? 'mark_email_unread':'drafts'
+
+
+
 
   function handleMouseOver() {
     setIsHover((prevValue) => !prevValue)
@@ -43,38 +49,39 @@ export function MailPreview({ mail, loadMails }) {
     }
   }
 
+  function onSetReadUnreadMail(mail) {
+    if (mail.isRead) {
+      mail.isRead = false
+    }
+    else if (!mail.isRead){
+      mail.isRead = true
+    }
+    setIconChange(iconChanage=>!iconChanage)
+    mailService.save(mail).then(mail => console.log(mail.isRead)).then(setIconChange)
+  }
 
   const star = useRef()
-  
-  function onStarClick(isStared) {
-    
 
+  function onStarClick(isStared) {
     if (isStared) {
       mail.isStared = false
       mailService.save(mail)
-      star.current.src='assets/css/imgs/greyStar.svg'
+      star.current.src = 'assets/css/imgs/greyStar.svg'
       return
-    }
-    else if (!isStared) {
+    } else if (!isStared) {
       mail.isStared = true
       mailService.save(mail)
-      star.current.src='assets/css/imgs/yellowStar.svg'
+      star.current.src = 'assets/css/imgs/yellowStar.svg'
     }
-
-    
   }
 
   function isStaredMail(isStared) {
     if (isStared) {
       return 'assets/css/imgs/yellowStar.svg'
-    }
-    else {
+    } else {
       return 'assets/css/imgs/greyStar.svg'
     }
-    
   }
-
-
 
   if (!mail) return <div>Loading...</div>
 
@@ -86,13 +93,16 @@ export function MailPreview({ mail, loadMails }) {
         onMouseOut={handleMouseOut}
         key={mail.id}
       >
-        
-          <img ref={star} 
+        <img
+          ref={star}
           onClick={(ev) => {
             ev.preventDefault()
             onStarClick(mail.isStared)
-          }} className="star-icon" src={isStaredMail(mail.isStared)}></img>
-       
+          }}
+          className="star-icon"
+          src={isStaredMail(mail.isStared)}
+        ></img>
+
         <div>{mail.from}</div>
         <div>{isLimitTxtSize(mail.subject)}</div>
         <div>{mail.body}</div>
@@ -100,7 +110,17 @@ export function MailPreview({ mail, loadMails }) {
 
         {isHover && (
           <section className="popup-menu">
-            <span className='material-symbols-outlined btn'
+                <span title={mail.isRead ? 'Mark as unread':'Mark as read'}
+              className="material-symbols-outlined btn"
+              onClick={(ev) => {
+                ev.preventDefault()
+                onSetReadUnreadMail(mail)
+              }}
+            >
+              {isReadIconChange}
+            </span>
+            <span title="Delete"
+              className="material-symbols-outlined btn"
               onClick={(ev) => {
                 ev.preventDefault()
                 onDeleteMail(mail)
@@ -108,6 +128,7 @@ export function MailPreview({ mail, loadMails }) {
             >
               delete
             </span>
+        
           </section>
         )}
       </article>
