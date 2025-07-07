@@ -7,6 +7,7 @@
 }
 
 .compose {
+   
   position: absolute;
   bottom: 0;
   right: 0;
@@ -20,16 +21,24 @@
     'headline'
     'form';
   grid-template-rows: 40px 1fr;
-  padding-left:1rem;
-  padding-right: 1rem;
+box-shadow: -2px 0px 22px 3px rgba(212,212,212,0.49);
+-webkit-box-shadow: -2px 0px 22px 3px rgba(212,212,212,0.49);
+-moz-box-shadow: -2px 0px 22px 3px rgba(212,212,212,0.49);
 }
 
 .compose .headline {
+    
   grid-area: headline;
   display: grid;
   align-content: center;
+    background-color: var(--new-message-header);
 
  
+}
+
+.compose .headline h1 {
+         padding-left:0.5rem;
+  
 }
 
 .compose .close-btn {
@@ -48,22 +57,49 @@
     'send-btn';
   grid-template-rows: 80px 1fr 40px;
   height: 100%;
+
 }
 
 .compose-form .inputs {
   grid-area: inputs;
   display: grid;
   gap: 0.5rem;
+
 }
 
 .compose-form .inputs > * {
   padding: 8px;
   width: 100%;
   box-sizing: border-box;
+
+  border-bottom:1px solid;
+  border-bottom-color: var(--new-message-border-bottom);;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  
+ 
 }
+
+.new-mail-content textarea{
+    height: 100%;
+    width: 100%;
+    border: none;
+    
+}
+
+textarea,input:focus {
+    resize: none;
+  outline: none;
+  border: none; /* רק אם אתה לא רוצה שום קו בכלל */
+}
+
+
 
 .compose-form .new-mail-content {
   grid-area: new-mail-content;
+
+
 
 }
 
@@ -78,14 +114,16 @@
 .compose-form .send-btn {
   grid-area: send-btn;
   display: flex;
-  justify-content: flex-star;
+
   align-items: center;
 }
 
 .compose-form .send-btn {
   grid-area: send-btn;
   display: flex;
-  justify-content: flex-star;
+
+    padding-left: 0.5rem;
+    padding-bottom: 0.5rem;
   align-items: center;
  
 }

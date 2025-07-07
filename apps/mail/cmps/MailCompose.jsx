@@ -71,7 +71,7 @@ export function MailCompose() {
         </section>
 
         <section className="new-mail-content">
-          <input onInput={handleChange} value={newMail.body} type="text" name="body" />
+          <textarea onInput={handleChange} value={newMail.body} type="text" name="body" />
         </section>
 
         <section className="send-btn">
