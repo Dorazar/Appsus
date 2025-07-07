@@ -63,7 +63,7 @@ export function MailFilter({ onSetFilterBy, defaultFilter }) {
             <path fill="#c5221f" d="M52 51v8l20 15V48l-5.6-4.2c-5.94-4.45-14.4-.22-14.4 7.2" />
           </svg>
           {/* <img className="mail-logo" src="assets\css\imgs\Gmail_icon_(2020).svg" alt="" /> */}
-          <input onChange={handleChange} value={txt} type="text" name="txt" placeholder="Search mails" />
+          <input onChange={handleChange} value={txt} type="text" name="txt" placeholder="Search mail" />
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 88" ref={gKeepLogo} onMouseOver={()=>utilService.animateCSS(gKeepLogo.current)} onClick={() => navigate('/note')}>
             <path d="M 42,22 54.065,24.28 64,22 42,0 38.965,10.43 Z" fill="#f29900" />
             <path

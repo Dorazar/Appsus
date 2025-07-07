@@ -88,18 +88,17 @@ box-shadow: -2px 0px 22px 3px rgba(212,212,212,0.49);
     padding-left: 0.5rem;
 }
 
-textarea,input:focus {
+.compose-form textarea,
+.compose-form input:focus {
     resize: none;
   outline: none;
-  border: none; /* רק אם אתה לא רוצה שום קו בכלל */
+  border: none; 
 }
 
 
 
 .compose-form .new-mail-content {
   grid-area: new-mail-content;
-
-
 
 }
 
