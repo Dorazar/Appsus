@@ -7,7 +7,7 @@ const { useState, useEffect, Fragment } = React
 import { showErrorMsg, showSuccessMsg } from '../../../services/event-bus.service.js'
 import { MailFilter } from '../cmps/MailFilter.jsx'
 import { MailFolderList } from '../cmps/MailFolderList.jsx'
-import { SideNavigation } from '../cmps/sideNavigation.jsx'
+
 import { mailService } from '../services/mail.service.js'
 
 export function MailDetails() {
