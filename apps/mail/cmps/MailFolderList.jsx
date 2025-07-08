@@ -1,32 +1,53 @@
 
 const { useParams, useNavigate,useOutletContext } = ReactRouterDOM
-export function MailFolderList({ onSetFilterBy}) {
+export function MailFolderList({ onSetFilterBy,unreadMails}) {
 
   const navigate=useNavigate()
 
+  
 
    function onSelectFolderFilter(folderType) {
-    onSetFilterBy({ folder: folderType })
+    
+    onSetFilterBy({ folder: folderType})
+   
     navigate(`/mail/?folder=${folderType}`)
   }
 
   return (
     <section className="side-filter">
-      <span title="inbox" className="material-symbols-outlined icon-btn" onClick={() => onSelectFolderFilter('inbox')}>
+      <span className="filter-type-title" onClick={() => onSelectFolderFilter('inbox')}>
+        <span title="inbox" className="material-symbols-outlined icon-btn" >
         inbox
       </span>
-      <span  className="material-symbols-outlined icon-btn" onClick={() => onSelectFolderFilter('sent')}>
+        Inbox
+        <span>
+          {unreadMails === 0 ? '' : unreadMails}
+        </span>
+      </span>
+      <span className="filter-type-title" onClick={() => onSelectFolderFilter('sent')}>
+      <span  className="material-symbols-outlined icon-btn" >
         send
       </span>
-      <span title="trash"className="material-symbols-outlined icon-btn" onClick={() => onSelectFolderFilter('trash')}>
+      Sent
+      </span >
+      <span className="filter-type-title" onClick={() => onSelectFolderFilter('trash')}>
+      <span title="trash"className="material-symbols-outlined icon-btn" >
         delete
       </span>
-      <span className="material-symbols-outlined icon-btn" onClick={() => onSelectFolderFilter('draft')}>
+      Trash
+      </span>
+      <span className="filter-type-title" onClick={() => onSelectFolderFilter('draft')}>
+      <span className="material-symbols-outlined icon-btn">
         text_snippet
       </span>
-      <span className="material-symbols-outlined icon-btn" onClick={() => onSelectFolderFilter('stared')}>
+      Draft
+      </span>
+      <span className="filter-type-title" onClick={() => onSelectFolderFilter('stared')}>
+      <span className="material-symbols-outlined icon-btn">
         star
       </span>
+      Starred 
+       </span>
     </section>
   )
 }

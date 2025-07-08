@@ -14,6 +14,7 @@ export const mailService = {
   _setNextPrevMailId,
   isMailInStorage,
   getFilterFromSearchParams,
+  
 }
 
 window.mailService = mailService
