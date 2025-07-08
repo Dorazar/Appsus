@@ -27,13 +27,38 @@ cursor: pointer;
 color: grey;
 }
 
+.mail-details {
+    display: grid;
+    grid-template-areas: 
+    'subject subject'
+    'from createdAt '
+    'to .'
+    'mail-body mail-body'
+    ;
+    
+}
 
 
 .mail-details .subject{
+    grid-area: subject;
     font-size: 2rem;
 }
 
 .mail-details .from{
+    grid-area: from;
    font-weight: bold;
     
+}
+
+.mail-details .to {
+    grid-area: to;
+}
+
+.mail-details .createdAt {
+    grid-area: createdAt;
+    justify-self: end;
+}
+
+.mail-details .mail-body{
+    grid-area: mail-body;
 }
