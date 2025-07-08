@@ -18,17 +18,18 @@ export function MailIndex() {
 
 
   useEffect(() => {
-    loadMails()
-    loadUnreadMails()
+   
+
+ loadMails()
     // console.log('Index:', params.mailId)
     setSearchParams(filterBy)
     
   }, [filterBy])
 
 useEffect(()=>{
-  loadUnreadMails()
-  console.log('done')
-},[unreadMails])
+  if (mails) loadUnreadMails()
+  // console.log('done')
+},[mails])
 
   function onSetFilterBy(filterBy) {
     setFilterBy((prevFilter) => ({ ...prevFilter, ...filterBy }))
@@ -46,8 +47,8 @@ useEffect(()=>{
 
 function loadUnreadMails() {
   if (!mails) return
-
-  const filterdMails = mails.filter(mail => 
+if (searchParams.get('folder')==='inbox') {
+    const filterdMails = mails.filter(mail => 
     mail.to==='user@appsus.com' &&
      mail.isRead===false &&
 
@@ -55,7 +56,9 @@ function loadUnreadMails() {
 const mailNum = filterdMails.length
 
 setUnreadMails(mailNum)
- console.log(mailNum)      
+//  console.log(mailNum)   
+}
+   
 }
 
   const [newMailWindow, setNewMailWindow] = useState(false)
@@ -65,7 +68,7 @@ setUnreadMails(mailNum)
   }
 
 
-  console.log(unreadMails)
+  // console.log(unreadMails)
 
   if (!mails) return <div>Loading...</div>
 

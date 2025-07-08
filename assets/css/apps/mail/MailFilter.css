@@ -69,7 +69,7 @@
 
 .side-filter > * {
     
-    color: rgb(138, 138, 138);
+    color:var(--icons-color);
     cursor: pointer;
    
     
@@ -79,6 +79,10 @@
 
 .side-filter :hover {
     background-color: #D6E3FA;
+}
+
+.side-filter:focus{
+     background-color: #D6E3FA;
 }
 
 .icon-btn {

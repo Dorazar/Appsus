@@ -137,6 +137,7 @@ function isSameYear(timestamp) {
               className="material-symbols-outlined btn"
               onClick={(ev) => {
                 ev.preventDefault()
+            
                 onSetReadUnreadMail(mail)
               }}
             >

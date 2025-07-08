@@ -2,8 +2,8 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  background-color: lightgrey;
-  color: black;
+  background-color: rgba(255, 255, 255, 0.911);
+  color: var(--icons-color);
   padding: 10px 10px;
   font-weight: bold;
   cursor: pointer;
@@ -12,8 +12,18 @@
   height: 50px;
   margin-right: 10px;
   margin-top: 16px;
+-webkit-box-shadow: 0px 0px 10px -3px #000000; 
+box-shadow: 0px 0px 10px -3px #000000;
 }
 
+.new-mail-btn:hover{
+  background-color: var(--button-hover-color);
+  font-weight: bold;
+}
+
+.new-mail-btn:focus{
+background-color: var(--button-hover-color);
+}
 .compose-icon {
   font-family: 'Material Symbols Outlined';
   font-size: 16px;
