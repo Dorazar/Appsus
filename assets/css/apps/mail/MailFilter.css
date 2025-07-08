@@ -45,13 +45,29 @@
     border-radius: 10px;
     border-color: lightgrey;
     width: 120px;
-    
+    color:var(--icons-color)
   
+}
+
+.sorting-section > *:focus:not(select) {
+    
+  background-color: #D6E3FA;
+  font-weight: bold;
+}
+
+.sorting-section > *:focus{
+     font-weight: bold;
 }
 
 
 .sorting-section > *:hover:not(select)  {
  background-color: #D6E3FA;
+}
+
+
+select[name="read"] {
+  text-align: center;
+  text-align-last: center; /* ממרכז את הבחירה עצמה */
 }
 
 
