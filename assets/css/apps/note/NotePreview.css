@@ -5,3 +5,28 @@
 .note-txt{
     order: 2;
 }
+
+.note-todo{
+    /* list-style-type: none; */
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+/* .note-todo  li{
+position: relative;
+padding-left: 20px;
+}
+
+.note-todo li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px; 
+  height: 10px;
+  border: 2px solid rgb(87, 85, 85);
+  border-radius: 2px; 
+  background: transparent; 
+  cursor: pointer;
+} */
