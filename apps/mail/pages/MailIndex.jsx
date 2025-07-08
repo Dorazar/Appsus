@@ -47,7 +47,7 @@ useEffect(()=>{
 
 function loadUnreadMails() {
   if (!mails) return
-if (searchParams.get('folder')==='inbox') {
+if (searchParams.get('folder')==='inbox' || !searchParams.get('folder')) {
     const filterdMails = mails.filter(mail => 
     mail.to==='user@appsus.com' &&
      mail.isRead===false &&
