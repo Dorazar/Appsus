@@ -2,7 +2,7 @@ import { NoteDynamicCmp } from '../cmps/NoteDynamicCmp.jsx'
 
 const { useState } = React
 
-export function NotePreview({ note }) {
+export function NotePreview({ note, onSetColor }) {
 
     const [cmpType, setCmpType] = useState(note.type)
 
@@ -23,6 +23,7 @@ export function NotePreview({ note }) {
         </div>
     )
 }
+
 
 
 

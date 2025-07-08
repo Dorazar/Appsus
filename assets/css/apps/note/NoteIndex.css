@@ -1,12 +1,18 @@
- /* note index */
 .layout-container {
   display: grid;
-  grid-template-columns: 95% 5%;
-  height: 100vh; 
+  grid-template-columns: 5% 95%; 
+  height: 100vh;
 }
 
 .nav-area {
-  background-color: #ddd; /* placeholder color */
+  background-color: #ddd; 
   padding: 20px;
   overflow-y: auto;
+  position: sticky; 
+  top: 0;
+}
+
+.notes-container {
+  padding: 20px;
+  overflow-y: auto; 
 }

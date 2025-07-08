@@ -80,7 +80,7 @@ function _createNotes() {
         type: 'NoteImg',
         isPinned: false,
         info: {
-          url: `https://picsum.photos/200/300`,
+          url: `https://picsum.photos/200`,
           title: 'Bobi and Me',
           txt: 'I love Bobi'
         },
