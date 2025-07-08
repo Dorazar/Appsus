@@ -62,6 +62,7 @@ export function MailCompose() {
         <span className="close-btn material-symbols-outlined" type="button" onClick={onDraft}>
           close_small
         </span>
+       
       </section>
 
       <form className='compose-form' onSubmit={onNewMailSend}>

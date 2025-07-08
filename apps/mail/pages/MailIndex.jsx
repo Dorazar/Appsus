@@ -74,9 +74,13 @@ setUnreadMails(mailNum)
       <MailFilter onSetFilterBy={onSetFilterBy} defaultFilter={filterBy} />
       {!params.mailId && < MailList mails={mails} loadMails={loadMails} loadUnreadMails={loadUnreadMails} />}
       <Link className="new-mail-btn" to="/mail/newMail">
-        <span onClick={onOpenMailWindow} className="material-symbols-outlined">
+ 
+         <span onClick={onOpenMailWindow} className="material-symbols-outlined compose-icon">
           edit
+           <span className='compose-text'>Compose</span>
         </span>
+     
+       
       </Link>
       {newMailWindow && <Outlet context={{ loadMails, onOpenMailWindow }} />}
 
