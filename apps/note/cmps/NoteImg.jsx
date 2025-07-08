@@ -37,7 +37,7 @@ export function NoteImg({noteToEdit, setNoteToEdit, title, txt, url }) {
     }
 
     if (!noteToEdit) {
-        console.log(url);
+        // console.log(url)
         
         return (
             <section className="img-type">

@@ -4,7 +4,7 @@ import { NoteTodos } from './NoteTodos.jsx'
 
 export function NoteDynamicCmp({ cmpType, noteToEdit, setNoteToEdit, ...props }) {
 
-    console.log({ cmpType, ...props });
+    // console.log({ cmpType, ...props })
 
     const noteDynamicCmpMap = {
         NoteTxt: <NoteTxt {...props} noteToEdit={noteToEdit} setNoteToEdit={setNoteToEdit} />,

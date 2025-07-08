@@ -30,11 +30,11 @@ export function NoteList({ notes, onRemoveNote }) {
                                 </span>
                             </button>
 
-                            <button>
-                                <span class="material-symbols-outlined">
+                            {/* <button>
+                                <span className="material-symbols-outlined">
                                     palette
                                 </span>
-                            </button>
+                            </button> */}
                         </section>
                     </li>
                 ))}
