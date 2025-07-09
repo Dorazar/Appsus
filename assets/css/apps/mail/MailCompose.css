@@ -59,9 +59,9 @@ span.material-symbols-outlined.compose-icon{
     'headline'
     'form';
   grid-template-rows: 40px 1fr;
-box-shadow: -2px 0px 22px 3px rgba(212,212,212,0.49);
--webkit-box-shadow: -2px 0px 22px 3px rgba(212,212,212,0.49);
--moz-box-shadow: -2px 0px 22px 3px rgba(212,212,212,0.49);
+  border-radius: 16px;
+-webkit-box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.5); 
+box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.5);
 }
 
 .compose .headline {
@@ -70,8 +70,8 @@ box-shadow: -2px 0px 22px 3px rgba(212,212,212,0.49);
   display: grid;
   align-content: center;
     background-color: var(--new-message-header);
-
- 
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
 }
 
 .compose .headline h1 {
