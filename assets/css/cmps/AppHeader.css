@@ -1,8 +1,16 @@
-.app-header {
+/* .app-header {
     display: flex;
     justify-content: space-between;
     padding: 1em;
-    background: var(--bg1);
+    background: white;
+} */
+
+
+.app-header{
+    grid-area:app-header;
+   display: flex;
+   
+   align-items: center;
 }
 
 nav a {

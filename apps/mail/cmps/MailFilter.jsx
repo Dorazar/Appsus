@@ -9,8 +9,8 @@ export function MailFilter({ onSetFilterBy, defaultFilter }) {
   const { txt } = editFilterBy
 
   const navigate = useNavigate()
-  const gMailLogo = useRef()
-  const gKeepLogo = useRef()
+  // const gMailLogo = useRef()
+  // const gKeepLogo = useRef()
 
   useEffect(() => {
     //  console.log(defaultFilter)
@@ -49,7 +49,7 @@ export function MailFilter({ onSetFilterBy, defaultFilter }) {
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="52 42 88 66"
-             ref={gMailLogo}
+          
              onMouseOver={()=>utilService.animateCSS(gMailLogo.current)}
             onClick={() => {
               navigate('/mail')
@@ -62,22 +62,14 @@ export function MailFilter({ onSetFilterBy, defaultFilter }) {
             <path fill="#ea4335" d="M72 74V48l24 18 24-18v26L96 92" />
             <path fill="#c5221f" d="M52 51v8l20 15V48l-5.6-4.2c-5.94-4.45-14.4-.22-14.4 7.2" />
           </svg>
-          {/* <img className="mail-logo" src="assets\css\imgs\Gmail_icon_(2020).svg" alt="" /> */}
+       
           <input onChange={handleChange} value={txt} type="text" name="txt" placeholder="Search mail" />
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 88" ref={gKeepLogo} onMouseOver={()=>utilService.animateCSS(gKeepLogo.current)} onClick={() => navigate('/note')}>
-            <path d="M 42,22 54.065,24.28 64,22 42,0 38.965,10.43 Z" fill="#f29900" />
-            <path
-              d="M 42,22 V 0 H 6 C 2.685,0 0,2.685 0,6 v 76 c 0,3.315 2.685,6 6,6 h 52 c 3.315,0 6,-2.685 6,-6 V 22 Z"
-              fill="#fbbc04"
-            />
-            <path
-              d="M 39,64 H 25 V 59 H 39 Z M 38.92501,54 H 25.075 C 21.425,51.7 19,47.635 19,43 c 0,-7.18 5.82,-13 13,-13 7.18,0 13,5.82 13,13 0,4.635 -2.425,8.7 -6.075,11 z"
-              fill="#fff"
-            />
-          </svg>
+          
         </section>
 
-        <section className="sorting-section">
+       
+      </section>
+       <section className="sorting-section">
           <select name="read" onChange={handleChange}>
             <option value="">All mails</option>
             <option value="1">Read</option>
@@ -94,7 +86,6 @@ export function MailFilter({ onSetFilterBy, defaultFilter }) {
             Sort by subject
           </button>
         </section>
-      </section>
     </Fragment>
   )
 }

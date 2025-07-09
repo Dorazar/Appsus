@@ -2,7 +2,7 @@
 .upper-filter{
     grid-area: upper-filter;
     display: grid;
-   height: 80px;
+
     margin-top: 1rem;
     margin-bottom: 1rem;
     gap: 5px;
@@ -22,7 +22,7 @@
 
 
 .logo-and-search input {
-    height: 100%;
+    height: 80%;
     width: 100%;
     border-radius: 10px;
     border-width: thin;
@@ -33,6 +33,7 @@
 
 
 .sorting-section {
+    grid-area: sorting-section;
     display: flex;
    gap: 5px;
     

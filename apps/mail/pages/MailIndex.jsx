@@ -3,6 +3,7 @@ import { MailList } from '../cmps/MailList.jsx'
 import { MailFilter } from '../cmps/MailFilter.jsx'
 import { MailFolderList } from '../cmps/MailFolderList.jsx'
 import { MailDetails } from './MailDetails.jsx'
+import { AppHeader } from '../../../cmps/AppHeader.jsx'
 
 const { useRef, useEffect, useState, Fragment } = React
 
@@ -74,7 +75,9 @@ setUnreadMails(mailNum)
 
   return (
     <section className="main-container">
+      
       <MailFilter onSetFilterBy={onSetFilterBy} defaultFilter={filterBy} />
+      <AppHeader/>
       {!params.mailId && < MailList mails={mails} loadMails={loadMails} loadUnreadMails={loadUnreadMails} />}
       <Link className="new-mail-btn" to="/mail/newMail">
  

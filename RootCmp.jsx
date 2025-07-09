@@ -15,7 +15,7 @@ import { MailCompose } from './apps/mail/cmps/MailCompose.jsx'
 export function RootCmp() {
     return <Router>
         <section className="root-cmp">
-            <AppHeader />
+           
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
