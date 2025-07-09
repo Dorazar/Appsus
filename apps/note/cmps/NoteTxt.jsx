@@ -68,5 +68,5 @@ export function NoteTxt({ noteToEdit, setNoteToEdit, title, txt }) {
                 </div>
             </form>
         </Fragment>
-    );
+    )
 }

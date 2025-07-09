@@ -1,13 +1,14 @@
 import { NotePreview } from "./NotePreview.jsx"
 
 const { useNavigate } = ReactRouterDOM
+const { Fragment } = React
 
 export function NoteList({ notes, onRemoveNote }) {
 
     const navigate = useNavigate()
 
     return (
-        <div>
+        <Fragment>
             <ul className="note-list">
                 {notes.map((note) => (
                     <li className="note-item"
@@ -15,24 +16,30 @@ export function NoteList({ notes, onRemoveNote }) {
                         // style={note.style}
                         onClick={() =>
                             navigate(`/note/edit/${note.id}`)
-                            // openModal(note)
                         }
                     >
                         <NotePreview note={note} />
-                        <section>
+                        <section className="note-list-btns">
                             <button onClick={(ev) => {
                                 ev.stopPropagation()
                                 onRemoveNote(note.id)
                             }}
                             >
-                                <i className="fa-solid fa-trash"></i>
+                                <span className="material-symbols-outlined">
+                                    delete
+                                </span>
                             </button>
+
+                            {/* <button>
+                                <span className="material-symbols-outlined">
+                                    palette
+                                </span>
+                            </button> */}
                         </section>
                     </li>
                 ))}
             </ul>
-          
-        </div>
+        </Fragment>
     )
 }
 

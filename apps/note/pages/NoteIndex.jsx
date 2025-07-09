@@ -37,13 +37,14 @@ export function NoteIndex() {
 
     return (
         <div className="layout-container">
-            <section className="notes-container">
-                <NoteList onRemoveNote={onRemoveNote} notes={notes} />
-            </section>
+
             <aside className="nav-area">
                 {/* Placeholder for nav area */}
             </aside>
-            <Outlet />
+            <section className="notes-container">
+                <NoteList onRemoveNote={onRemoveNote} notes={notes} />
+                <Outlet />
+            </section>
         </div>
     )
 

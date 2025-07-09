@@ -1,19 +1,62 @@
  /* note list */
 
- .note-list {
+.note-list {
+  column-count: 4; 
+  column-gap: 16px;
   padding: 20px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 16px; 
-  overflow-y: auto; 
+  overflow-y: auto;
+  list-style-type: none
 }
 
 .note-item {
+display: grid;
+grid-template-rows: 2;
+
+  break-inside: avoid;
   background: white;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px; 
+  width: 100%; 
+  margin-bottom: 16px; 
   min-height: 100px;
+  height: auto;
+}
+
+/* .note-item:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.2s
+} */
+
+.note-list-btns {
+  opacity: 0; 
+  display: flex; 
+  gap: 8px; 
+  transition: opacity 0.2s ease;
+}
+
+.note-item:hover .note-list-btns {
+  opacity: 1; 
+}
+
+.note-list-btns button {
+  background: transparent; 
+  border: none; 
+  cursor: pointer;
+  padding: 8px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%; 
+  transition: background-color 0.2s, color 0.2s, opacity 0.2s; 
+}
+
+.note-list-btns button:hover {
+  background-color: rgba(32, 33, 36, 0.1); 
+  color: rgb(32, 33, 36); 
+  opacity: 0.71; 
+}
+
+.note-list-btns button span.material-symbols-outlined {
+  font-size: 20px; 
 }

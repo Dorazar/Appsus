@@ -1,15 +1,25 @@
-.note-title{
+.note-preview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* .note-title{
     order: 1;
 }
 
 .note-txt{
     order: 2;
-}
-
-.note-todo{
-    /* list-style-type: none; */
-    padding-left: 10px;
-    padding-top: 10px;
+} */
+ 
+.note-preview>* {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    height: auto;
 }
 
 /* .note-todo  li{
