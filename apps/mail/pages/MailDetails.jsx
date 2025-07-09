@@ -55,13 +55,15 @@ export function MailDetails() {
     <Fragment>
       <section className="details-container mail-list">
         <section className="nav-mail">
+           <span title={'Delete'} className="material-symbols-outlined icon-btn " onClick={() => onDeleteMail()}>
+            delete
+          </span>
           <span title={'Back'} className="material-symbols-outlined icon-btn" onClick={() => navigate('/mail')}>
             reply
           </span>
-          <span title={'Delete'} className="material-symbols-outlined icon-btn " onClick={() => onDeleteMail()}>
-            delete
-          </span>
-          <span title={'Save as a note'} className="material-symbols-outlined icon-btn"  onClick={()=>onSaveAsANote(mail)}>add_to_home_screen</span>
+           <span title={'Save as a note'} className="material-symbols-outlined icon-btn"  onClick={()=>onSaveAsANote(mail)}>add_to_home_screen</span>
+         
+         
         </section>
 
 
