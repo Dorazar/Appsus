@@ -2,6 +2,7 @@ import { utilService } from '../../../services/util.service.js'
 import { storageService } from '../../../services/async-storage.service.js'
 
 const MAIL_KEY = 'mailDB'
+const NOTE_KEY='noteDB'
 _createMails()
 
 export const mailService = {
@@ -14,7 +15,8 @@ export const mailService = {
   _setNextPrevMailId,
   isMailInStorage,
   getFilterFromSearchParams,
-  
+  getEmptyNote,
+  saveNote
 }
 
 window.mailService = mailService
@@ -105,6 +107,17 @@ function getEmptyMail() {
         sentAt:null,
         from: 'user@appsus.com',
         isStared:false,
+  }
+}
+
+function getEmptyNote() {
+  return {
+    createdAt:new Date().getTime(),
+    info:{from:'',subject:'',body:''},
+    isPinned:false,
+    style:{backgroundColor:"#a4a4e5"},
+    type:'NoteMail'
+
   }
 }
 
@@ -371,6 +384,7 @@ function _createMail(subject) {
   return mail
 }
 
+
 // function saveReview(mailId, review) {
 //   return get(mailId).then((mail) => {
 //     review.id = utilService.makeId()
@@ -415,3 +429,11 @@ function getFilterFromSearchParams(searchParams) {
 }
 
 const loggedinUser = { email: 'user@appsus.com', fullname: 'Mahatma Appsus' }
+
+function saveNote(note) {
+  if (note.id) {
+    return storageService.put(NOTE_KEY, note)
+  } else {
+    return storageService.post(NOTE_KEY, note)
+  }
+}

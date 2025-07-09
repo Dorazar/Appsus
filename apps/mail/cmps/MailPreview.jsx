@@ -95,6 +95,21 @@ function isSameYear(timestamp) {
   return date.getFullYear() === today.getFullYear()
 }
 
+
+  function onSaveAsANote(mail) {
+    const note = mailService.getEmptyNote()
+    note.info.from=mail.from
+    note.info.subject=mail.subject
+    note.info.body=mail.body
+    mailService.saveNote(note).then(()=>showSuccessMsg('Mail saved as a note'))
+    .catch(()=>showErrorMsg('Mail not saved as a note'))
+
+  }
+
+
+
+
+
   if (!mail) return <div>Loading...</div>
 
   return (
@@ -132,7 +147,18 @@ function isSameYear(timestamp) {
 
         {isHover && (
           <section className="popup-menu">
-            <span
+  
+              <span
+              title="Save as a note"
+              className="material-symbols-outlined btn"
+              onClick={(ev) => {
+                ev.preventDefault()
+                onSaveAsANote(mail)
+              }}
+            >
+              add_to_home_screen
+            </span>
+                      <span
               title={mail.isRead ? 'Mark as unread' : 'Mark as read'}
               className="material-symbols-outlined btn"
               onClick={(ev) => {
@@ -153,6 +179,7 @@ function isSameYear(timestamp) {
             >
               delete
             </span>
+           
           </section>
         )}
       </article>
