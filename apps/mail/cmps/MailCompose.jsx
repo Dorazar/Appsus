@@ -57,6 +57,7 @@ export function MailCompose() {
 
   return (
     <section className="compose">
+       
       <section className="headline">
         <h1>New Message</h1>
         <span className="close-btn material-symbols-outlined" type="button" onClick={onDraft}>
@@ -79,6 +80,7 @@ export function MailCompose() {
           <button>Send</button>
         </section>
       </form>
+     
     </section>
   )
 }

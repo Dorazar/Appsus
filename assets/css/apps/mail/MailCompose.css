@@ -1,29 +1,38 @@
 .new-mail-btn {
+  grid-area:new-mail-btn;
   display: flex;
   align-items: center;
   gap: 8px;
   background-color: rgba(255, 255, 255, 0.911);
-  color: var(--icons-color);
-  padding: 10px 10px;
+ 
+  background-color: #c2e7ff;
   font-weight: bold;
   cursor: pointer;
   border-radius: 16px;
   text-decoration: none;
-  height: 50px;
-  margin-right: 10px;
-  margin-top: 16px;
--webkit-box-shadow: 0px 0px 10px -3px #000000; 
-box-shadow: 0px 0px 10px -3px #000000;
+  height: 40px;
+  width: 142px;
+
+margin-left: 8px;
 }
 
 .new-mail-btn:hover{
-  background-color: var(--button-hover-color);
-  font-weight: bold;
+  
+  -webkit-box-shadow: 0px 0px 10px -3px #000000; 
+box-shadow: 0px 0px 10px -3px #000000;
+
 }
 
 .new-mail-btn:focus{
 background-color: var(--button-hover-color);
 }
+
+.new-mail-btn a {
+      text-decoration: none;
+    /* color: inherit; */
+    width: 100%;
+}
+
 .compose-icon {
   font-family: 'Material Symbols Outlined';
   font-size: 16px;

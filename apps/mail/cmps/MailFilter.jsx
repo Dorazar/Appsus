@@ -46,7 +46,7 @@ export function MailFilter({ onSetFilterBy, defaultFilter }) {
     <Fragment>
       <section className="upper-filter">
         <section className="logo-and-search">
-          <svg
+          {/* <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="52 42 88 66"
           
@@ -62,7 +62,7 @@ export function MailFilter({ onSetFilterBy, defaultFilter }) {
             <path fill="#ea4335" d="M72 74V48l24 18 24-18v26L96 92" />
             <path fill="#c5221f" d="M52 51v8l20 15V48l-5.6-4.2c-5.94-4.45-14.4-.22-14.4 7.2" />
           </svg>
-       
+        */}
           <input onChange={handleChange} value={txt} type="text" name="txt" placeholder="Search mail" />
           
         </section>
@@ -86,6 +86,7 @@ export function MailFilter({ onSetFilterBy, defaultFilter }) {
             Sort by subject
           </button>
         </section>
+        <img className='mailLogo' src="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_default_1x_r5.png" alt="" />
     </Fragment>
   )
 }

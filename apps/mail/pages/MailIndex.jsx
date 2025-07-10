@@ -79,7 +79,8 @@ setUnreadMails(mailNum)
       <MailFilter onSetFilterBy={onSetFilterBy} defaultFilter={filterBy} />
       <AppHeader/>
       {!params.mailId && < MailList mails={mails} loadMails={loadMails} loadUnreadMails={loadUnreadMails} />}
-      <Link className="new-mail-btn" to="/mail/newMail">
+     <div className="new-mail-btn">
+      <Link  to="/mail/newMail">
  
          <span onClick={onOpenMailWindow} className="material-symbols-outlined compose-icon">
           edit
@@ -88,11 +89,12 @@ setUnreadMails(mailNum)
      
        
       </Link>
+      </div> 
       {newMailWindow && <Outlet context={{ loadMails, onOpenMailWindow }} />}
 
       <MailFolderList onSetFilterBy={onSetFilterBy}  unreadMails={unreadMails}/>
 
-      <Link to="/mail/:mailId"></Link>
+      
       {params.mailId && <Outlet  />}
     </section>
   )

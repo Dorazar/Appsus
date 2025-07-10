@@ -1,10 +1,11 @@
 
 const { useParams, useNavigate,useOutletContext } = ReactRouterDOM
+const { useRef, useEffect, useState, Fragment } = React
 export function MailFolderList({ onSetFilterBy,unreadMails}) {
 
   const navigate=useNavigate()
 
-  
+
 
    function onSelectFolderFilter(folderType) {
     
@@ -25,7 +26,7 @@ export function MailFolderList({ onSetFilterBy,unreadMails}) {
           {unreadMails === 0 ? '' : unreadMails}
         </span>
       </button>
-         <button className="filter-type-title" onClick={() => onSelectFolderFilter('stared')}>
+         <button className="filter-type-title"  onClick={() => onSelectFolderFilter('stared')}>
       <span className="material-symbols-outlined icon-btn">
         star
       </span>
