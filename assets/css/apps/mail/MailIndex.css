@@ -3,7 +3,7 @@
        height: max-content;
     display: grid;
     grid-template-rows: 100px 30px 1fr;
-    grid-template-columns: 150px 1fr;
+    grid-template-columns: 240px 1fr;
     grid-template-areas: 
     'new-mail-btn upper-filter app-header'
     '. sorting-section .'

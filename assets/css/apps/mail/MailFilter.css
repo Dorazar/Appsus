@@ -74,7 +74,7 @@ box-shadow: 0px 0px 10px -3px #000000;
 
 select[name="read"] {
   text-align: center;
-  text-align-last: center; /* ממרכז את הבחירה עצמה */
+  text-align-last: center; 
 }
 
 
@@ -82,62 +82,60 @@ select[name="read"] {
     grid-area: side-filter;
     display: flex;
     flex-direction: column;
-   /* justify-items: center; */
-    gap: 10px;
-    /* align-items: center; */
-   
-   
- 
 }
 
 
-.side-filter > * {
-    
-    color:var(--icons-color);
- 
-}
+
 
 
 
 
 .side-filter :hover {
     background-color: #D6E3FA;
+    
 }
 
 
 
 
 .icon-btn {
-    padding: 0.5rem;
-    border-radius: 10px;
+    padding: 0;
+    /* border-radius: 10px; */
 }
 
 
 
 .filter-type-title {
-     color:var(--icons-color);
+    font-size: 14px;
+    height: 24px;
+     color:#001D35;
     display: flex;
+    gap: 15px;
     align-items: center;
     width: 100%; 
     border: none;
-    border-radius: 16px;
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
     background-color: white;
+    line-height: 20px;
+    padding-left: 26px;
 }
 
 .filter-type-title:focus {
-     color:var(--icons-color);
+     color:#001D35;
     display: flex;
     align-items: center;
     width: 100%;
-    border-radius: 16px;
+
     font-weight: bold;
-    background-color: #D6E3FA;
-    
+    background-color: #d3e3fd;
+   
 }
 
 
 .filter-type-title:first-child > :last-child {
   margin-left: auto;
-  margin-right: 20px;
-  font-weight: bold;
+
+
+
 }

@@ -19,7 +19,8 @@ export function MailFolderList({ onSetFilterBy,unreadMails}) {
         <span title="inbox" className="material-symbols-outlined icon-btn" >
         inbox
       </span>
-        Inbox
+      <span> Inbox</span>
+       
         <span>
           {unreadMails === 0 ? '' : unreadMails}
         </span>
@@ -28,25 +29,25 @@ export function MailFolderList({ onSetFilterBy,unreadMails}) {
       <span className="material-symbols-outlined icon-btn">
         star
       </span>
-      Starred 
+      <span>Starred </span>
        </button>
       <button className="filter-type-title" onClick={() => onSelectFolderFilter('sent')}>
       <span  className="material-symbols-outlined icon-btn" >
         send
       </span>
-      Sent
+      <span>Sent</span>
       </button >
         <button className="filter-type-title" onClick={() => onSelectFolderFilter('draft')}>
       <span className="material-symbols-outlined icon-btn">
         text_snippet
       </span>
-      Draft
+      <span>Draft</span>
       </button>
       <button className="filter-type-title" onClick={() => onSelectFolderFilter('trash')}>
       <span title="trash"className="material-symbols-outlined icon-btn" >
         delete
       </span>
-      Trash
+      <span>Trash</span>
       </button>
     
    
