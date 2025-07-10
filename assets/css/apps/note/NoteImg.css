@@ -1,0 +1,25 @@
+.imgs-container {
+    width: fit-content;
+    /* limit container width */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.imgs-container img {
+    max-height: 150px;
+    /* optional: limit height for consistency */
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.image-wrapper {
+    position: relative;
+
+}
+
+.note-btn{
+    opacity: 1;
+}

@@ -19,7 +19,7 @@ export function NoteList({ notes, onRemoveNote }) {
                         }
                     >
                         <NotePreview note={note} />
-                        <section className="note-list-btns">
+                        <section className="note-btn">
                             <button onClick={(ev) => {
                                 ev.stopPropagation()
                                 onRemoveNote(note.id)
