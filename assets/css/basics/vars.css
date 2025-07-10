@@ -11,6 +11,9 @@
     --gray2: #888;
     --gray2: #333;
 
-    --new-message-header:#F2F2F2;
+    --new-message-header:rgba(211, 211, 211, 0.5);;
     --new-message-border-bottom:#d0d1d2;
+
+    --button-hover-color:#D6E3FA;
+    --icons-color:rgb(138, 138, 138);
 }

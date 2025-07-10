@@ -2,7 +2,7 @@ import { MailPreview } from './MailPreview.jsx'
 const { useState, useEffect, Fragment } = React
 const { Link } = ReactRouterDOM
 
-export function MailList({ mails ,loadMails}) {
+export function MailList({ mails ,loadMails,loadUnreadMails}) {
   
   return (
     
@@ -10,7 +10,7 @@ export function MailList({ mails ,loadMails}) {
         {mails.map((mail) => (
           <li key={mail.id}>
             <Link to={`/mail/${mail.id}`}>
-              <MailPreview mail={mail} loadMails={loadMails} />
+              <MailPreview mail={mail} loadMails={loadMails} loadUnreadMails={loadUnreadMails} />
             </Link>
           </li>
         ))}

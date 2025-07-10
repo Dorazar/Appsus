@@ -2,6 +2,7 @@ const { useParams, useNavigate, useOutletContext } = ReactRouterDOM
 
 const { useState, useEffect, Fragment } = React
 
+import { storageService } from '../../../services/async-storage.service.js'
 import { showErrorMsg, showSuccessMsg } from '../../../services/event-bus.service.js'
 import { MailFilter } from '../cmps/MailFilter.jsx'
 import { MailFolderList } from '../cmps/MailFolderList.jsx'
@@ -12,6 +13,7 @@ export function MailDetails() {
   const params = useParams()
   const navigate = useNavigate()
   const [mail, setMail] = useState()
+  
 
   useEffect(() => {
     loadMail()
@@ -38,18 +40,34 @@ export function MailDetails() {
     }
   }
 
+  function onSaveAsANote(mail) {
+    const note = mailService.getEmptyNote()
+    note.info.from=mail.from
+    note.info.subject=mail.subject
+    note.info.body=mail.body
+    mailService.saveNote(note).then(()=>showSuccessMsg('Mail saved as a note'))
+    .catch(()=>showErrorMsg('Mail not saved as a note'))
+
+  }
+
   if (!mail) return <div>Loading...</div>
   return (
     <Fragment>
       <section className="details-container mail-list">
         <section className="nav-mail">
-          <span className="material-symbols-outlined icon-btn" onClick={() => navigate('/mail')}>
-            reply
-          </span>
-          <span className="material-symbols-outlined icon-btn " onClick={() => onDeleteMail()}>
+           <span title={'Delete'} className="material-symbols-outlined icon-btn " onClick={() => onDeleteMail()}>
             delete
           </span>
+          <span title={'Back'} className="material-symbols-outlined icon-btn" onClick={() => navigate('/mail')}>
+            reply
+          </span>
+           <span title={'Save as a note'} className="material-symbols-outlined icon-btn"  onClick={()=>onSaveAsANote(mail)}>add_to_home_screen</span>
+         
+         
         </section>
+
+
+
 
         <section className="mail-details">
           <div className="subject">{mail.subject}</div>

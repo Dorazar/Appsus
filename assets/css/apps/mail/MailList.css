@@ -24,6 +24,7 @@
   justify-content: space-around;
   align-content: center;
   padding: 0.2rem;
+  border-bottom: 1px solid lightgray;
  
     
 }
@@ -38,6 +39,7 @@
 
 .mail-item > * {
   align-self: center;
+  
 }
 
 .mail-item > *:last-child {

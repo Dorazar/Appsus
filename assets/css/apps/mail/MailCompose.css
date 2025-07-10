@@ -1,17 +1,55 @@
-.new-mail-btn{
-   grid-area: new-mail-btn;
-   align-self: center;
-   justify-self: center;
-   height: min-content;
-   
+.new-mail-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: rgba(255, 255, 255, 0.911);
+  color: var(--icons-color);
+  padding: 10px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 16px;
+  text-decoration: none;
+  height: 50px;
+  margin-right: 10px;
+  margin-top: 16px;
+-webkit-box-shadow: 0px 0px 10px -3px #000000; 
+box-shadow: 0px 0px 10px -3px #000000;
 }
+
+.new-mail-btn:hover{
+  background-color: var(--button-hover-color);
+  font-weight: bold;
+}
+
+.new-mail-btn:focus{
+background-color: var(--button-hover-color);
+}
+.compose-icon {
+  font-family: 'Material Symbols Outlined';
+  font-size: 16px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.compose-text {
+  font-size: 16px;
+  line-height: 1;
+}
+
+span.material-symbols-outlined.compose-icon{
+  display: flex;
+  gap: 5px;
+}
+
 
 .compose {
    
   position: absolute;
   bottom: 0;
   right: 0;
-  margin-right: 1rem;
+  margin-right: 16px;
   height: 500px;
   width: 500px;
   background-color: rgb(255, 255, 255);
@@ -21,9 +59,9 @@
     'headline'
     'form';
   grid-template-rows: 40px 1fr;
-box-shadow: -2px 0px 22px 3px rgba(212,212,212,0.49);
--webkit-box-shadow: -2px 0px 22px 3px rgba(212,212,212,0.49);
--moz-box-shadow: -2px 0px 22px 3px rgba(212,212,212,0.49);
+  border-radius: 16px;
+-webkit-box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.5); 
+box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.5);
 }
 
 .compose .headline {
@@ -32,12 +70,12 @@ box-shadow: -2px 0px 22px 3px rgba(212,212,212,0.49);
   display: grid;
   align-content: center;
     background-color: var(--new-message-header);
-
- 
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
 }
 
 .compose .headline h1 {
-         padding-left:0.5rem;
+         padding-left:8px;
   
 }
 
@@ -63,7 +101,7 @@ box-shadow: -2px 0px 22px 3px rgba(212,212,212,0.49);
 .compose-form .inputs {
   grid-area: inputs;
   display: grid;
-  gap: 0.5rem;
+  gap: 8px;
 
 }
 
@@ -85,7 +123,7 @@ box-shadow: -2px 0px 22px 3px rgba(212,212,212,0.49);
     height: 100%;
     width: 100%;
     border: none;
-    padding-left: 0.5rem;
+    padding-left: 8px;
 }
 
 .compose-form textarea,
@@ -106,7 +144,7 @@ box-shadow: -2px 0px 22px 3px rgba(212,212,212,0.49);
   height: 100%;
   width: 100%;
   box-sizing: border-box;
-  padding: 1rem;
+  padding: 16px;
 
 }
 
@@ -121,8 +159,8 @@ box-shadow: -2px 0px 22px 3px rgba(212,212,212,0.49);
   grid-area: send-btn;
   display: flex;
 
-    padding-left: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding-left: 8px;
+    padding-bottom: 8px;
   align-items: center;
  
 }

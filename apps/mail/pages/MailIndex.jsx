@@ -3,6 +3,7 @@ import { MailList } from '../cmps/MailList.jsx'
 import { MailFilter } from '../cmps/MailFilter.jsx'
 import { MailFolderList } from '../cmps/MailFolderList.jsx'
 import { MailDetails } from './MailDetails.jsx'
+import { AppHeader } from '../../../cmps/AppHeader.jsx'
 
 const { useRef, useEffect, useState, Fragment } = React
 
@@ -12,16 +13,24 @@ export function MailIndex() {
   const [mails, setMails] = useState(null)
   const [searchParams, setSearchParams] = useSearchParams()
   const [filterBy, setFilterBy] = useState(mailService.getFilterFromSearchParams(searchParams))
+  const [unreadMails,setUnreadMails] = useState()
 
   const params = useParams()
 
 
   useEffect(() => {
-    loadMails()
+   
+
+ loadMails()
     // console.log('Index:', params.mailId)
     setSearchParams(filterBy)
-
+    
   }, [filterBy])
+
+useEffect(()=>{
+  if (mails) loadUnreadMails()
+  // console.log('done')
+},[mails])
 
   function onSetFilterBy(filterBy) {
     setFilterBy((prevFilter) => ({ ...prevFilter, ...filterBy }))
@@ -31,6 +40,28 @@ export function MailIndex() {
     mailService.query(filterBy).then((mails) => setMails(mails))
   }
 
+
+
+  
+
+
+
+function loadUnreadMails() {
+  if (!mails) return
+if (searchParams.get('folder')==='inbox' || !searchParams.get('folder')) {
+    const filterdMails = mails.filter(mail => 
+    mail.to==='user@appsus.com' &&
+     mail.isRead===false &&
+
+       mail.removedAt===null)
+const mailNum = filterdMails.length
+
+setUnreadMails(mailNum)
+//  console.log(mailNum)   
+}
+   
+}
+
   const [newMailWindow, setNewMailWindow] = useState(false)
 
   function onOpenMailWindow() {
@@ -38,35 +69,28 @@ export function MailIndex() {
   }
 
 
+  // console.log(unreadMails)
 
   if (!mails) return <div>Loading...</div>
-  // if (mails.length === 0)
-  //   return (
 
-  //         <section className="main-container">
-  //           <MailFilter onSetFilterBy={onSetFilterBy} defaultFilter={filterBy} />
-  //           <Link className="new-mail-btn" to="/mail/newMail">
-  //             <span onClick={onOpenMailWindow} className="material-symbols-outlined">
-  //               edit
-  //             </span>
-  //           </Link>
-  //           {newMailWindow && <Outlet context={{ loadMails, onOpenMailWindow }} />}
-  //           <p>No mails found</p>
-  //             <MailFolderList onSetFilterBy={onSetFilterBy} />
-  //         </section>
-  //       )
   return (
     <section className="main-container">
+      
       <MailFilter onSetFilterBy={onSetFilterBy} defaultFilter={filterBy} />
-      {!params.mailId && < MailList mails={mails} loadMails={loadMails} />}
+      <AppHeader/>
+      {!params.mailId && < MailList mails={mails} loadMails={loadMails} loadUnreadMails={loadUnreadMails} />}
       <Link className="new-mail-btn" to="/mail/newMail">
-        <span onClick={onOpenMailWindow} className="material-symbols-outlined">
+ 
+         <span onClick={onOpenMailWindow} className="material-symbols-outlined compose-icon">
           edit
+           <span className='compose-text'>Compose</span>
         </span>
+     
+       
       </Link>
       {newMailWindow && <Outlet context={{ loadMails, onOpenMailWindow }} />}
 
-      <MailFolderList onSetFilterBy={onSetFilterBy} />
+      <MailFolderList onSetFilterBy={onSetFilterBy}  unreadMails={unreadMails}/>
 
       <Link to="/mail/:mailId"></Link>
       {params.mailId && <Outlet  />}
