@@ -1,22 +1,53 @@
  /* home */
 
 .home {
-    background-color: var(--bg2);
+  height: 100vh;
+
+  display: flex;
+  justify-content: center; 
+  align-items: center;    
 }
 
-.home .box-container {
-    padding: 1em 0;
+.apps {
+    height: 80vh;
+    width: 80vh;
+   
+    display: grid;
+    grid-template-areas: 
+    'mailIcon noteIcon'
+    'github-dor github-tomer'
+    ;
 }
 
-.home .box1 {
-    background-color: var(--color1);
-    min-height: 10em;
+.mailIcon {
+    grid-area: mailIcon;
 }
 
-.home .box2 {
-    background-color: var(--color2);
-    min-height: 10em;
+.noteIcon {
+    grid-area: noteIcon;
 }
+
+.github-dor {
+    grid-area: github-dor;
+   
+}
+
+.github-tomer{
+    grid-area: github-tomer;
+}
+
+.mailIcon, .noteIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.mailIcon svg, .noteIcon svg {
+  width: 60%;
+  height: auto; 
+}
+
 
  @media (min-width: 750px) {
     .home .box-container {
@@ -30,4 +61,34 @@
         width: 30vw;
     }
     
+}
+
+
+
+.github-dor,.github-tomer {
+  display: flex;
+  flex-direction: row;      
+  align-items: start;        
+  justify-content: center;     
+  
+  text-align: center;
+  cursor: pointer;
+
+}
+
+.github-dor span:hover,.github-tomer span:hover{
+    font-weight: bold;
+}
+
+.github-dor svg,
+.github-tomer svg {
+  width: 40px;
+  height: 40px;
+
+}
+
+.github-dor span,
+.github-tomer span
+{
+    margin-top: 0.5rem;
 }
