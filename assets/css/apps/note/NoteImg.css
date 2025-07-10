@@ -17,9 +17,39 @@
 
 .image-wrapper {
     position: relative;
-
 }
 
-.note-btn{
+
+.note-btn {
+    opacity: 1;
+}
+
+.image-wrapper>.note-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    bottom: 0;
+    opacity: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s, color 0.3s, opacity 0.3s;
+}
+
+.image-wrapper:hover>.note-btn {
+    background-color: rgba(0, 0, 0, 0.412);
+    color: rgb(255, 255, 255);
+    opacity: 1;
+}
+
+.image-wrapper>.note-btn:hover {
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     opacity: 1;
 }

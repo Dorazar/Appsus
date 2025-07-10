@@ -3,7 +3,7 @@ const { Fragment } = React
 const { useNavigate } = ReactRouterDOM
 
 export function NoteImg({ noteToEdit, setNoteToEdit, title, txt, url, images }) {
-    console.log(images);
+    // console.log(images);
 
     const navigate = useNavigate()
 
@@ -53,15 +53,36 @@ export function NoteImg({ noteToEdit, setNoteToEdit, title, txt, url, images }) 
         }));
     }
 
+    function handleRemoveImage(imgKey) {
+
+        if (typeof (imgKey) === 'number')
+            setNoteToEdit(prevNote => ({
+                ...prevNote,
+                info: {
+                    ...prevNote.info,
+                    images: prevNote.info.images.filter((_, i) => i !== imgKey)
+                }
+            }))
+        else {
+            setNoteToEdit(prevNote => ({
+                ...prevNote,
+                info: {
+                    ...prevNote.info,
+                    url: ''
+                }
+            }))
+        }
+    }
+
     if (!noteToEdit) {
-        // console.log(url)
+
 
         return (
             <section className="img-type">
-              
+
                 <section className="imgs-container">
                     <div className="image-wrapper">
-                        <img src={url} alt={title || 'Image'} />
+                        <img src={url} />
                     </div>
                     {images && images.map((imgSrc, idx) => (
                         <div key={idx} className="image-wrapper">
@@ -69,7 +90,7 @@ export function NoteImg({ noteToEdit, setNoteToEdit, title, txt, url, images }) 
                         </div>
                     ))}
                 </section>
-                  {title && <h3 className="note-title">{title}</h3>}
+                {title && <h3 className="note-title">{title}</h3>}
                 {txt && <p className="note-txt">{txt}</p>}
             </section>
         )
@@ -80,11 +101,29 @@ export function NoteImg({ noteToEdit, setNoteToEdit, title, txt, url, images }) 
             <form onSubmit={onSaveNote}>
                 <section className="imgs-container">
                     <div className="image-wrapper">
-                        <img src={url} alt={title || 'Image'} />
+                        <img src={url} />
+                        <button className="note-btn" onClick={(ev) => {
+                            ev.preventDefault()
+                            handleRemoveImage(url)
+                        }}
+                        >
+                            <span className="material-symbols-outlined">
+                                delete
+                            </span>
+                        </button>
                     </div>
                     {images && images.map((imgSrc, idx) => (
                         <div key={idx} className="image-wrapper">
                             <img src={imgSrc} alt={`Uploaded ${idx + 1}`} />
+                            <button className="note-btn" onClick={(ev) => {
+                                ev.preventDefault()
+                                handleRemoveImage(idx)
+                            }}
+                            >
+                                <span className="material-symbols-outlined">
+                                    delete
+                                </span>
+                            </button>
                         </div>
                     ))}
                 </section>
@@ -103,20 +142,20 @@ export function NoteImg({ noteToEdit, setNoteToEdit, title, txt, url, images }) 
                     id="txt"
                     placeholder="Write a description..."
                 />
-                
+
                 <div className="modal-actions">
                     <label className="file-upload-btn">
-                    <span className="material-symbols-outlined note-btn">photo</span>
-                    <input
-                        onChange={handleChange}
-                        type="file"
-                        name="image"
-                        id="image"
-                        accept="image/*"
-                        style={{ display: 'none' }}
-                    />
-                </label>
-                    <button type="submit">Cancel</button>
+                        <span className="material-symbols-outlined note-btn">photo</span>
+                        <input
+                            onChange={handleChange}
+                            type="file"
+                            name="image"
+                            id="image"
+                            accept="image/*"
+                            style={{ display: 'none' }}
+                        />
+                    </label>
+                    <button className="cancel-btn" type="submit">Cancel</button>
                 </div>
             </form>
         </Fragment>

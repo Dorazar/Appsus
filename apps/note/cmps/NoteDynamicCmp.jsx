@@ -4,7 +4,6 @@ import { NoteTodos } from './NoteTodos.jsx'
 import { NoteMail } from './NoteMail.jsx'
 
 export function NoteDynamicCmp({ cmpType, noteToEdit, setNoteToEdit, ...props }) {
-
     // console.log({ cmpType, ...props })
 
     const noteDynamicCmpMap = {
