@@ -42,6 +42,9 @@
   justify-content: center;
 }
 
+.mailIcon{
+    border-right: 0.5px solid lightgrey;
+}
 
 .mailIcon svg, .noteIcon svg {
   width: 60%;

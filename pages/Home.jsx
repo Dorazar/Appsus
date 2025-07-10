@@ -10,6 +10,7 @@ export function Home() {
 
     const navigate = useNavigate()
     return <section className="home">
+      
        <section className='apps'>
            <div className='mailIcon'> <svg ref={mailIcon} onMouseEnter={()=>animateCSS(mailIcon.current,'pulse')}
             xmlns="http://www.w3.org/2000/svg"
