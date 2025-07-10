@@ -52,5 +52,5 @@ export function NoteEdit() {
                 />
             </div>
         </section>
-    );
+    )
 }

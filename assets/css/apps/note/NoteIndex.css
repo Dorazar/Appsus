@@ -1,18 +1,47 @@
 .layout-container {
   display: grid;
-  grid-template-columns: 5% 95%; 
+  grid-template-columns: 5% 95%;
   height: 100vh;
 }
 
 .nav-area {
-  background-color: #ddd; 
+  background-color: #ddd;
   padding: 20px;
   overflow-y: auto;
-  position: sticky; 
+  position: sticky;
   top: 0;
 }
 
 .notes-container {
   padding: 20px;
-  overflow-y: auto; 
+  overflow-y: auto;
+}
+
+.add-note-form {
+  position: relative;
+  width: 500px;
+  margin: 3px auto 50px auto;
+  background-color: white;
+  padding: 7px;
+  border-radius: 7px;
+  box-shadow: 0 1px 7px rgb(128, 128, 128);
+}
+
+.add-note-form input {
+  width: 100%;
+  border: none;
+  padding: 4px 10px;
+  margin-bottom: 20px;
+  outline: none;
+  font-size: 1.5rem;
+  resize: none;
+}
+
+form textarea {
+  width: 100%;
+  border: none;
+  padding: 4px 10px;
+  outline: none;
+  font-size: 1.2rem;
+  resize: none;
 }

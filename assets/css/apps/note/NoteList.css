@@ -23,10 +23,10 @@ grid-template-rows: 2;
   height: auto;
 }
 
-/* .note-item:hover {
+.note-item:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   transition: box-shadow 0.2s
-} */
+}
 
 .note-list-btns {
   opacity: 0; 

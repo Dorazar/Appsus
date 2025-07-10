@@ -43,6 +43,7 @@ function remove(noteId) {
 }
 
 function save(note) {
+
   if (note.id) {
     return storageService.put(NOTE_KEY, note)
   } else {
@@ -51,9 +52,18 @@ function save(note) {
 }
 
 function getEmptyNote() {
-  return { 
-    
-   }
+  return {
+    createdAt: Date.now(),
+    type: 'NoteTxt',
+    isPinned: true,
+    style: {
+      backgroundColor: 'white'
+    },
+    info: {
+      title: '',
+      txt: ''
+    }
+  }
 }
 
 function getDefaultFilter() {

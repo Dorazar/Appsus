@@ -1,15 +1,14 @@
 import { noteService } from '../services/note.service.js'
 import { NoteList } from '../cmps/NoteList.jsx'
+import { NoteAdd } from '../cmps/NoteAdd.jsx'
 // import { NoteFilter } from '../cmps/NoteFilter.jsx'
 
-
 const { useEffect, useState } = React
-
 const { Outlet, useLocation } = ReactRouterDOM
 
 export function NoteIndex() {
     const [notes, setNotes] = useState(null)
-    const location = useLocation();
+    const location = useLocation()
 
     useEffect(() => {
         loadNotes()
@@ -33,6 +32,12 @@ export function NoteIndex() {
             })
     }
 
+    function onAddNote(newNote){
+        setNotes((prevNotes)=>{
+            return[...prevNotes,newNote]
+        })
+    }
+
     if (!notes || notes.length === 0) return <div>Loading...</div>
 
     return (
@@ -42,6 +47,7 @@ export function NoteIndex() {
                 {/* Placeholder for nav area */}
             </aside>
             <section className="notes-container">
+                <NoteAdd onAddNote={onAddNote}/>
                 <NoteList onRemoveNote={onRemoveNote} notes={notes} />
                 <Outlet />
             </section>
