@@ -2,7 +2,7 @@
 .main-container{
        height: max-content;
     display: grid;
-    grid-template-rows: 80px 50px 1fr;
+    grid-template-rows: 60px 50px 1fr;
     grid-template-columns: 240px 1fr;
     grid-template-areas: 
     'mailLogo upper-filter app-header'
