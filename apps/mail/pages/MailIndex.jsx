@@ -27,18 +27,20 @@ export function MailIndex() {
     
   }, [filterBy])
 
-useEffect(()=>{
-  if (mails) loadUnreadMails()
-  // console.log('done')
-},[mails])
+useEffect(() => {
+  loadUnreadMails()
+}, [filterBy.folder, mails])
 
   function onSetFilterBy(filterBy) {
     setFilterBy((prevFilter) => ({ ...prevFilter, ...filterBy }))
   }
   // console.log('FilterBy:',filterBy)
-  function loadMails() {
-    mailService.query(filterBy).then((mails) => setMails(mails))
-  }
+function loadMails() {
+  mailService.query(filterBy).then((mails) => {
+    setMails(mails)
+    loadUnreadMails() 
+  })
+}
 
 
 
@@ -48,17 +50,18 @@ useEffect(()=>{
 
 function loadUnreadMails() {
   if (!mails) return
-if (searchParams.get('folder')==='inbox' || !searchParams.get('folder')) {
-    const filterdMails = mails.filter(mail => 
-    mail.to==='user@appsus.com' &&
-     mail.isRead===false &&
+  const unreadFilter = {
+    folder: 'inbox'
+  }
 
-       mail.removedAt===null)
-const mailNum = filterdMails.length
-
-setUnreadMails(mailNum)
-//  console.log(mailNum)   
-}
+  mailService.query(unreadFilter).then(allInboxMails => {
+    const unread = allInboxMails.filter(mail =>
+      mail.to === 'user@appsus.com' &&
+      mail.isRead === false &&
+      mail.removedAt === null
+    )
+    setUnreadMails(unread.length)
+  })
    
 }
 

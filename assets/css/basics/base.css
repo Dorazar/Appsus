@@ -35,9 +35,10 @@ img {
     width: 100%;
     object-fit: cover;
 }
-/* .main-container {
-    padding: 0 1em;
-} */
+.main-container {
+    /* padding: 0 1em; */
+      padding-right: 8px;
+}
 
 
 
