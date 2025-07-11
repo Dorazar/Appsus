@@ -11,11 +11,12 @@ import { MailPreview } from './apps/mail/cmps/MailPreview.jsx'
 import { MailDetails } from './apps/mail/pages/MailDetails.jsx'
 import { NoteEdit } from "./apps/note/pages/NoteEdit.jsx"
 import { MailCompose } from './apps/mail/cmps/MailCompose.jsx'
+import { NoteFilter } from './apps/note/pages/NoteFilter.jsx'
 
 export function RootCmp() {
     return <Router>
         <section className="root-cmp">
-           
+
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
@@ -24,11 +25,11 @@ export function RootCmp() {
                     <Route path="/mail/newMail" element={<MailCompose />}></Route>
                 </Route>
 
-                <Route path="/note" element={<NoteIndex />} />
                 <Route path="/mail" element={<MailIndex />} />
                 <Route path="/note" element={<NoteIndex />} >
                     <Route path="/note/edit/:noteId" element={<NoteEdit />} />
                 </Route>
+                <Route path="/note/search" element={<NoteFilter />} />
             </Routes>
             <UserMsg />
         </section>

@@ -1,0 +1,44 @@
+.note-filter {
+    width: 80%;
+    background-color: #f1f3f4;
+    border-radius: 8px;
+    padding: 10px 10px;
+    border: none;
+    outline: none;
+    transition: background-color 0.2s, box-shadow 0.2s;
+    display: flex;
+    /* make sure input fills the container */
+    cursor: text;
+}
+
+/* When anything inside .note-filter is focused, apply styles to container */
+.note-filter:focus-within {
+    background-color: #fff;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.note-filter input {
+    border: none;
+    outline: none;
+    width: 100%;
+    background: transparent;
+    font-size: 16px;
+    padding: 6px 8px;
+     cursor: text;
+}
+
+.note-filter .material-symbols-outlined{
+    color: #5f6368;
+    font-size: 30px;
+    justify-self: center;
+    padding: 0 10px;
+    cursor: pointer;
+    padding: 5px 5px;
+}
+
+ .note-filter .material-symbols-outlined:hover {
+     background-color: rgba(32, 33, 36, 0.1);
+     color: rgb(32, 33, 36);
+     opacity: 0.71;
+     border-radius: 50%;
+ }
