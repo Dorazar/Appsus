@@ -61,4 +61,10 @@ svg{
     height: 35px;
 }
 
+.compose{
+    height: 80dvh;
+    width: 80dvw;
+    z-index: 3000;
+}
+
 }
