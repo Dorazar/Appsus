@@ -3,11 +3,11 @@
        height: max-content;
     display: grid;
     grid-template-rows: 60px 50px 1fr;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto auto 1fr 100px;
     grid-template-areas: 
-    'logo-menu upper-filter app-header'
-    'new-mail-btn sorting-section .'
-    'side-filter mail-list mail-list'
+    'logo-menu upper-filter upper-filter app-header'
+    'new-mail-btn new-mail-btn sorting-section .'
+    'side-filter side-filter mail-list mail-list'
     
     
     ;
