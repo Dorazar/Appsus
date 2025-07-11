@@ -22,8 +22,13 @@ const [isMini,setIsMini] = useState(true)
 
 function onSetIsMini() {
   setIsMini(isMini => !isMini)
+toggleMenu()
 }
 
+function toggleMenu() {
+  document.body.classList.toggle('menu-open');
+  
+}
 
 
   const params = useParams()
@@ -93,6 +98,8 @@ function loadUnreadMails() {
   }
 
 
+  
+
   // console.log(unreadMails)
 
   if (!mails) return <div>Loading...</div>
@@ -117,8 +124,8 @@ function loadUnreadMails() {
       {newMailWindow && <Outlet context={{ loadMails, onOpenMailWindow, isMini,onSetIsMini}} />}
 
       <MailFolderList onSetFilterBy={onSetFilterBy}  unreadMails={unreadMails} activeFolder={filterBy.folder} isMini={isMini} onSetIsMini={onSetIsMini} />
-<section className='logo-menu'>
-        <span className="material-symbols-outlined menu-btn" onClick={onSetIsMini}>menu</span>
+<section className='logo-menu '>
+        <span className="material-symbols-outlined menu-btn btn-toggle-menu" onClick={onSetIsMini}>menu</span>
       
        
        </section>
