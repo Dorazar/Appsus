@@ -15,6 +15,17 @@ export function MailIndex() {
   const [filterBy, setFilterBy] = useState(mailService.getFilterFromSearchParams(searchParams))
   const [unreadMails,setUnreadMails] = useState()
 
+
+
+const [isMini,setIsMini] = useState(true)
+
+
+function onSetIsMini() {
+  setIsMini(isMini => !isMini)
+}
+
+
+
   const params = useParams()
 
 
@@ -27,18 +38,30 @@ export function MailIndex() {
     
   }, [filterBy])
 
-useEffect(()=>{
-  if (mails) loadUnreadMails()
-  // console.log('done')
-},[mails])
+useEffect(() => {
+  loadUnreadMails()
+}, [filterBy.folder, mails])
+
+const navigate = useNavigate()
+
+useEffect(() => {
+  if (params.mailId && filterBy.folder) {
+    navigate(`/mail?folder=${filterBy.folder}`)
+  }
+}, [filterBy.folder])
+
 
   function onSetFilterBy(filterBy) {
     setFilterBy((prevFilter) => ({ ...prevFilter, ...filterBy }))
+    setSearchParams((prevFilter) => ({ ...prevFilter, ...filterBy }))
   }
   // console.log('FilterBy:',filterBy)
-  function loadMails() {
-    mailService.query(filterBy).then((mails) => setMails(mails))
-  }
+function loadMails() {
+  mailService.query(filterBy).then((mails) => {
+    setMails(mails)
+    loadUnreadMails() 
+  })
+}
 
 
 
@@ -48,17 +71,18 @@ useEffect(()=>{
 
 function loadUnreadMails() {
   if (!mails) return
-if (searchParams.get('folder')==='inbox' || !searchParams.get('folder')) {
-    const filterdMails = mails.filter(mail => 
-    mail.to==='user@appsus.com' &&
-     mail.isRead===false &&
+  const unreadFilter = {
+    folder: 'inbox'
+  }
 
-       mail.removedAt===null)
-const mailNum = filterdMails.length
-
-setUnreadMails(mailNum)
-//  console.log(mailNum)   
-}
+  mailService.query(unreadFilter).then(allInboxMails => {
+    const unread = allInboxMails.filter(mail =>
+      mail.to === 'user@appsus.com' &&
+      mail.isRead === false &&
+      mail.removedAt === null
+    )
+    setUnreadMails(unread.length)
+  })
    
 }
 
@@ -79,7 +103,8 @@ setUnreadMails(mailNum)
       <MailFilter onSetFilterBy={onSetFilterBy} defaultFilter={filterBy} />
       <AppHeader/>
       {!params.mailId && < MailList mails={mails} loadMails={loadMails} loadUnreadMails={loadUnreadMails} />}
-      <Link className="new-mail-btn" to="/mail/newMail">
+     <div className={`new-mail-btn ${isMini?'mini':''}`}>
+      <Link  to="/mail/newMail">
  
          <span onClick={onOpenMailWindow} className="material-symbols-outlined compose-icon">
           edit
@@ -88,12 +113,18 @@ setUnreadMails(mailNum)
      
        
       </Link>
-      {newMailWindow && <Outlet context={{ loadMails, onOpenMailWindow }} />}
+      </div> 
+      {newMailWindow && <Outlet context={{ loadMails, onOpenMailWindow, isMini,onSetIsMini}} />}
 
-      <MailFolderList onSetFilterBy={onSetFilterBy}  unreadMails={unreadMails}/>
+      <MailFolderList onSetFilterBy={onSetFilterBy}  unreadMails={unreadMails} activeFolder={filterBy.folder} isMini={isMini} onSetIsMini={onSetIsMini} />
 
-      <Link to="/mail/:mailId"></Link>
+      
       {params.mailId && <Outlet  />}
+      <section className='logo-menu'>
+        <span className="material-symbols-outlined menu-btn" onClick={onSetIsMini}>menu</span>
+      <img className='mailLogo' src="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_default_1x_r5.png" alt="" onClick={()=>navigate('/mail')}/>
+       
+       </section>
     </section>
   )
 }

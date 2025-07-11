@@ -4,6 +4,12 @@ const { Link } = ReactRouterDOM
 
 export function MailList({ mails ,loadMails,loadUnreadMails}) {
   
+
+if (mails.length===0) {
+  
+  return <section className="mail-list">No mails here</section>
+
+}
   return (
     
       <ul className="mail-list">

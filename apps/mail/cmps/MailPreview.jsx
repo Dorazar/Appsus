@@ -156,7 +156,7 @@ function isSameYear(timestamp) {
                 onSaveAsANote(mail)
               }}
             >
-              add_to_home_screen
+              note_stack_add
             </span>
                       <span
               title={mail.isRead ? 'Mark as unread' : 'Mark as read'}
