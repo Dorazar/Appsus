@@ -34,7 +34,7 @@ export function NoteIndex() {
             })
     }
 
-   function onSetNotesStyle(noteId, newBackgroundColor) {
+    function onSetNotesStyle(noteId, newBackgroundColor) {
         // Find the note to update
         const noteToUpdate = notes.find(note => note.id === noteId)
         if (!noteToUpdate) return
@@ -62,9 +62,16 @@ export function NoteIndex() {
     }
 
     function onAddNote(newNote) {
-        setNotes((prevNotes) => {
-            return [...prevNotes, newNote]
+        noteService.save(newNote)
+            .then(savedNote => {
+                setNotes(prev => [...prev, savedNote])
+            })
+            .catch (err => {
+            console.log('Cannot save note:', err)
+            // showErrorMsg('Cannot save note')
         })
+
+
     }
 
     if (!notes || notes.length === 0) return <div>Loading...</div>

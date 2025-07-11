@@ -25,6 +25,7 @@ export function NoteBtns({ noteId, onRemoveNote, onSetNotesStyle }) {
     }
 
     return (
+        //Remove Note Btn
         <section className="note-btns">
             <button
                 className="note-btn"
@@ -37,6 +38,7 @@ export function NoteBtns({ noteId, onRemoveNote, onSetNotesStyle }) {
                 <span className="material-symbols-outlined">delete</span>
             </button>
 
+            {/* Set Note Color Btn */}
             <button
                 className="note-btn pallete"
                 onClick={(ev) => {
@@ -66,6 +68,8 @@ export function NoteBtns({ noteId, onRemoveNote, onSetNotesStyle }) {
                     </div>
                 )}
             </button>
+
+            {/*  Btn */}
 
         </section>
     )

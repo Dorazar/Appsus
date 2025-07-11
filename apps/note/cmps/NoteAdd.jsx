@@ -33,16 +33,9 @@ export function NoteAdd({ onAddNote }) {
             return
         }
 
-        noteService.save(newNote)
-            .then(() => {
-                console.log(newNote);
-                onAddNote(newNote)
-                setNewNote(noteService.getEmptyNote())
-            })
-            .catch(err => {
-                console.log('Cannot save note:', err);
-                // showErrorMsg('Cannot save note')
-            })
+        onAddNote(newNote)
+        setNewNote(noteService.getEmptyNote())
+        setExpanded(false)
     }
 
     function handleExpanded() {

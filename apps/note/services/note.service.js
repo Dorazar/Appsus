@@ -45,6 +45,7 @@ function remove(noteId) {
 function save(note) {
 
   if (note.id) {
+
     return storageService.put(NOTE_KEY, note)
   } else {
     return storageService.post(NOTE_KEY, note)
@@ -73,48 +74,121 @@ function getDefaultFilter() {
 function _createNotes() {
   let notes = utilService.loadFromStorage(NOTE_KEY)
   if (!notes || !notes.length) {
-    notes = [
+   notes = [
       {
-        id: 'n101',
-        createdAt: 1112222,
+        id: 'n001',
+        createdAt: 1625488800000,
         type: 'NoteTxt',
-        isPinned: true,
-        style: {
-          backgroundColor: '#a4a4e5'
-        },
-        info: {
-          txt: 'Fullstack Me Baby!'
-        }
+        isPinned: false,
+        style: { backgroundColor: '#efeff1' },
+        info: { txt: 'Remember to call John today.' }
       },
       {
-        id: 'n102',
-        createdAt: 1112223,
+        id: 'n002',
+        createdAt: 1625488801000,
         type: 'NoteImg',
         isPinned: false,
+        style: { backgroundColor: '#e9e3d4' },
         info: {
-          url: `https://picsum.photos/200`,
-          title: 'Bobi and Me',
-          txt: 'I love Bobi'
-        },
-        style: {
-          backgroundColor: '#a4a4e5'
+          url: 'https://picsum.photos/300/200?random=1',
+          title: 'Beach',
+          txt: 'Relaxing beach view'
         }
       },
       {
-        id: 'n103',
-        createdAt: 1112224,
+        id: 'n003',
+        createdAt: 1625488802000,
         type: 'NoteTodos',
         isPinned: false,
+        style: { backgroundColor: '#f6e2dd' },
         info: {
-          title: 'Get my stuff together',
+          title: 'Daily Tasks',
           todos: [
-            { txt: 'Driving license', doneAt: null },
-            { txt: 'Coding power', doneAt: 187111111 }
+            { txt: 'Finish homework', doneAt: null },
+            { txt: 'Buy groceries', doneAt: null },
+            { txt: 'Book an appointment', doneAt: null }
           ]
         }
+      },
+      {
+        id: 'n004',
+        createdAt: 1625488803000,
+        type: 'NoteTxt',
+        isPinned: false,
+        style: { backgroundColor: '#d3bfdb' },
+        info: { txt: 'Meeting with the team at 2 PM' }
+      },
+      {
+        id: 'n005',
+        createdAt: 1625488804000,
+        type: 'NoteImg',
+        isPinned: false,
+        style: { backgroundColor: '#aeccdc' },
+        info: {
+          url: 'https://picsum.photos/300/200?random=2',
+          title: 'Mountain',
+          txt: 'Hiking trip planned'
+        }
+      },
+      {
+        id: 'n006',
+        createdAt: 1625488805000,
+        type: 'NoteTodos',
+        isPinned: false,
+        style: { backgroundColor: '#d4e4ed' },
+        info: {
+          title: 'Shopping List',
+          todos: [
+            { txt: 'Milk', doneAt: null },
+            { txt: 'Eggs', doneAt: null },
+            { txt: 'Bread', doneAt: null }
+          ]
+        }
+      },
+      {
+        id: 'n007',
+        createdAt: 1625488806000,
+        type: 'NoteTxt',
+        isPinned: false,
+        style: { backgroundColor: '#b4ddd3' },
+        info: { txt: 'Read a new book today' }
+      },
+      {
+        id: 'n008',
+        createdAt: 1625488807000,
+        type: 'NoteImg',
+        isPinned: false,
+        style: { backgroundColor: '#fff8b8' },
+        info: {
+          url: 'https://picsum.photos/300/200?random=3',
+          title: 'Sunset',
+          txt: 'Beautiful sunset view'
+        }
+      },
+      {
+        id: 'n009',
+        createdAt: 1625488808000,
+        type: 'NoteTodos',
+        isPinned: false,
+        style: { backgroundColor: '#f39f76' },
+        info: {
+          title: 'Workout Plan',
+          todos: [
+            { txt: 'Push-ups', doneAt: null },
+            { txt: 'Running', doneAt: null }
+          ]
+        }
+      },
+      {
+        id: 'n010',
+        createdAt: 1625488809000,
+        type: 'NoteTxt',
+        isPinned: false,
+        style: { backgroundColor: '#faafa8' },
+        info: { txt: 'Get ready for the weekend trip!' }
       }
-
     ]
+
   }
   utilService.saveToStorage(NOTE_KEY, notes)
 
