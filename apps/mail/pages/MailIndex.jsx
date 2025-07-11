@@ -31,8 +31,18 @@ useEffect(() => {
   loadUnreadMails()
 }, [filterBy.folder, mails])
 
+const navigate = useNavigate()
+
+useEffect(() => {
+  if (params.mailId && filterBy.folder) {
+    navigate(`/mail?folder=${filterBy.folder}`)
+  }
+}, [filterBy.folder])
+
+
   function onSetFilterBy(filterBy) {
     setFilterBy((prevFilter) => ({ ...prevFilter, ...filterBy }))
+    setSearchParams((prevFilter) => ({ ...prevFilter, ...filterBy }))
   }
   // console.log('FilterBy:',filterBy)
 function loadMails() {
@@ -95,7 +105,7 @@ function loadUnreadMails() {
       </div> 
       {newMailWindow && <Outlet context={{ loadMails, onOpenMailWindow }} />}
 
-      <MailFolderList onSetFilterBy={onSetFilterBy}  unreadMails={unreadMails}/>
+      <MailFolderList onSetFilterBy={onSetFilterBy}  unreadMails={unreadMails} activeFolder={filterBy.folder}/>
 
       
       {params.mailId && <Outlet  />}

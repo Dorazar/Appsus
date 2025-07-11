@@ -1,18 +1,18 @@
 
 const { useParams, useNavigate,useOutletContext,useSearchParams } = ReactRouterDOM
 const { useRef, useEffect, useState, Fragment } = React
-export function MailFolderList({ onSetFilterBy,unreadMails}) {
+export function MailFolderList({ onSetFilterBy,unreadMails ,activeFolder='inbox'}) {
 
-  const navigate=useNavigate()
-const [searchParams] = useSearchParams()
+//   const navigate=useNavigate()
+// const [searchParams] = useSearchParams()
 
-const activeFolder = searchParams.get('folder') 
+// const activeFolder = searchParams.get('folder') 
 
    function onSelectFolderFilter(folderType) {
     
     onSetFilterBy({ folder: folderType})
    
-    navigate(`/mail/?folder=${folderType}`)
+    // navigate(`/mail/?folder=${folderType}`)
   }
 
   return (
