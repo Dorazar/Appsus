@@ -34,6 +34,18 @@ export function NoteIndex() {
             })
     }
 
+    function onSetNotesStyle(noteId, newBackgroundColor) {
+        console.log(noteId);
+        
+        setNotes(prevNotes =>
+            prevNotes.map(note =>
+                note.id === noteId
+                    ? { ...note, style: { ...note.style, backgroundColor: newBackgroundColor } }
+                    : note
+            )
+        )
+    }
+
     function onAddNote(newNote) {
         setNotes((prevNotes) => {
             return [...prevNotes, newNote]
@@ -77,7 +89,10 @@ export function NoteIndex() {
                 </aside>
                 <section className="notes-container">
                     <NoteAdd onAddNote={onAddNote} />
-                    <NoteList onRemoveNote={onRemoveNote} notes={notes} />
+                    <NoteList onSetNotesStyle={onSetNotesStyle}
+                        onRemoveNote={onRemoveNote}
+                        notes={notes}
+                    />
                     <Outlet />
                 </section>
             </div>

@@ -1,0 +1,67 @@
+ .note-btns {
+     opacity: 0;
+     display: flex;
+     gap: 8px;
+     transition: opacity 0.2s ease;
+ }
+
+ .note-item:hover .note-btns {
+     opacity: 1;
+ }
+
+ .note-btns button {
+     background: transparent;
+     border: none;
+     cursor: pointer;
+     padding: 8px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     border-radius: 50%;
+     transition: background-color 0.2s, color 0.2s, opacity 0.2s;
+ }
+
+ .note-btns button:hover {
+     background-color: rgba(32, 33, 36, 0.1);
+     color: rgb(32, 33, 36);
+     opacity: 0.71;
+ }
+
+ .note-list-btns button span.material-symbols-outlined {
+     font-size: 20px;
+ }
+
+ .pallete {
+     position: relative;
+ }
+
+ .color-picker {
+     position: absolute;
+     top: 30px;
+     left: 0;
+     display: flex;
+     gap: 5px;
+     padding: 10px;
+     background-color: #fff;
+     border-radius: 20px;
+     border: 1px solid #ccc;
+     border-radius: 4px;
+     z-index: 100;
+     box-shadow: inset 1px 1px 0 rgba(0, 0, 0, .1), 
+     inset 0 -1px 0 rgba(0, 0, 0,.07);
+     
+ }
+
+ .color-select{
+    width: 32px;
+    height: 32px;
+    border: 1px solid #888;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 10px;
+    
+ }
+ .color-select:hover{
+    border-color: rgba(0, 0, 0, 0.87) !important;
+   
+ }

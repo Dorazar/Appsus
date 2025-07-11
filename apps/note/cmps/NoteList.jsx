@@ -1,9 +1,10 @@
 import { NotePreview } from "./NotePreview.jsx"
+import { NoteBtns } from './NoteBtns.jsx'
 
 const { useNavigate } = ReactRouterDOM
 const { Fragment } = React
 
-export function NoteList({ notes, onRemoveNote }) {
+export function NoteList({ notes, onRemoveNote, onSetNotesStyle }) {
 
     const navigate = useNavigate()
 
@@ -13,29 +14,17 @@ export function NoteList({ notes, onRemoveNote }) {
                 {notes.map((note) => (
                     <li className="note-item"
                         key={note.id}
-                        // style={note.style}
+                        style={note.style}
                         onClick={() =>
                             navigate(`/note/edit/${note.id}`)
                         }
                     >
                         <NotePreview note={note} />
-                        <section className="note-btns">
-                            <button className="note-btn" onClick={(ev) => {
-                                ev.stopPropagation()
-                                onRemoveNote(note.id)
-                            }}
-                            >
-                                <span className="material-symbols-outlined">
-                                    delete
-                                </span>
-                            </button>
-
-                            {/* <button>
-                                <span className="material-symbols-outlined">
-                                    palette
-                                </span>
-                            </button> */}
-                        </section>
+                        <NoteBtns
+                            noteId={note.id}
+                            onRemoveNote={onRemoveNote}
+                            onSetNotesStyle={onSetNotesStyle}
+                        />
                     </li>
                 ))}
             </ul>
