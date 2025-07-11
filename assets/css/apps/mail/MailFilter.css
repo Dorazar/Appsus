@@ -168,6 +168,12 @@ select[name="read"]:focus {
    
 }
 
+.filter-type-title.selected {
+  background-color: #d3e3fd;
+  font-weight: bold;
+  border-radius: 12px;
+  color: #111;
+}
 
 .filter-type-title:first-child > :last-child {
   margin-left: auto;
