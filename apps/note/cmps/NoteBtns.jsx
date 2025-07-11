@@ -18,10 +18,9 @@ export function NoteBtns({ noteId, onRemoveNote, onSetNotesStyle }) {
         { name: 'Salmon', color: '#faafa8' }
     ]
 
-
-    const handleColorSelect = (color) => {
-        onSetNotesStyle(noteId, color);
-        setShowColorPicker(false);
+    function handleColorSelect(color) {
+        onSetNotesStyle(noteId, color)
+        setShowColorPicker(false)
     }
 
     return (
