@@ -1,7 +1,15 @@
 
 const { useParams, useNavigate,useOutletContext,useSearchParams } = ReactRouterDOM
 const { useRef, useEffect, useState, Fragment } = React
-export function MailFolderList({ onSetFilterBy,unreadMails ,activeFolder='inbox'}) {
+export function MailFolderList({ onSetFilterBy,unreadMails ,activeFolder='inbox',isMini,onSetIsMini}) {
+
+
+  useEffect(()=>{
+onSetIsMini(editIsMini=>!editIsMini)
+  },[])
+
+
+
 
 //   const navigate=useNavigate()
 // const [searchParams] = useSearchParams()
@@ -16,7 +24,9 @@ export function MailFolderList({ onSetFilterBy,unreadMails ,activeFolder='inbox'
   }
 
   return (
-    <section className="side-filter">
+    <Fragment>
+    <section className={`side-filter ${isMini?'mini':''}`}>
+      
       <button
   className={`filter-type-title ${activeFolder === 'inbox' ? 'selected' : ''}`}
   onClick={() => onSelectFolderFilter('inbox')}
@@ -24,10 +34,10 @@ export function MailFolderList({ onSetFilterBy,unreadMails ,activeFolder='inbox'
         <span title="inbox" className="material-symbols-outlined icon-btn" >
         inbox
       </span>
-      <span> Inbox</span>
+      <span className="category"> Inbox</span>
        
         <span>
-          {unreadMails === 0 ? '' : unreadMails}
+          {!isMini && (unreadMails === 0 ? '' : unreadMails)}
         </span>
       </button>
         <button
@@ -37,7 +47,7 @@ export function MailFolderList({ onSetFilterBy,unreadMails ,activeFolder='inbox'
       <span className="material-symbols-outlined icon-btn">
         star
       </span>
-      <span>Starred </span>
+      <span  className="category">Starred </span>
        </button>
       <button
   className={`filter-type-title ${activeFolder === 'sent' ? 'selected' : ''}`}
@@ -46,7 +56,7 @@ export function MailFolderList({ onSetFilterBy,unreadMails ,activeFolder='inbox'
       <span  className="material-symbols-outlined icon-btn" >
         send
       </span>
-      <span>Sent</span>
+      <span  className="category">Sent</span>
       </button >
      <button
   className={`filter-type-title ${activeFolder === 'draft' ? 'selected' : ''}`}
@@ -55,7 +65,7 @@ export function MailFolderList({ onSetFilterBy,unreadMails ,activeFolder='inbox'
       <span className="material-symbols-outlined icon-btn">
         text_snippet
       </span>
-      <span>Draft</span>
+      <span  className="category">Draft</span>
       </button>
      <button
   className={`filter-type-title ${activeFolder === 'trash' ? 'selected' : ''}`}
@@ -64,10 +74,11 @@ export function MailFolderList({ onSetFilterBy,unreadMails ,activeFolder='inbox'
       <span title="trash"className="material-symbols-outlined icon-btn" >
         delete
       </span>
-      <span>Trash</span>
+      <span  className="category">Trash</span>
       </button>
-    
-   
     </section>
+           
+          
+           </Fragment>
   )
 }

@@ -7,8 +7,13 @@ const { useParams, useNavigate, Link, Outlet, useSearchParams, useOutletContext 
 
 export function MailCompose() {
   const [newMail, setNewMail] = useState(mailService.getEmptyMail())
-  const { loadMails, onOpenMailWindow } = useOutletContext()
+  const { loadMails, onOpenMailWindow} = useOutletContext()
   const navigate = useNavigate()
+
+
+
+
+ 
 
   function handleChange({ target }) {
     const feild = target.name
@@ -54,6 +59,8 @@ export function MailCompose() {
       .then(() => showSuccessMsg('Mail was saved to draft'))
       .catch(() => showErrorMsg('Cannot save draft'))
   }
+
+
 
   return (
     <section className="compose">

@@ -86,7 +86,7 @@ export function MailFilter({ onSetFilterBy, defaultFilter }) {
             Sort by subject
           </button>
         </section>
-        <img className='mailLogo' src="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_default_1x_r5.png" alt="" onClick={()=>navigate('/mail')}/>
+     
     </Fragment>
   )
 }

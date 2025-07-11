@@ -1,4 +1,4 @@
-.new-mail-btn {
+.new-mail-btn  {
   grid-area:new-mail-btn;
   display: flex;
   align-items: center;
@@ -34,6 +34,24 @@ background-color: var(--button-hover-color);
     width: 100%;
 }
 
+
+.new-mail-btn.mini .compose-text  {
+  display: none;
+}
+
+.new-mail-btn.mini{
+  width: 40px;
+  height: 40px;
+  margin-left: 20px;
+  
+}
+
+
+
+
+
+
+
 .compose-icon {
   font-family: 'Material Symbols Outlined';
   font-size: 16px;
@@ -50,7 +68,7 @@ background-color: var(--button-hover-color);
 
 span.material-symbols-outlined.compose-icon{
   display: flex;
-  gap: 5px;
+  gap: 15px;
 }
 
 

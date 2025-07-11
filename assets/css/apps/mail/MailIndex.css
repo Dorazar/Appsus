@@ -3,9 +3,9 @@
        height: max-content;
     display: grid;
     grid-template-rows: 60px 50px 1fr;
-    grid-template-columns: 240px 1fr;
+    grid-template-columns: auto 1fr;
     grid-template-areas: 
-    'mailLogo upper-filter app-header'
+    'logo-menu upper-filter app-header'
     'new-mail-btn sorting-section .'
     'side-filter mail-list mail-list'
     

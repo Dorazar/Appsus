@@ -52,8 +52,8 @@ box-shadow: 0px 0px 10px -3px #000000;
 
  .sorting-section > * {
   display: flex;
-  justify-content: center; /* מרכז אופקית */
-  align-items: center;     /* מרכז אנכית */
+  justify-content: center; 
+  align-items: center;     
     margin-top: 10px;
     margin-bottom: 10px;
   align-self: center;
@@ -120,24 +120,82 @@ select[name="read"]:focus {
     flex-direction: column;
 }
 
-
-
-
-
-
-
-.side-filter :hover {
-    background-color: #D6E3FA;
-    
+.side-filter.mini {
+  width: min-content;
 }
 
 
 
+
+
+
+.side-filter >.filter-type-title:hover {
+    background-color: rgba(211, 211, 211, 0.5)
+    
+}
+
+.side-filter.mini  {
+  padding-left: 20px;
+  
+}
+
+
+.side-filter.mini .category
+
+ {
+  display: none;
+  
+}
+
+.side-filter.mini .filter-type-title {
+  width:min-content;
+  height: 40px;
+  width: 40px;
+   gap: 0px;
+   padding-left: 0px;
+   padding:2px;
+  
+
+}
+
+.side-filter.mini>*.selected {
+  background-color: #d3e3fd;
+  padding:1px;
+  border-radius: 50%;
+ 
+}
+
+.side-filter.mini>*:hover {
+  background-color: lightgrey
+  
+}
+
+
+.side-filter.mini .icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  font-size: 22px;
+}
+
+
+.side-filter.mini .filter-type-title:hover {
+  width: 40px;
+  height: 40px;
+  padding: 2px;
+  background-color: lightgrey;
+  border-radius: 50%;
+}
 
 .icon-btn {
     padding: 0;
     /* border-radius: 10px; */
 }
+
+
+
 
 
 
@@ -148,7 +206,7 @@ select[name="read"]:focus {
     display: flex;
     gap: 15px;
     align-items: center;
-    width: 100%; 
+    width: 240px; 
     border: none;
     border-top-right-radius: 16px;
     border-bottom-right-radius: 16px;
@@ -188,8 +246,41 @@ display: grid;
   object-fit: contain;
   width: 120px;
   height: 40px;
-    margin-left: 16px;
+   
   justify-self: start; 
   align-self: center; 
   cursor: pointer;
+}
+
+
+.logo-menu{
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+    gap: 15px;
+    cursor: pointer;
+}
+
+
+
+
+.logo-menu > .menu-btn {
+  position: relative;
+  overflow: visible;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.logo-menu > .menu-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(211, 211, 211, 0.5);
+  border-radius: 50%;
+  transform: scale(0);
+  z-index: -1;
+}
+
+.logo-menu > .menu-btn:hover::before {
+  transform: scale(2); 
 }

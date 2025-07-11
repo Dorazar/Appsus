@@ -15,6 +15,17 @@ export function MailIndex() {
   const [filterBy, setFilterBy] = useState(mailService.getFilterFromSearchParams(searchParams))
   const [unreadMails,setUnreadMails] = useState()
 
+
+
+const [isMini,setIsMini] = useState(true)
+
+
+function onSetIsMini() {
+  setIsMini(isMini => !isMini)
+}
+
+
+
   const params = useParams()
 
 
@@ -92,7 +103,7 @@ function loadUnreadMails() {
       <MailFilter onSetFilterBy={onSetFilterBy} defaultFilter={filterBy} />
       <AppHeader/>
       {!params.mailId && < MailList mails={mails} loadMails={loadMails} loadUnreadMails={loadUnreadMails} />}
-     <div className="new-mail-btn">
+     <div className={`new-mail-btn ${isMini?'mini':''}`}>
       <Link  to="/mail/newMail">
  
          <span onClick={onOpenMailWindow} className="material-symbols-outlined compose-icon">
@@ -103,12 +114,17 @@ function loadUnreadMails() {
        
       </Link>
       </div> 
-      {newMailWindow && <Outlet context={{ loadMails, onOpenMailWindow }} />}
+      {newMailWindow && <Outlet context={{ loadMails, onOpenMailWindow, isMini,onSetIsMini}} />}
 
-      <MailFolderList onSetFilterBy={onSetFilterBy}  unreadMails={unreadMails} activeFolder={filterBy.folder}/>
+      <MailFolderList onSetFilterBy={onSetFilterBy}  unreadMails={unreadMails} activeFolder={filterBy.folder} isMini={isMini} onSetIsMini={onSetIsMini} />
 
       
       {params.mailId && <Outlet  />}
+      <section className='logo-menu'>
+        <span className="material-symbols-outlined menu-btn" onClick={onSetIsMini}>menu</span>
+      <img className='mailLogo' src="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_default_1x_r5.png" alt="" onClick={()=>navigate('/mail')}/>
+       
+       </section>
     </section>
   )
 }
