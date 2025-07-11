@@ -117,14 +117,15 @@ function loadUnreadMails() {
       {newMailWindow && <Outlet context={{ loadMails, onOpenMailWindow, isMini,onSetIsMini}} />}
 
       <MailFolderList onSetFilterBy={onSetFilterBy}  unreadMails={unreadMails} activeFolder={filterBy.folder} isMini={isMini} onSetIsMini={onSetIsMini} />
-
-      
-      {params.mailId && <Outlet  />}
-      <section className='logo-menu'>
+<section className='logo-menu'>
         <span className="material-symbols-outlined menu-btn" onClick={onSetIsMini}>menu</span>
-      <img className='mailLogo' src="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_default_1x_r5.png" alt="" onClick={()=>navigate('/mail')}/>
+      
        
        </section>
+      
+      {params.mailId && <Outlet  />}
+      
+      
     </section>
   )
 }

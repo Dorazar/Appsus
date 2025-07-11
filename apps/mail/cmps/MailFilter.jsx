@@ -63,8 +63,9 @@ export function MailFilter({ onSetFilterBy, defaultFilter }) {
             <path fill="#c5221f" d="M52 51v8l20 15V48l-5.6-4.2c-5.94-4.45-14.4-.22-14.4 7.2" />
           </svg>
         */}
+              <img className='mailLogo' src="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_default_1x_r5.png" alt="" onClick={()=>navigate('/mail')}/>
           <input onChange={handleChange} value={txt} type="text" name="txt" placeholder="Search mail" />
-          
+    
         </section>
 
        
