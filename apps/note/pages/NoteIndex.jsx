@@ -34,16 +34,31 @@ export function NoteIndex() {
             })
     }
 
-    function onSetNotesStyle(noteId, newBackgroundColor) {
-        console.log(noteId);
-        
-        setNotes(prevNotes =>
-            prevNotes.map(note =>
-                note.id === noteId
-                    ? { ...note, style: { ...note.style, backgroundColor: newBackgroundColor } }
-                    : note
-            )
-        )
+   function onSetNotesStyle(noteId, newBackgroundColor) {
+        // Find the note to update
+        const noteToUpdate = notes.find(note => note.id === noteId)
+        if (!noteToUpdate) return
+
+        const updatedNote = {
+            ...noteToUpdate,
+            style: {
+                ...((noteToUpdate.style || {}), { backgroundColor: newBackgroundColor })
+            }
+        }
+
+        noteService.save(updatedNote)
+            .then(() => {
+                setNotes(prevNotes =>
+                    prevNotes.map(note =>
+                        note.id === noteId ? updatedNote : note
+                    )
+                )
+                // showSuccessMsg('Note Style Changed Successfully!')
+            })
+            .catch(err => {
+                console.log('Error saving note style:', err)
+                // showErrorMsg('Problem changing note style')
+            })
     }
 
     function onAddNote(newNote) {

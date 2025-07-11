@@ -51,7 +51,7 @@ export function NoteBtns({ noteId, onRemoveNote, onSetNotesStyle }) {
                     <div className="color-picker">
                         {colors.map((color) => (
                             <div className="color-select"
-                                key={color.id}
+                                key={color.color}
                                 onClick={(ev) => {
                                     ev.stopPropagation();
                                     handleColorSelect(color.color);
