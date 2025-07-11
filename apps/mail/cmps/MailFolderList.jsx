@@ -6,7 +6,7 @@ export function MailFolderList({ onSetFilterBy,unreadMails}) {
   const navigate=useNavigate()
 const [searchParams] = useSearchParams()
 
-const activeFolder = searchParams.get('folder') || 'inbox' 
+const activeFolder = searchParams.get('folder') 
 
    function onSelectFolderFilter(folderType) {
     
