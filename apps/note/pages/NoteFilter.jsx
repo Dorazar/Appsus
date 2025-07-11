@@ -2,13 +2,14 @@ import { noteService } from '../services/note.service.js'
 import { NoteHeader } from "../cmps/NoteHeader";
 import { NoteList } from '../cmps/NoteList.jsx';
 
-const { useSearchParams } = ReactRouterDOM
+const { useSearchParams, useNavigate } = ReactRouterDOM
 const { useState, useEffect } = React
 
 export function NoteFilter() {
 
     const [notes, setNotes] = useState(null)
     const [searchParams, setSearchParams] = useSearchParams()
+    const navigate = useNavigate()
 
     const txt = searchParams.get('txt') || ''
 
@@ -67,9 +68,8 @@ export function NoteFilter() {
             })
     }
 
-    if (!notes || notes.length === 0) return <div>Loading...</div>
 
-
+ if (!notes || notes.length === 0) return <div>Loading...</div>
     return (
         <section className="note-filter-container">
             <div>
@@ -84,11 +84,13 @@ export function NoteFilter() {
                             placeholder="Search" autoFocus
                         />
 
-                        <span className="material-symbols-outlined">
+                        <span onClick={() => navigate('/note')}
+                            className="material-symbols-outlined">
                             close
                         </span>
 
                     </form>
+
                 </NoteHeader>
             </div>
 
@@ -98,6 +100,10 @@ export function NoteFilter() {
                     onRemoveNote={onRemoveNote}
                     notes={notes}
                 />
+            )}
+
+            {!notes || notes.length === 0 && (
+                <div>No matching results.</div>
             )}
         </section>
     )
