@@ -7,7 +7,6 @@
     outline: none;
     transition: background-color 0.2s, box-shadow 0.2s;
     display: flex;
-    /* make sure input fills the container */
     cursor: text;
 }
 

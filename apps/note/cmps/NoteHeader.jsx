@@ -2,10 +2,11 @@ import { AppHeader } from "../../../cmps/AppHeader"
 
 const { useNavigate, useLocation } = ReactRouterDOM
 
-export function NoteHeader() {
+export function NoteHeader({ children }) {
 
     const location = useLocation()
     const navigate = useNavigate()
+
 
     return (<header className="note-header">
         <div className="note-logo">
@@ -28,24 +29,7 @@ export function NoteHeader() {
             </svg>
             <div className="logo">keep</div>
         </div>
-
-        <form onClick={() => navigate('/note/search')}
-            className="note-filter"
-        >
-            <span className="material-symbols-outlined">
-                search
-            </span>
-
-            <input
-                type="text"
-                placeholder="Search"
-            />
-
-            <span className="material-symbols-outlined">
-                close
-            </span>
-
-        </form>
+        {children}
         <AppHeader />
     </header>
     )

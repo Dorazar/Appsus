@@ -6,11 +6,12 @@ import { NoteFilter } from './NoteFilter.jsx'
 
 
 const { useEffect, useState } = React
-const { Outlet, useLocation } = ReactRouterDOM
+const { Outlet, useLocation , useNavigate } = ReactRouterDOM
 
 export function NoteIndex() {
     const [notes, setNotes] = useState(null)
     const location = useLocation()
+    const navigate =  useNavigate()
 
     useEffect(() => {
         loadNotes()
@@ -78,7 +79,23 @@ export function NoteIndex() {
     return (
 
         <div>
-            <NoteHeader/>
+            <NoteHeader>
+                <form onClick={() => navigate('/note/search')}
+                    className="note-filter"
+                >
+                    <span className="material-symbols-outlined">
+                        search
+                    </span>
+
+                    <input
+                        type="text"
+                        placeholder="Search"
+                    />
+
+                </form>
+            </NoteHeader>
+
+
             <div className="layout-container">
                 <aside className="nav-area">
                     {/* Placeholder for nav area */}
