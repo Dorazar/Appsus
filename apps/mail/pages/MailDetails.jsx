@@ -61,7 +61,7 @@ export function MailDetails() {
           <span title={'Back'} className="material-symbols-outlined icon-btn" onClick={() => navigate('/mail')}>
             reply
           </span>
-           <span title={'Save as a note'} className="material-symbols-outlined icon-btn"  onClick={()=>onSaveAsANote(mail)}>add_to_home_screen</span>
+           <span title={'Save as a note'} className="material-symbols-outlined icon-btn"  onClick={()=>onSaveAsANote(mail)}>note_stack_add</span>
          
          
         </section>

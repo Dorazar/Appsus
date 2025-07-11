@@ -185,4 +185,5 @@ display: grid;
     margin-left: 16px;
   justify-self: start; 
   align-self: center; 
+  cursor: pointer;
 }
