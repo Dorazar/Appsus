@@ -77,6 +77,7 @@ svg{
 
 .logo-and-search input{
     height: 35px;
+    margin-left: 8px;
 }
 
 .compose{
@@ -86,7 +87,7 @@ svg{
 }
 
 .logo-menu{
-    margin-left: 5px;
+    margin-left: 8px;
 }
 
 
@@ -100,7 +101,7 @@ grid-template-areas:
 'mail-subject mail-subject'
 'mail-body star';
 height: 60px;
-padding-left: 10px;
+padding-left: 8px;
 }
 
 .mail-item>:nth-child(1){
@@ -137,4 +138,7 @@ padding-left: 10px;
     background-color: transparent;
 }
 
+.mail-details,.nav-mail{
+    margin-left: 8px;
+}
 }
