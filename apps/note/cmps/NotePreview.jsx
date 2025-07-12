@@ -8,7 +8,7 @@ export function NotePreview({ note }) {
 
     return (
         <div className="note-preview">
-            <NoteDynamicCmp cmpType={cmpType} {...note.info} />
+            <NoteDynamicCmp cmpType={cmpType} {...note.info} noteId={note.id} />
         </div>
     )
 }

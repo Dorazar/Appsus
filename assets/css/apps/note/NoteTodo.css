@@ -1,0 +1,60 @@
+
+.note-todo {
+    display: flex;
+    align-items: center;
+}
+
+.note-todo>input {
+    display: none;
+}
+
+.todo-checkbox {
+    cursor: pointer;
+}
+
+.note-todo label.checked {
+    text-decoration: line-through;
+}
+
+.note-todo-edit {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.note-todo-edit>div {
+    display: flex;
+    align-items: center;
+}
+
+.note-todo-edit input {
+    font-size: 20px;
+}
+
+.note-todo-edit input.checked {
+    text-decoration: line-through;
+    text-decoration: line-through 1px;
+}
+
+.todo-editor:focus-within {
+  border-bottom: 1px solid lightgray;
+  border-top: 1px solid lightgray;
+}
+
+.delete-todo{
+   cursor: pointer;
+   opacity: 0;
+    border: none;
+    padding: 8px;
+     border-radius: 50%;
+}
+
+.todo-editor:focus-within .delete-todo {
+  opacity: 1;
+}
+
+.delete-todo:hover {
+     background-color: rgba(32, 33, 36, 0.1);
+     color: rgb(32, 33, 36);
+     opacity: 0.71;
+ }

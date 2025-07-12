@@ -18,16 +18,16 @@ export function NoteImg({ noteToEdit, setNoteToEdit, title, txt, url, images }) 
     }
 
     function handleChange({ target }) {
-        const field = target.name;
-        let value = target.value;
+        const field = target.name
+        let value = target.value
 
         switch (target.type) {
             case 'number':
             case 'range':
-                value = +value;
+                value = +value
                 break;
             case 'checkbox':
-                value = target.checked;
+                value = target.checked
                 break;
             case 'file':
                 const files = Array.from(target.files)
@@ -40,11 +40,11 @@ export function NoteImg({ noteToEdit, setNoteToEdit, title, txt, url, images }) 
                                 ...prevNote.info,
                                 images: [...(prevNote.info.images || []), reader.result]
                             }
-                        }));
-                    };
+                        }))
+                    }
                     reader.readAsDataURL(file)
-                });
-                return;
+                })
+                return
         }
 
         setNoteToEdit((prevNote) => ({
