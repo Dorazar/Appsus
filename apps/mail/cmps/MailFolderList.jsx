@@ -11,7 +11,7 @@ onSetIsMini(editIsMini=>!editIsMini)
 
 
 
-//   const navigate=useNavigate()
+  const navigate=useNavigate()
 // const [searchParams] = useSearchParams()
 
 // const activeFolder = searchParams.get('folder') 
@@ -20,7 +20,7 @@ onSetIsMini(editIsMini=>!editIsMini)
     
     onSetFilterBy({ folder: folderType})
    
-    // navigate(`/mail/?folder=${folderType}`)
+    navigate(`/mail/?folder=${folderType}`)
   }
 
   return (

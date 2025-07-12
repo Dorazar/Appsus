@@ -1,0 +1,70 @@
+/* Mobile */
+
+@media(max-width:767px) {
+
+    .main-container{
+         grid-template-columns: auto auto 1fr 70px;
+       
+    }
+
+   
+
+.side-filter{
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 240px;
+  height: calc(100dvh - 60px);
+  background-color: white;
+  border-right: 1px solid #ccc;
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
+  transform: translateX(-100%); 
+  transition: transform 0.4s ease;
+  z-index: 1000;
+ 
+}
+
+
+body.menu-open .side-filter:not(.mini) {
+  transform: translateX(0);
+}
+
+
+
+
+  .compose-text{
+    display: none;
+  }
+
+  .new-mail-btn{
+  width: 40px;
+  height: 40px;
+  margin-left: 20px;
+  
+}
+
+.filter-type-title:first-child > :last-child {
+  display: none;
+}
+
+
+.mailLogo{
+    display: none;
+}
+
+svg{
+    width: 35px;
+    height: 35px;
+}
+
+.logo-and-search input{
+    height: 35px;
+}
+
+.compose{
+    height: 80dvh;
+    width: 80dvw;
+    z-index: 3000;
+}
+
+}
