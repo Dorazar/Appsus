@@ -1,7 +1,7 @@
 
 const { useState } = React
 
-export function NoteBtns({ noteId, onRemoveNote, onSetNotesStyle }) {
+export function NoteBtns({ noteId, onRemoveNote, onSetNotesStyle, onDuplicateNote }) {
 
     const [showColorPicker, setShowColorPicker] = useState(false)
     const colors = [
@@ -68,8 +68,16 @@ export function NoteBtns({ noteId, onRemoveNote, onSetNotesStyle }) {
                 )}
             </button>
 
-            {/*  Btn */}
-
+            {/*  Duplicate Note Btn */}
+            <button
+                className="note-btn"
+                onClick={(ev) => {
+                    ev.stopPropagation();
+                    onDuplicateNote(noteId)
+                }}
+            >
+                <span className="material-symbols-outlined">file_copy</span>
+            </button>
         </section>
     )
 }

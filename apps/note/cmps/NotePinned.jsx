@@ -5,7 +5,7 @@ import { NoteBtns } from './NoteBtns.jsx'
 const { useNavigate } = ReactRouterDOM
 const { Fragment } = React
 
-export function NotePinned({ notes, onRemoveNote, onSetNotesStyle, onPinNote }) {
+export function NotePinned({ notes, onRemoveNote, onSetNotesStyle, onPinNote, onDuplicateNote }) {
 
     const navigate = useNavigate()
     const hasPinnedNotes = notes.some(note => note.isPinned)
@@ -41,6 +41,7 @@ export function NotePinned({ notes, onRemoveNote, onSetNotesStyle, onPinNote }) 
                                 noteId={note.id}
                                 onRemoveNote={onRemoveNote}
                                 onSetNotesStyle={onSetNotesStyle}
+                                onDuplicateNote={onDuplicateNote}
                             />
                         </li>
                     )))}

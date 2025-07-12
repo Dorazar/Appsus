@@ -2,8 +2,6 @@ import { noteService } from '../services/note.service.js'
 import { NoteList } from '../cmps/NoteList.jsx'
 import { NoteAdd } from '../cmps/NoteAdd.jsx'
 import { NoteHeader } from '../cmps/NoteHeader.jsx'
-import { NoteFilter } from './NoteFilter.jsx'
-
 
 const { useEffect, useState } = React
 const { Outlet, useLocation, useNavigate } = ReactRouterDOM
@@ -98,6 +96,30 @@ export function NoteIndex() {
 
     }
 
+    function onDuplicateNote(noteId) {
+        const note = notes.find(note => note.id === noteId)
+
+        if (!note) return
+
+        const noteToDuplicate = {
+            ...note,
+            id: '',
+            createdAt: Date.now(),
+            isPinned: false
+        }
+
+        noteService.save(noteToDuplicate)
+            .then(noteToDuplicate => {
+                setNotes(prev => [...prev, noteToDuplicate])
+                // showSuccessMsg('Note Duplicated Successfully!')
+            })
+            .catch(err => {
+                console.log('Error duplicating note:', err)
+                // showErrorMsg('Problem Duplicated note')
+            })
+
+    }
+
 
     if (!notes || notes.length === 0) return <div>Loading...</div>
 
@@ -130,6 +152,7 @@ export function NoteIndex() {
                     <NoteList onSetNotesStyle={onSetNotesStyle}
                         onRemoveNote={onRemoveNote}
                         onPinNote={onPinNote}
+                        onDuplicateNote={onDuplicateNote}
                         notes={notes}
                     />
                     <Outlet />
