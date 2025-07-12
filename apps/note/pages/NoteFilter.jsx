@@ -1,6 +1,7 @@
 import { noteService } from '../services/note.service.js'
 import { NoteHeader } from "../cmps/NoteHeader";
 import { NoteList } from '../cmps/NoteList.jsx';
+import { NoteNav } from '../cmps/NoteNav.jsx';
 
 const { useSearchParams, useNavigate, useLocation } = ReactRouterDOM
 const { useState, useEffect } = React
@@ -98,6 +99,7 @@ export function NoteFilter() {
 
                 </NoteHeader>
                 <div>Loading...</div>
+                <NoteNav />
             </div>
         )
     }
@@ -125,40 +127,42 @@ export function NoteFilter() {
 
                 </NoteHeader>
             </div>
-
-            {location.pathname === '/note/search' && !txt && !type &&
-                <section className="filter-by-stuff">
-                    <section className="filter-types">
-                        <div>Types</div>
-                        <ul className="type-ul">
-                            <li className="type-li"
-                                style={{ backgroundColor: '#1a73e8' }}
-                                onClick={() => handleTypeFilter('NoteImg')}
-                            >
-                                <span className="material-symbols-outlined note-btn">photo</span>
-                            </li>
-                            <li className="type-li"
-                                style={{ backgroundColor: '#1a73e8' }}
-                                onClick={() => handleTypeFilter('NoteTodos')}
-                            >
-                                <span className="material-symbols-outlined note-btn">list</span>
-                            </li>
-                        </ul>
+            <div className="layout-container">
+                <NoteNav />
+                {location.pathname === '/note/search' && !txt && !type &&
+                    <section className="filter-by-stuff">
+                        <section className="filter-types">
+                            <div>Types</div>
+                            <ul className="type-ul">
+                                <li className="type-li"
+                                    style={{ backgroundColor: '#1a73e8' }}
+                                    onClick={() => handleTypeFilter('NoteImg')}
+                                >
+                                    <span className="material-symbols-outlined note-btn">photo</span>
+                                </li>
+                                <li className="type-li"
+                                    style={{ backgroundColor: '#1a73e8' }}
+                                    onClick={() => handleTypeFilter('NoteTodos')}
+                                >
+                                    <span className="material-symbols-outlined note-btn">list</span>
+                                </li>
+                            </ul>
+                        </section>
                     </section>
-                </section>
-            }
+                }
 
-            {(txt || type) && (
-                <NoteList
-                    onSetNotesStyle={onSetNotesStyle}
-                    onRemoveNote={onRemoveNote}
-                    notes={notes}
-                />
-            )}
+                {(txt || type) && (
+                    <NoteList
+                        onSetNotesStyle={onSetNotesStyle}
+                        onRemoveNote={onRemoveNote}
+                        notes={notes}
+                    />
+                )}
 
-            {!notes || notes.length === 0 && (
-                <div>No matching results.</div>
-            )}
+                {!notes || notes.length === 0 && (
+                    <div>No matching results.</div>
+                )}
+            </div>
         </section>
     )
 

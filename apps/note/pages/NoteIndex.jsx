@@ -2,6 +2,7 @@ import { noteService } from '../services/note.service.js'
 import { NoteList } from '../cmps/NoteList.jsx'
 import { NoteAdd } from '../cmps/NoteAdd.jsx'
 import { NoteHeader } from '../cmps/NoteHeader.jsx'
+import { NoteNav } from '../cmps/NoteNav.jsx'
 
 const { useEffect, useState } = React
 const { Outlet, useLocation, useNavigate } = ReactRouterDOM
@@ -144,9 +145,9 @@ export function NoteIndex() {
 
 
             <div className="layout-container">
-                <aside className="nav-area">
-                    {/* Placeholder for nav area */}
-                </aside>
+
+                <NoteNav />
+
                 <section className="notes-container">
                     <NoteAdd onAddNote={onAddNote} />
                     <NoteList onSetNotesStyle={onSetNotesStyle}

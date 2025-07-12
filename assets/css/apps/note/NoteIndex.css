@@ -4,12 +4,30 @@
   height: 100vh;
 }
 
-.nav-area {
-  background-color: #ddd;
-  padding: 20px;
+.notes-nav-area {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 100px;
   overflow-y: auto;
   position: sticky;
   top: 0;
+  padding-top: 8px;
+}
+
+.nav-icon-background{
+  display: flex;
+}
+
+.nav-icon{
+  border-radius: 50%;
+  margin-left: 12px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.nav-icon.clicked{
+ background-color: #feefc3;
 }
 
 .notes-container {
