@@ -62,7 +62,7 @@ function getEmptyNote() {
   return {
     createdAt: Date.now(),
     type: 'NoteTxt',
-    isPinned: true,
+    isPinned: false,
     style: {
       backgroundColor: 'white'
     },

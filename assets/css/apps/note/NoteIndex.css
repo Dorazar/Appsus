@@ -12,7 +12,7 @@
   overflow-y: auto;
   position: sticky;
   top: 0;
-  padding-top: 8px;
+  padding-top: 15px;
 }
 
 .nav-icon-background{
@@ -22,7 +22,7 @@
 .nav-icon{
   border-radius: 50%;
   margin-left: 12px;
-  padding: 10px;
+  padding: 20px;
   cursor: pointer;
 }
 
@@ -43,4 +43,18 @@ form textarea {
   outline: none;
   font-size: 1.2rem;
   resize: none;
+}
+
+.reminders-container{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+.empty-reminder{
+  color: #5f6368;
+  font-size: 34px;
+  padding-top: 18px;
+  margin-bottom: 80px;
 }

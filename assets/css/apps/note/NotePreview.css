@@ -7,14 +7,6 @@
     margin-bottom: 10px;
 }
 
-/* .note-title{
-    order: 1;
-}
-
-.note-txt{
-    order: 2;
-} */
-
 .note-preview>* {
     display: flex;
     flex-direction: column;

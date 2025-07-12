@@ -13,7 +13,7 @@
    break-inside: avoid;
    background: white;
    border-radius: 8px;
-   border-color: #e0e0e0;
+   border: #e0e0e0 solid 1px;
    padding: 10px;
    width: 100%;
    margin-bottom: 16px;

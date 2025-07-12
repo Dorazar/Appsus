@@ -12,6 +12,7 @@ import { MailDetails } from './apps/mail/pages/MailDetails.jsx'
 import { NoteEdit } from "./apps/note/pages/NoteEdit.jsx"
 import { MailCompose } from './apps/mail/cmps/MailCompose.jsx'
 import { NoteFilter } from './apps/note/pages/NoteFilter.jsx'
+import { NoteReminders } from './apps/note/pages/NoteReminders.jsx'
 
 export function RootCmp() {
     return <Router>
@@ -33,6 +34,7 @@ export function RootCmp() {
                 <Route path="/note/search" element={<NoteFilter />} >
                     <Route path="/note/search/:cmpType" element={<NoteFilter />} />
                 </Route>
+                <Route path="/note/reminders" element={<NoteReminders />} />
             </Routes>
             <UserMsg />
         </section>
