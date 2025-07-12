@@ -29,7 +29,10 @@ export function RootCmp() {
                 <Route path="/note" element={<NoteIndex />} >
                     <Route path="/note/edit/:noteId" element={<NoteEdit />} />
                 </Route>
-                <Route path="/note/search" element={<NoteFilter />} />
+
+                <Route path="/note/search" element={<NoteFilter />} >
+                    <Route path="/note/search/:cmpType" element={<NoteFilter />} />
+                </Route>
             </Routes>
             <UserMsg />
         </section>

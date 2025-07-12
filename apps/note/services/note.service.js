@@ -21,11 +21,16 @@ window.noteService = noteService
 
 
 function query(filterBy = {}) {
-  
+console.log(filterBy);
+
   return storageService.query(NOTE_KEY).then((notes) => {
     if (filterBy.txt) {
       const regExp = new RegExp(filterBy.txt, 'i')
       notes = notes.filter((note) => regExp.test(note.info.title) || regExp.test(note.info.txt))
+    }
+    if (filterBy.type) {
+      const regExp = new RegExp(filterBy.type, 'i')
+      notes = notes.filter((note) => regExp.test(note.type))
     }
     console.log(notes)
     return notes
@@ -75,7 +80,7 @@ function getDefaultFilter() {
 function _createNotes() {
   let notes = utilService.loadFromStorage(NOTE_KEY)
   if (!notes || !notes.length) {
-   notes = [
+    notes = [
       {
         id: 'n001',
         createdAt: 1625488800000,

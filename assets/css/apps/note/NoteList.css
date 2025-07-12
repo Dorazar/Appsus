@@ -1,6 +1,7 @@
  /* note list */
 
  .note-list {
+  margin: 0 0;
    column-count: 4;
    column-gap: 16px;
    padding: 20px;
@@ -12,7 +13,7 @@
    break-inside: avoid;
    background: white;
    border-radius: 8px;
-   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+   border-color: #e0e0e0;
    padding: 10px;
    width: 100%;
    margin-bottom: 16px;
@@ -25,3 +26,8 @@
    transition: box-shadow 0.2s
  }
 
+.pinned-title{
+  margin: 0 0;
+  padding-left: 20px;
+  color: #5f6368;
+}
