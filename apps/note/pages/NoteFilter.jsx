@@ -2,7 +2,7 @@ import { noteService } from '../services/note.service.js'
 import { NoteHeader } from "../cmps/NoteHeader";
 import { NoteList } from '../cmps/NoteList.jsx';
 
-const { useSearchParams, useNavigate } = ReactRouterDOM
+const { useSearchParams, useNavigate, useLocation } = ReactRouterDOM
 const { useState, useEffect } = React
 
 export function NoteFilter() {
@@ -10,21 +10,28 @@ export function NoteFilter() {
     const [notes, setNotes] = useState(null)
     const [searchParams, setSearchParams] = useSearchParams()
     const navigate = useNavigate()
+    const location = useLocation()
 
     const txt = searchParams.get('txt') || ''
+    const type = searchParams.get('type') || ''
 
     useEffect(() => {
-        noteService.query({ txt }).then(setNotes)
-    }, [txt])
+        noteService.query({ txt, type }).then(setNotes)
+    }, [txt, type])
 
 
-    const handleChange = (ev) => {
+    function handleChange(ev) {
         const value = ev.target.value
-        if (value) {
-            setSearchParams({ txt: value })
-        } else {
-            setSearchParams({})
-        }
+        setSearchParams({ txt: value, type })
+    }
+
+    function handleTypeFilter(cmpType) {
+        setSearchParams({ txt, type: cmpType })
+    }
+
+    function onBack() {
+        if (type) navigate('/note/search')
+        else navigate('/note')
     }
 
     function onRemoveNote(noteId) {
@@ -68,8 +75,33 @@ export function NoteFilter() {
             })
     }
 
+    if (!notes || notes.length === 0) {
+        return (
+            <div>
+                <NoteHeader>
+                    <form className="note-filter">
+                        <span className="material-symbols-outlined">
+                            search
+                        </span>
 
- if (!notes || notes.length === 0) return <div>Loading...</div>
+                        <input onChange={handleChange}
+                            value={txt} name="txt" id="txt" type="text"
+                            placeholder="Search" autoFocus
+                        />
+
+                        <span onClick={() => onBack()}
+                            className="material-symbols-outlined">
+                            close
+                        </span>
+
+                    </form>
+
+                </NoteHeader>
+                <div>Loading...</div>
+            </div>
+        )
+    }
+
     return (
         <section className="note-filter-container">
             <div>
@@ -84,7 +116,7 @@ export function NoteFilter() {
                             placeholder="Search" autoFocus
                         />
 
-                        <span onClick={() => navigate('/note')}
+                        <span onClick={() => onBack()}
                             className="material-symbols-outlined">
                             close
                         </span>
@@ -94,7 +126,29 @@ export function NoteFilter() {
                 </NoteHeader>
             </div>
 
-            {txt && (
+            {location.pathname === '/note/search' && !txt && !type &&
+                <section className="filter-by-stuff">
+                    <section className="filter-types">
+                        <div>Types</div>
+                        <ul className="type-ul">
+                            <li className="type-li"
+                                style={{ backgroundColor: '#1a73e8' }}
+                                onClick={() => handleTypeFilter('NoteImg')}
+                            >
+                                <span className="material-symbols-outlined note-btn">photo</span>
+                            </li>
+                            <li className="type-li"
+                                style={{ backgroundColor: '#1a73e8' }}
+                                onClick={() => handleTypeFilter('NoteTodos')}
+                            >
+                                <span className="material-symbols-outlined note-btn">list</span>
+                            </li>
+                        </ul>
+                    </section>
+                </section>
+            }
+
+            {(txt || type) && (
                 <NoteList
                     onSetNotesStyle={onSetNotesStyle}
                     onRemoveNote={onRemoveNote}
