@@ -1,27 +1,23 @@
 import { NotePreview } from "./NotePreview.jsx"
 import { NoteBtns } from './NoteBtns.jsx'
-import { NotePinned } from "./NotePinned.jsx"
+
 
 const { useNavigate } = ReactRouterDOM
 const { Fragment } = React
 
-export function NoteList({ notes, onRemoveNote, onSetNotesStyle, onPinNote }) {
+export function NotePinned({ notes, onRemoveNote, onSetNotesStyle, onPinNote }) {
 
     const navigate = useNavigate()
     const hasPinnedNotes = notes.some(note => note.isPinned)
 
+    if (!hasPinnedNotes) return
+
     return (
         <Fragment>
-            <NotePinned
-                onSetNotesStyle={onSetNotesStyle}
-                onRemoveNote={onRemoveNote}
-                onPinNote={onPinNote}
-                notes={notes}
-            />
-            {hasPinnedNotes && (<p className="pinned-title">others</p>)}
+            <p className="pinned-title">pinned</p>
             <ul className="note-list">
                 {notes.map((note) => (
-                    !note.isPinned && (
+                    note.isPinned && (
                         <li className="note-item"
                             key={note.id}
                             style={note.style}
@@ -52,5 +48,3 @@ export function NoteList({ notes, onRemoveNote, onSetNotesStyle, onPinNote }) {
         </Fragment>
     )
 }
-
-

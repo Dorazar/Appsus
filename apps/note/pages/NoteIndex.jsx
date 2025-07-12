@@ -6,12 +6,12 @@ import { NoteFilter } from './NoteFilter.jsx'
 
 
 const { useEffect, useState } = React
-const { Outlet, useLocation , useNavigate } = ReactRouterDOM
+const { Outlet, useLocation, useNavigate } = ReactRouterDOM
 
 export function NoteIndex() {
     const [notes, setNotes] = useState(null)
     const location = useLocation()
-    const navigate =  useNavigate()
+    const navigate = useNavigate()
 
     useEffect(() => {
         loadNotes()
@@ -36,7 +36,6 @@ export function NoteIndex() {
     }
 
     function onSetNotesStyle(noteId, newBackgroundColor) {
-        // Find the note to update
         const noteToUpdate = notes.find(note => note.id === noteId)
         if (!noteToUpdate) return
 
@@ -45,6 +44,31 @@ export function NoteIndex() {
             style: {
                 ...((noteToUpdate.style || {}), { backgroundColor: newBackgroundColor })
             }
+        }
+
+        noteService.save(updatedNote)
+            .then(() => {
+                setNotes(prevNotes =>
+                    prevNotes.map(note =>
+                        note.id === noteId ? updatedNote : note
+                    )
+                )
+                // showSuccessMsg('Note Style Changed Successfully!')
+            })
+            .catch(err => {
+                console.log('Error saving note style:', err)
+                // showErrorMsg('Problem changing note style')
+            })
+    }
+
+    function onPinNote(noteId) {
+
+        const noteToUpdate = notes.find(note => note.id === noteId)
+        if (!noteToUpdate) return
+
+        const updatedNote = {
+            ...noteToUpdate,
+            isPinned: !noteToUpdate.isPinned
         }
 
         noteService.save(updatedNote)
@@ -74,11 +98,12 @@ export function NoteIndex() {
 
     }
 
+
     if (!notes || notes.length === 0) return <div>Loading...</div>
 
     return (
 
-        <div>
+        <div className="main-notes-layout">
             <NoteHeader>
                 <form onClick={() => navigate('/note/search')}
                     className="note-filter"
@@ -104,6 +129,7 @@ export function NoteIndex() {
                     <NoteAdd onAddNote={onAddNote} />
                     <NoteList onSetNotesStyle={onSetNotesStyle}
                         onRemoveNote={onRemoveNote}
+                        onPinNote={onPinNote}
                         notes={notes}
                     />
                     <Outlet />
