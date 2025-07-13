@@ -53,7 +53,7 @@ FontAwesome & Google Fonts
 
 ## Authors 👩‍💻👨‍💻
 - Dor Azar - Gmail App 
-- Tomer Aberbanel - Notes App
+- Tomer Abarbanel - Notes App
 
 ## License 📜
 This project is for educational fun! Use, remix, and enjoy.
