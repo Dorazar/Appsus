@@ -39,7 +39,7 @@ Apsus is a web app that lets you manage your emails and notes in one super cool 
 ### Main Menu
 ![Main Menu](assets/css/imgs/main-menu-screenshot.png)
 
-### Inbox View
+### Gmail View
 ![Gmail View](assets/css/imgs/gmail.png)
 
 ### Notes View
