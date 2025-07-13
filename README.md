@@ -39,13 +39,13 @@ Apsus is a web app that lets you manage your emails and notes in one super cool 
 Here are some glimpses of Apsus in action:
 
 ### Main Menu
-![Main Menu](assets/imgs/main-menu-screenshot.png)
+![Main Menu](assets\css\imgs\main-menu-screenshot.png)
 
 ### Inbox View
-![Inbox View](assets/imgs/gmail.png)
+![Gmail View](assets\css\imgs\gmail.png)
 
 ### Notes View
-![Notes View](assets/imgs/notes.png)
+![Notes View](assets\css\imgs\notes.png)
 
 ## Tech Stack 🛠️
 React (via CDN)
@@ -54,15 +54,9 @@ CSS animations
 FontAwesome & Google Fonts
 
 ## Authors 👩‍💻👨‍💻
-- Dor Azar
-- Tomer Aberbane;
-
-## Credits 🙌
-Made with 💖 for CaEveNov24 Sprint 3.
+- Dor Azar - Gmail App 
+- Tomer Aberbane - Notes App
 
 ## License 📜
 This project is for educational fun! Use, remix, and enjoy.
 
----
-
-Ready to get productive? Let Apsus be your sidekick! 🦸‍♂️🦸‍♀️
