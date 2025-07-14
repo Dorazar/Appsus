@@ -132,6 +132,9 @@ padding-left: 8px;
     display: none;
 
 }
+.mail-item:hover .mail-date {
+  opacity: 1;
+}
 
 
 .logo-menu > .menu-btn::before{

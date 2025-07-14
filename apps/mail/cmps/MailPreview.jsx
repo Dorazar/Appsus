@@ -134,18 +134,17 @@ function isSameYear(timestamp) {
         <div>{isLimitTxtSize(mail.subject)}</div>
         <div>{mail.body}</div>
 
-       <div>
-  {!isHover && (
+       <div className='popup-container'>
+ <div className='mail-date'> {  (
+    
     isToday(mail.createdAt)
       ? new Date(mail.createdAt).toLocaleTimeString('he-IL', { hour: '2-digit', minute: '2-digit' })
       : isSameYear(mail.createdAt)
         ? new Date(mail.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
         : new Date(mail.createdAt).toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' })
-  )}
-</div>
-
-
-        {isHover && (
+  )}</div>
+          {isHover && (
+          
           <section className="popup-menu">
   
               <span
@@ -182,6 +181,10 @@ function isSameYear(timestamp) {
            
           </section>
         )}
+</div>
+
+
+
       </article>
     </Fragment>
   )
